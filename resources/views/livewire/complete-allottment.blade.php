@@ -33,7 +33,7 @@
 				<!-- Main row -->
 				<div class="row">
 					<!-- Left col -->
-					<section class="col-lg-12 connectedSortable">
+					<section class="col-lg-6 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
@@ -70,9 +70,8 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-        </div>
-        <div class="row">
-          <section class="col-lg-12 connectedSortable">
+          
+					<section class="col-lg-6 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
@@ -91,33 +90,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <table id="userIndex2" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                          <th> Check </th>
-                          <th> Rack ID </th>
-                          <th> Rack Name </th>
-                          <th> Availability</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($rackInfos as $rack)
-                      <tr>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox" value="{{ $rack->rack_id }}" wire:model="rackid">
-                          </label>
-                        </td>
-                        <td>{{ $rack->rack_id }}</td>
-                        <td>{{ $rack->rack->rack_name }}</td>
-                        <td>{{ $rack->total }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
 
+
+									
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -125,13 +100,14 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-          
-					<!-- /.Left col -->
-					<!-- right col -->
-				</div><!-- /.row (main row) -->
+        
+        </div>
+
 			</div><!-- /.container-fluid -->
 		</section>
 
+
+    
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
@@ -232,6 +208,70 @@
 			</div><!-- /.container-fluid -->
 		</section>
     <!-- / End of Left Panel Graph Card-->
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+         <div class="row">
+          <section class="col-lg-12 connectedSortable">
+						<!-- Custom tabs (Charts with tabs)-->
+						<div class="card card-primary card-outline">
+						  <div class="card-header">
+							<h3 class="card-title">
+							  <i class="fas fa-chart-pie mr-1"></i>
+							  Racks
+							</h3>
+							<div class="card-tools">
+							  <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item"></li>
+                  <li class="nav-item"></li>
+							  </ul>
+							</div>
+						  </div><!-- /.card-header -->
+						  <div class="card-body">
+							<div class="tab-content p-0">
+								<!-- Morris chart - Sales -->
+								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+                  <table id="userIndex2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                          <th> Check </th>
+                          <th> Rack ID </th>
+                          <th> Rack Name </th>
+                          <th> Availability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($rackInfos as $rack)
+                      <tr>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" value="{{ $rack->rack_id }}" wire:model="rackid">
+                          </label>
+                        </td>
+                        <td>{{ $rack->rack_id }}</td>
+                        <td>{{ $rack->rack->rack_name }}</td>
+                        <td>{{ $rack->total }}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+
+								</div>
+							</div>
+						  </div><!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+						<!-- /.card -->
+					</section>
+          
+					<!-- /.Left col -->
+					<!-- right col -->
+				</div><!-- /.row (main row) -->     
+      </div>
+    </section>
     
 		<!-- Main content -->
 		<section class="content">
@@ -436,7 +476,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Allottment Result
+							  Allottment Final Result
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
