@@ -9,12 +9,12 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1 class="m-0">Home: Usages</h1>
+						<h1 class="m-0">Home: Allottment</h1>
 					</div><!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Usages</li>
+							<li class="breadcrumb-item active">Allotment</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -35,7 +35,7 @@
 						  <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Pending
+                  Rooms and Racks
                 </h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -63,19 +63,16 @@
 												</tr>
 											</thead>
 											<tbody>
-												@foreach($issueRequests as $row)
-                          <tr bgcolor="#E1BEE7"   data-entry-id="{{ $row->usage_id }}">
-                            <td style="text-align:center;">{{ $row->usage_id }}</td>
-                            <td>{{ $row->user->name }}</td>
-                            <td>{{ $row->project->title }}</td>
-                            <td>{{ ucfirst($row->issue_status) }}</td>
+                        @foreach($rackInfos as $rack)
+                          <tr>
                             <td>
-                              <a href="{{ route('usageapprovals.show',[$row->usage_id]) }}">
-                                <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs text-gray-200 btn-info">
-                                  Decision
-                                </button>
-                              </a>
+                                <label class="inline-flex items-center">
+                                  <input type="checkbox" class="form-checkbox" value="{{ $rack->rack_id }}" wire:model="rackid">
+                                </label>
                             </td>
+                              <td>{{ $rack->rack_id }}</td>
+                              <td>{{ $rack->rack->rack_name }}</td>
+                              <td>{{ $rack->total }}</td>
                           </tr>
 												@endforeach									
 											</tbody>
@@ -124,41 +121,63 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
-									@if( count($irAwaiting) > 0 )
-										<table id="userIndex2" class="table table-bordered table-hover">
-											<thead>
-												<tr bgcolor="#BBDEFB">												
-													<th style="text-align:center;">
-                          ID
-                          </th>
-													<th>PI</th>
-                          <th>Title</th>
-													<th>Status</th>
-													<th>Action</th>
-													
-												</tr>
-											</thead>
-											<tbody>
-												@foreach($irAwaiting as $row)
-                          <tr bgcolor="#E1BEE7"   data-entry-id="{{ $row->iaecproject_id }}">
-                            <td style="text-align:center;">{{ $row->iaecproject_id }}</td>
-                            <td>{{ $row->user->name }}</td>
-                            <td>{{ $row->project->title }}</td>
-                            <td>{{ ucfirst($row->issue_status) }}</td>
-                            <td>
-                              <a href="{{ url('comp-allot') }}">
-                                <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs text-gray-200 btn-info">
-                                  Awaiting Issue
-                                </button>
-                              </a>
-                            </td>
-                          </tr>
-												@endforeach									
-											</tbody>
-										</table>                      
-									@else
-										No Information to display
-									@endif
+
+            <table class='table-auto  mx-auto w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
+              <thead class="bg-gray-900">
+                  <tr class="text-white text-left">
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Check ID </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Usage ID </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Strain </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Sex</th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Age</th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Number </br> Requested</th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Cages </br>Requested</th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> Actions</th>
+                  </tr>
+              </thead>
+                <tbody>
+                  @foreach($issues as $val)
+                    <tr class="text-gray-900 text-sm font-normal mt-3 mb-4">
+                      <td class="px-8 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                        <label class="inline-flex items-center">
+        									<input type="checkbox" class="form-checkbox" value="{{ $val->issue_id }}" wire:model="issx_id">
+        								</label>
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                        {{ $val->issue_id }}
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                      	{{ $val->strain->strain_name }}
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                      	{{ $val->sex }}
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                      	{{ $val->age }}-{{ $val->ageunit }}
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                      	{{ $val->number }}
+                      </td>
+                      <td class="px-6 py-4 text-gray-900 text-xs mt-1 mb-1 font-normal">
+                      	{{ $val->cagenumber }}
+                      </td>
+                      <td>
+                        <x-button wire:click="alottSearch({{ $val->issue_id }})" class="bg-pink-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-3 rounded">Search</x-button>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+
+
+
+
+
+
+
+
+
+
 
 								</div>
 							</div>
