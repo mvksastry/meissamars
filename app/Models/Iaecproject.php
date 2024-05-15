@@ -24,6 +24,7 @@ class Iaecproject extends Model
    * @var array
    */
   protected $fillable = [
+    'uuid',
     'pi_id',
     'title',
     'start_date',
@@ -34,7 +35,8 @@ class Iaecproject extends Model
     'filename',
     'date_approved',
     'status',
-    'formD'				
+    'formD',
+    'notebook'
   ];
 		
 	public function user()
@@ -44,19 +46,20 @@ class Iaecproject extends Model
   
   public function projectstrains()
   {
-    return $this->hasMany(Projectstrains::class, 'project_id', 'project_id');
+    return $this->hasMany(Projectstrains::class, 'iaecproject_id', 'iaecproject_id');
   }
   
   public function iaecassents()
   {
-    return $this->hasMany(Iaecassent::class, 'project_id', 'project_id');
+    return $this->hasMany(Iaecassent::class, 'iaecproject_id', 'iaecproject_id');
   }
 
   // Customize log name
-  protected static $logName = 'Project';
+  protected static $logName = 'Iaecproject';
 
   // Only defined attribute will store in log while any change
   protected static $logAttributes = [
+    'uuid',
     'pi_id',
     'title',
     'start_date',

@@ -7,12 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 //use Illuminate\Support\Facades\Storage;
 
-
 //use App\Models\Species;
-use App\Models\Assent;
+use App\Models\Iaecassent;
 use App\Models\Tempproject;
 use App\Models\Tempstrain;
-use App\Models\Project;
+use App\Models\Iaecproject;
 use App\Models\Projectstrains;
 
 //use File;
@@ -26,6 +25,7 @@ trait ProjectDecision
 	use Base;
 	use Notes;
 	use NewFormDTable;
+  
 
 	public function accordDecision($input)
 	{
@@ -33,7 +33,7 @@ trait ProjectDecision
 		$input['spcomments'] = $this->addTimeStamp("IAEC decision conveyed");
 		$tempProj = Tempproject::findOrFail($input['id']);
 
-		$newProject_id = Project::max('project_id') + 1;
+		$newProject_id = Iaecproject::max('iaecproject_id') + 1;
 
 		switch ($input['decision']) {
 
@@ -46,8 +46,9 @@ trait ProjectDecision
 			break;
 
 			case 1:
-				$project = new Project();
-				$project->project_id        = $newProject_id;
+				$project = new Iaecproject();
+				$project->iaecproject_id    = $newProject_id;
+        $project->uuid              = $input['uuid'];
 				$project->pi_id             = $tempProj->pi_id;
 				$project->title             = $tempProj->title;
 				$project->start_date        = $tempProj->start_date;
@@ -58,7 +59,8 @@ trait ProjectDecision
 				$project->filename          = $tempProj->filename;
 				$project->date_approved     = $input['iaec_date'];
 				$project->status            = 'active';
-				$project->formD             = $newProject_id."notebook";
+				$project->formD             = $newProject_id."formd";
+        $project->notebook          = $newProject_id."notebook";
 				//dd($project);
 				$project->save();
 
@@ -69,15 +71,15 @@ trait ProjectDecision
 				foreach($tempstrains as $entry)
 				{
 					$projstrain = new Projectstrains();
-					$projstrain->project_id 	= $newProject_id;
-					$projstrain->species_id 	= $entry->species_id;
-					$projstrain->strain_id  	= $entry->strain_id;
-					$projstrain->allyearstotal  = $entry->allyearstotal;
-					$projstrain->year1 			= $entry->year1;
-					$projstrain->year2 			= $entry->year2;
-					$projstrain->year3 			= $entry->year3;
-					$projstrain->year4 			= $entry->year4;
-					$projstrain->year5 			= $entry->year5;
+					$projstrain->iaecproject_id 	= $newProject_id;
+					$projstrain->species_id 	    = $entry->species_id;
+					$projstrain->strain_id  	    = $entry->strain_id;
+					$projstrain->allyearstotal    = $entry->allyearstotal;
+					$projstrain->year1 			      = $entry->year1;
+					$projstrain->year2 			      = $entry->year2;
+					$projstrain->year3 			      = $entry->year3;
+					$projstrain->year4 			      = $entry->year4;
+					$projstrain->year5 			      = $entry->year5;
 					//dd($projstrain);
 					$projstrain->save();
 					
@@ -86,13 +88,14 @@ trait ProjectDecision
 				}
 				
 				//inser permissions here
-				$newAssent = new Assent();
-				$newAssent->project_id =  $newProject_id;
+				$newAssent = new Iaecassent();
+				$newAssent->iaecproject_id =  $newProject_id;
 				$newAssent->allowed_id = $project->pi_id;
 				$newAssent->start_date = $tempProj->start_date;
 				$newAssent->end_date   = $tempProj->end_date;
 				$newAssent->status     = 1;
-				$newAssent->tablename  = $newProject_id."notebook";
+        $newAssent->formd      = $newProject_id."formd";
+				$newAssent->notebook   = $newProject_id."notebook";
 				//dd($newAssent);
 				$newAssent->save();
 

@@ -1,19 +1,31 @@
   <div class="card-body">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Principal Investigator</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+ 
+    <div class="form-group col">
+      <label for="exampleInputBorderWidth2">Principle Investigator*</label>
+      <select class="custom-select form-control rounded-1" 
+        name="pi" id="pi">
+        @foreach($users as $user)
+          <option value="{{ $user->id }}">{{ $user->name }}</option>
+        @endforeach
+      </select>
+      @if($errors->has('pi'))
+        <p class="help-block text-danger">
+          {{ $errors->first('pi') }}
+        </p>
+      @endif
     </div>
+
     <div class="form-group">
       <label for="exampleInputEmail1">Project Title</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Project Title">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Start Date</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Start Date">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">End Date</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="End Date">
     </div>
     
     <div class="form-group">

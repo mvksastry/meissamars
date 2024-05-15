@@ -32,6 +32,8 @@ use App\Traits\Openstrains;
 use App\Traits\Ownerstrains;
 use App\Http\Requests\ProjectApprovalRequest;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+
 //use File;
 use Validator;
 
@@ -43,8 +45,9 @@ use Log;
 class ProjectsManagerController extends Controller
 {
   use HasRoles, ProjectDecision, StrainConsumption, costByProjectId;
-use Openstrains;
-use Ownerstrains;
+  use Openstrains;
+  use Ownerstrains;
+  use HasUuids;
 
 	public function __construct()
   {
@@ -90,10 +93,12 @@ use Ownerstrains;
     //Get all strain, species information and pass it on.
 		$freestrains = $this->strains_open();
 		$own_strains = $this->strains_by_owner(Auth::id());
-
+    $users = User::where('id', '<>', 1)->get();
+    
 			return view('projects.manager.create',
 				[	'freestrains'=>$freestrains,
-						'own_strains'=>$own_strains]);
+						'own_strains'=>$own_strains,
+            'users'=> $users]);
   }
 
   /**
@@ -196,6 +201,7 @@ use Ownerstrains;
     {
       $input = $request->validated();
       $input['id'] = $id;
+      $input['uuid'] = $this->newUniqueId();
       $input['NBformD'] = "yes";
       $msg = $this->accordDecision($input);
     }
