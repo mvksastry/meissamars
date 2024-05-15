@@ -55,7 +55,7 @@
                   @if( count($rooms) > 0 )
                    <div class="p-2">
                     @foreach($rooms as $room)
-                      <button wire:click="show('{{ $room->image_id }}')">
+                      <button wire:click="showRacks('{{ $room->image_id }}')">
                       <img class="inline m-1" src="{{ asset($roomPath.$room->image_id) }}" alt="" width="75px" height="75px">
                       </button>
                     @endforeach
@@ -90,7 +90,10 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-
+                  
+                  @if($rackUpdate)
+                    @include('livewire.occupancy.racksinrooms')
+                  @endif
 
 									
 								</div>
@@ -135,7 +138,9 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
-
+                  @if($layoutRack)
+                    @include('livewire.occupancy.rackLayout')
+                  @endif
 									
 								</div>
 							</div>
@@ -164,36 +169,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-
-
-										<table id="userIndex2" class="table table-bordered table-hover">
-											<thead>
-												<tr bgcolor="#BBDEFB">												
-													<th style="text-align:center;">
-                          <input type="checkbox" id="select-all" />
-                          </th>
-													<th></th>
-                          <th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-                          <tr bgcolor="#E1BEE7"   data-entry-id="">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-											</tbody>
-										</table>                      
-									
-										No Information to display
-									
-
+                  @if($cageInfos)
+                    @include('livewire.occupancy.cageDetails')
+                  @endif					
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -299,52 +277,52 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-<table id="userIndex2" class="table table-bordered table-hover">
-              <thead>
-                  <tr>
-                    <th> Check ID </th>
-                    <th> Usage ID </th>
-                    <th> Strain </th>
-                    <th> Sex</th>
-                    <th> Age</th>
-                    <th> Number </br> Requested</th>
-                    <th> Cages </br>Requested</th>
-                    <th> Actions</th>
-                  </tr>
-              </thead>
-                <tbody>
-                  @foreach($issues as $val)
-                    <tr>
-                      <td>
-                        <label class="inline-flex items-center">
-        									<input type="checkbox" class="form-checkbox" value="{{ $val->issue_id }}" wire:model="issx_id">
-        								</label>
-                      </td>
-                      <td>
-                        {{ $val->usage_id }}
-                      </td>
-                      <td>
-                      	{{ $val->strain->strain_name }}
-                      </td>
-                      <td>
-                      	{{ $val->sex }}
-                      </td>
-                      <td>
-                      	{{ $val->age }}-{{ $val->ageunit }}
-                      </td>
-                      <td>
-                      	{{ $val->number }}
-                      </td>
-                      <td>
-                      	{{ $val->cagenumber }}
-                      </td>
-                      <td>
-                        <button wire:click="alottSearch({{ $val->issue_id }})" class="bg-pink-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-3 rounded">Search</button>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
+                  <table id="userIndex2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                          <th> Check ID </th>
+                          <th> Usage ID </th>
+                          <th> Strain </th>
+                          <th> Sex</th>
+                          <th> Age</th>
+                          <th> Number </br> Requested</th>
+                          <th> Cages </br>Requested</th>
+                          <th> Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($issues as $val)
+                        <tr>
+                          <td>
+                            <label class="inline-flex items-center">
+                              <input type="checkbox" class="form-checkbox" value="{{ $val->issue_id }}" wire:model="issx_id">
+                            </label>
+                          </td>
+                          <td>
+                            {{ $val->usage_id }}
+                          </td>
+                          <td>
+                            {{ $val->strain->strain_name }}
+                          </td>
+                          <td>
+                            {{ $val->sex }}
+                          </td>
+                          <td>
+                            {{ $val->age }}-{{ $val->ageunit }}
+                          </td>
+                          <td>
+                            {{ $val->number }}
+                          </td>
+                          <td>
+                            {{ $val->cagenumber }}
+                          </td>
+                          <td>
+                            <button wire:click="alottSearch({{ $val->issue_id }})" class="bg-pink-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-3 rounded">Search</button>
+                          </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
 									
 								</div>
 							</div>
@@ -373,38 +351,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-
-                @if($updateMode)
-                  @include('livewire.alottment.detailsAllottment')
-                @endif
-										<table id="userIndex2" class="table table-bordered table-hover">
-											<thead>
-												<tr bgcolor="#BBDEFB">												
-													<th style="text-align:center;">
-                          <input type="checkbox" id="select-all" />
-                          </th>
-													<th></th>
-                          <th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-                          <tr bgcolor="#E1BEE7"   data-entry-id="">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-											</tbody>
-										</table>                      
-									
-										No Information to display
-									
-
+                  @if($updateMode)
+                    @include('livewire.alottment.detailsAllottment')
+                  @endif                     								
 								</div>
 							</div>
 						  </div><!-- /.card-body -->

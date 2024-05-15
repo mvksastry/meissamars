@@ -50,7 +50,7 @@ class CompleteAllottment extends Component
     public $idmice=[], $mice_id, $mc=0;
 
     //rack related
-    public $racks, $rackid=[], $rack_id;
+    public $racks, $rackid=[], $rack_id, $room_racks, $rackName;
     //room related
     public $rooms;
 
@@ -69,7 +69,15 @@ class CompleteAllottment extends Component
 
     public $sql2, $sql3, $sql4, $sql5, $sql6, $sql7;
 
+    //panels
+    public $rackUpdate = false;
+    public $layoutRack = false;
+		public $cageInfos = false;
+		public $irqMessage = "";
 
+    public $rows, $cols, $levels, $rack_info;
+    public $caInfos;
+    
     public function render()
     {
         if( Auth::user()->hasAnyRole(['manager','pisg','pilg','piblg','pient','investigator', 'researcher', 'veterinarian']) )
@@ -390,5 +398,68 @@ class CompleteAllottment extends Component
         }
         return $narray;
     }
+
+
+	public function showRacks($id)
+  {
+		$this->rackUpdate = true;
+		$this->layoutRack = false;
+		$this->cageInfos = false;
+		$this->irqMessage = "";
+		//$this->irqMessage = $id;
+		$room = Room::where('image_id', $id)->first();
+		$this->room_racks = Rack::where('room_id', $room->room_id)->get();
+	}
+
+	public function rackLayout($id)
+  {
+   
+		$this->rackUpdate = true;
+		$this->layoutRack = false;
+		$this->cageInfos = false;
+
+		$rack_info = array();
+
+		$rackInfos = Rack::where('rack_id', $id)->first();
+		$this->rows = $rackInfos->rows;
+		$this->cols = $rackInfos->cols;
+		$this->levels = $rackInfos->levels;
+		$this->rackName = $rackInfos->rack_name;
+
+		$cageIds = Slot::where('rack_id', $id)->get();
+    
+		foreach($cageIds as $val)
+		{
+      $info['slot_id'] = $val->slot_id;
+      $info['cage_id'] = $val->cage_id;
+      $info['status'] = $val->status;
+      array_push($rack_info, $info);
+      $info = array();
+		}
+
+		$this->rack_info = $rack_info;
+		$this->layoutRack = true;
+	}
+
+	public function cageinfo($id)
+	{
+		$this->layoutRack = true;
+		$this->irqMessage = "Cage Selected is: ".$id;
+		$caInfos = Cage::with('user')
+						->with('strain')
+						->where('cage_id', $id)->get();
+		$this->caInfos = $caInfos;
+		$this->cageInfos = true;
+	}
+
+
+
+
+
+
+
+
+
+
 
 }
