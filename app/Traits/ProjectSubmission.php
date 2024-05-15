@@ -17,15 +17,18 @@ use File;
 use App\Traits\Base;
 use App\Traits\Notes;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+
 trait ProjectSubmission
 {
   use Base;
   use Notes;
+  use HasUuids;
 
   public function postProjectData($request, $purpose, $id, $filename)
   {
-    $today = $this->today();
-    $spcomments = strip_tags($request['comment']);
+    $today            = $this->today();
+    $spcomments       = strip_tags($request['comment']);
     $tickedSpecies    = $request['species'];
     $tickedStrains    = $request['exp_strain'];
     $aname            = $request['name'];
@@ -45,11 +48,12 @@ trait ProjectSubmission
       {
         //make the array for database insert query
         $tempProj = new Tempproject();
+        $tempProj->uuid          = $this->newUniqueId();
         $tempProj->pi_id         = Auth::user()->id;
         $tempProj->title         = $aprojecttitle;
         $tempProj->start_date    = $aStDate;
         $tempProj->end_date      = $aendate;
-        $tempProj->iaec_comments = 'none';
+        $tempProj->iaec_comments = 'None:Submitted';
         $tempProj->notes         = $notes;
         $tempProj->filename      = $filename;
         $tempProj->status        = 'Submitted';

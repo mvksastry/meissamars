@@ -30,6 +30,8 @@ use App\Traits\StrainConsumption;
 use App\Traits\costByProjectId;
 use App\Traits\Openstrains;
 use App\Traits\Ownerstrains;
+use App\Traits\Fileupload;
+
 use App\Http\Requests\ProjectApprovalRequest;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -45,8 +47,8 @@ use Log;
 class ProjectsManagerController extends Controller
 {
   use HasRoles, ProjectDecision, StrainConsumption, costByProjectId;
-  use Openstrains;
-  use Ownerstrains;
+  use Openstrains, Ownerstrains;
+  use Fileupload;
   use HasUuids;
 
 	public function __construct()
@@ -106,7 +108,37 @@ class ProjectsManagerController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    if( Auth::user()->hasAnyRole('pient','manager') )
+		{
+    		$purpose = "new";
+    		$id = "null";
+    
+    		$this->validate($request, [
+    			'title'      => 'required|regex:/(^[A-Za-z0-9 -_]+$)+/|max:200',
+    			'start_date' => 'required|date|date_format:Y-m-d',
+    			'end_date'   => 'required|date|date_format:Y-m-d|after:start_date',
+    			'species'    => 'present|array',
+    			'exp_strain' => 'present|array',
+    			'spcomments' => 'nullable|regex:/(^[A-Za-z0-9 -_]+$)+/',
+    		]);
+    
+    		if( $request->hasFile('projfile') )
+    		{
+    			$request->validate([
+    				'userfile' => 'required|mimes:pdf|max:4096'
+    			]);
+    			
+    			$filename = $this->projFileUpload($request);
+    			// for testing uncomment below and comment above
+    			//$filename = "abvdedfadklj";
+    		}
+    
+    		$result = $this->postProjectData($request, $purpose, $id, $filename);
+    		
+    		return redirect()->route('piprojects.index')
+    						->with('flash_message',
+    								'New Project Posted Successfully.');
+    }
   }
 
   /**
@@ -201,7 +233,6 @@ class ProjectsManagerController extends Controller
     {
       $input = $request->validated();
       $input['id'] = $id;
-      $input['uuid'] = $this->newUniqueId();
       $input['NBformD'] = "yes";
       $msg = $this->accordDecision($input);
     }

@@ -48,7 +48,8 @@ trait ApproveProjectTrait
 		  {
 				$project = new Project();
 
-				$project->project_id        = $tempProj->temproject_id;
+				$project->iaecproject_id    = $tempProj->temproject_id;
+        $project->uuid              = $tempProj->uuid;
 				$project->pi_id             = $tempProj->pi_id;
 				$project->title             = $tempProj->title;
 				$project->start_date        = $tempProj->start_date;
@@ -60,6 +61,7 @@ trait ApproveProjectTrait
 				$project->date_approved     = $iaecApproveDate;
 				$project->status            = 'active';
 				$project->formD             = $id."formD";
+        $project->notebook          = $id."notebook";
 				$project->save();
 
 				// copy entries from tempstrains to projectstrains

@@ -1,7 +1,14 @@
   <div class="card-body">
- 
+    @hasexactroles('pient')
+    <div class="form-group">
+      <label for="exampleInputEmail1">Principal Investigator*</label>
+      <input type="text" class="form-control" name="pi" id="pi" value="{{ Auth::user()->name }}" placeholder="Project Title">
+    </div>
+    @endhasexactroles
+    
+    @hasexactroles('manager')
     <div class="form-group col">
-      <label for="exampleInputBorderWidth2">Principle Investigator*</label>
+      <label for="exampleInputBorderWidth2">Principal Investigator*</label>
       <select class="custom-select form-control rounded-1" 
         name="pi" id="pi">
         @foreach($users as $user)
@@ -14,29 +21,27 @@
         </p>
       @endif
     </div>
-
+    @endhasexactroles
+    
     <div class="form-group">
       <label for="exampleInputEmail1">Project Title</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Project Title">
+      <input type="text" class="form-control" name="title" id="title" placeholder="Project Title">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Start Date</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Start Date">
+      <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">End Date</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="End Date">
+      <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date">
     </div>
     
     <div class="form-group">
       <label for="exampleInputFile">Project File (Signed)</label>
       <div class="input-group">
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="exampleInputFile">
+          <input type="file" class="custom-file-input" name="projfile" id="projfile">
           <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-        </div>
-        <div class="input-group-append">
-          <span class="input-group-text">Upload</span>
         </div>
       </div>
     </div>
@@ -70,7 +75,7 @@
             <tr bgcolor="#BBDEFB"class="pt-1 pb-1">
               <td colspan="6 ">
                 <div class="form-check">
-                  <input type="checkbox" name="species" value="{{ $val->species->species_name.'_'.$val->species->species_id }}" class="form-check-input" id="exampleCheck1">
+                  <input type="checkbox" name="species[]" value="{{ $val->species->species_name.'_'.$val->species->species_id }}" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">                     
                     Check box if {{ $val->species->species_name }} Required
                   </label>
@@ -148,7 +153,7 @@
         <td>Comments</td>
         <td>
           <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="IAEC Comments">
+            <input type="text" id="spcomments" name="spcomments" class="form-control" placeholder="IAEC Comments">
           </div>
         </td>
       </tr>

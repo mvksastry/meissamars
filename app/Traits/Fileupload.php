@@ -25,14 +25,14 @@ trait Fileupload
 		public function projFileUpload($request)
 		{
 			$projFileName = "";
-			$oExt = $request->file('userfile')->getClientOriginalExtension();
+			$oExt = $request->file('projfile')->getClientOriginalExtension();
 			//for testing, in reality, pass on the user's folder name fromm DB.
 			$piFolder = Auth::user()->folder;
 			$destPath = "/public/institutions"."/".$piFolder."/";
 			$code15 = $this->generateCode(15);
 			$projFileName = $code15."_".$request->user()->id."."."$oExt";
 			//delete old file if any here before upload
-			$path = $request->file('userfile')->storeAs($destPath, $projFileName);
+			$path = $request->file('projfile')->storeAs($destPath, $projFileName);
 			return $projFileName;
 		}
 
