@@ -20,6 +20,7 @@ use App\Http\Controllers\CalendarController;
 //-------------------------------------------------------//
 // PI and Manager specific
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\IaecProjectSubmissionController;
 
 // Manager specific
 use App\Http\Controllers\ProjectsManagerController;
@@ -137,7 +138,8 @@ Route::middleware(['auth','verified'])->group(function() {
     //-- PI specific : Projects routes
     Route::resource('/projects', ProjectsController::class);   
     
-    
+    //-- PI & Manager specific : IAEC Project submission route
+    Route::post('/post-iaec-project', IaecProjectSubmissionController::class);
 
 
 

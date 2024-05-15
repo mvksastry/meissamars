@@ -51,8 +51,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <form method="POST" action="{{ route('room.store') }}" enctype ="multipart/form-data">
-                    <!-- project data entry form -->
+                  <form method="POST" action="/post-iaec-project" enctype ="multipart/form-data">
+                    @csrf
+                   <!-- project data entry form -->
                     @hasrole('manager')
                       @include('projects.projectDataEntryForm')
                     @endhasrole
