@@ -28,6 +28,7 @@ trait ProjectSubmission
   public function postProjectData($request, $purpose, $id, $filename)
   {
     $today            = $this->today();
+    $pi_id            = $request['pi'];
     $spcomments       = strip_tags($request['comment']);
     $tickedSpecies    = $request['species'];
     $tickedStrains    = $request['exp_strain'];
@@ -50,7 +51,7 @@ trait ProjectSubmission
         //make the array for database insert query
         $tempProj = new Tempproject();
         $tempProj->uuid          = $this->newUniqueId();
-        $tempProj->pi_id         = Auth::user()->id;
+        $tempProj->pi_id         = $pi_id;
         $tempProj->title         = $aprojecttitle;
         $tempProj->start_date    = $aStDate;
         $tempProj->end_date      = $aendate;

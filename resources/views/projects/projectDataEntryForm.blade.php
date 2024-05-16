@@ -2,7 +2,7 @@
     @hasexactroles('pient')
     <div class="form-group">
       <label for="exampleInputEmail1">Principal Investigator*</label>
-      <input type="text" class="form-control" name="pi" id="pi" value="{{ Auth::user()->name }}" placeholder="Project Title">
+      <input type="text" class="form-control" name="pi" id="pi" value="{{ Auth::user()->id }}" placeholder="Project Title">
     </div>
     @endhasexactroles
     
