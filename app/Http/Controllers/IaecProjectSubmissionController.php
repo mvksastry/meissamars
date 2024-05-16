@@ -22,7 +22,8 @@ class IaecProjectSubmissionController extends Controller
     {
         if( Auth::user()->hasAnyRole('pient','manager') )
         {
-          //$input = $request->all();      
+          $input = $request->all();  
+
           $purpose = "new";
           $id = "null";
 
@@ -37,9 +38,8 @@ class IaecProjectSubmissionController extends Controller
 
           if( $request->hasFile('projfile') )
           {
-            
             $request->validate([
-              'userfile' => 'required|mimes:pdf|max:4096'
+              'projfile' => 'required|mimes:pdf|max:4096'
             ]);
             
             $filename = $this->projFileUpload($request);
@@ -53,8 +53,8 @@ class IaecProjectSubmissionController extends Controller
       
           $result = $this->postProjectData($request, $purpose, $id, $filename);
           
-          return redirect()->route('piprojects.index')
-                  ->with('flash_message',
+          return redirect()->route('projectsmanager.index')
+                  ->with('success',
                       'New Project Posted Successfully.');
         }
         

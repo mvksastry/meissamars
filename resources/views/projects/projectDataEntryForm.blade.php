@@ -55,7 +55,7 @@
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input" name="projfile" id="projfile">
-          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+          <label class="custom-file-label" for="projfile"></label>
           @if($errors->has('projfile'))
             <p class="text-danger">
             {{ $errors->first('projfile') }}

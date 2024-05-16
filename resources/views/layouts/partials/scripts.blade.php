@@ -254,5 +254,9 @@
         body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
       })
     });
+    $('.custom-file-input').on('change',function(){
+      var fileName = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
   });
 </script>

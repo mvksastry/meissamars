@@ -29,6 +29,7 @@ trait Fileupload
 			//for testing, in reality, pass on the user's folder name fromm DB.
 			$piFolder = Auth::user()->folder;
 			$destPath = "/public/institutions"."/".$piFolder."/";
+      
 			$code15 = $this->generateCode(15);
 			$projFileName = $code15."_".$request->user()->id."."."$oExt";
 			//delete old file if any here before upload
