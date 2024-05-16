@@ -9,21 +9,23 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+use App\Traits\Fileupload;
+use App\Traits\ProjectSubmission;
+
 class IaecProjectSubmissionController extends Controller
 {
+  use Fileupload, ProjectSubmission;
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-
         if( Auth::user()->hasAnyRole('pient','manager') )
         {
-          $input = $request->all();
-                    
+          //$input = $request->all();      
           $purpose = "new";
           $id = "null";
-      
+
           $this->validate($request, [
             'title'      => 'required|regex:/(^[A-Za-z0-9 -_]+$)+/|max:200',
             'start_date' => 'required|date|date_format:Y-m-d',
@@ -32,9 +34,10 @@ class IaecProjectSubmissionController extends Controller
             'exp_strain' => 'present|array',
             'spcomments' => 'nullable|regex:/(^[A-Za-z0-9 -_]+$)+/',
           ]);
-      
+
           if( $request->hasFile('projfile') )
           {
+            
             $request->validate([
               'userfile' => 'required|mimes:pdf|max:4096'
             ]);
@@ -43,6 +46,10 @@ class IaecProjectSubmissionController extends Controller
             // for testing uncomment below and comment above
             //$filename = "abvdedfadklj";
           }
+          else {
+            session()->flash("error", "Project File Not Attached!");
+            return redirect()->back()->withErrors(['errors' => 'Project File Not Attached!']);;
+          }
       
           $result = $this->postProjectData($request, $purpose, $id, $filename);
           
@@ -50,5 +57,6 @@ class IaecProjectSubmissionController extends Controller
                   ->with('flash_message',
                       'New Project Posted Successfully.');
         }
+        
     }
 }

@@ -30,6 +30,11 @@
 					@include('projects.manager.flexMenuAdminNewProjects')
 				@endhasrole
 				<!-- Main row -->
+          @if(session()->has('message'))
+            <div class="alert alert-info">
+                {{ session('message') }}
+            </div>
+         @endif
 				<div class="row">
 					<!-- Left col -->
 					<section class="col-lg-12 connectedSortable">

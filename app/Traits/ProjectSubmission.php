@@ -40,6 +40,7 @@ trait ProjectSubmission
     {
       $spcomments = "No comments";
     }
+       
       $notes = $this->addTimeStamp($spcomments);
       // prepping complete
       $tempStrainSqls = $this->decodeStrainData($tickedSpecies, $tickedStrains, $request);
@@ -53,7 +54,7 @@ trait ProjectSubmission
         $tempProj->title         = $aprojecttitle;
         $tempProj->start_date    = $aStDate;
         $tempProj->end_date      = $aendate;
-        $tempProj->iaec_comments = 'None:Submitted';
+        $tempProj->iaec_comments = 'None';
         $tempProj->notes         = $notes;
         $tempProj->filename      = $filename;
         $tempProj->status        = 'Submitted';

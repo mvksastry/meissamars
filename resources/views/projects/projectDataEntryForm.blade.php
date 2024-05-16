@@ -26,22 +26,41 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Project Title</label>
       <input type="text" class="form-control" name="title" id="title" placeholder="Project Title">
+        @if($errors->has('title'))
+          <p class="text-danger">
+          {{ $errors->first('title') }}
+          </p>
+        @endif  
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Start Date</label>
       <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date">
+        @if($errors->has('start_date'))
+          <p class="text-danger">
+          {{ $errors->first('start_date') }}
+          </p>
+        @endif   
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">End Date</label>
       <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date">
     </div>
-    
+      @if($errors->has('end_date'))
+        <p class="text-danger">
+        {{ $errors->first('end_date') }}
+        </p>
+      @endif    
     <div class="form-group">
       <label for="exampleInputFile">Project File (Signed)</label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input" name="projfile" id="projfile">
           <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+          @if($errors->has('projfile'))
+            <p class="text-danger">
+            {{ $errors->first('projfile') }}
+            </p>
+          @endif
         </div>
       </div>
     </div>
@@ -119,12 +138,12 @@
           <tr>
             <td colspan="6">
               @if($errors->has('species'))
-                <p class="help-block text-red-800">
+                <p class="text-danger">
                 {{ $errors->first('species') }}
                 </p>
               @endif
               @if($errors->has('exp_strain'))
-                <p class="help-block text-red-800">
+                <p class="text-danger">
                   {{ $errors->first('exp_strain') }}
                 </p>
               @endif
