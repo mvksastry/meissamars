@@ -58,7 +58,16 @@
       </p>
     @endif    
     <div class="form-group">
-      <label for="exampleInputFile">Project File (Signed)</label>
+      <label for="exampleInputFile">Current Project File (Signed)</label>
+      </br>
+      <a href="#">
+        <button class="btn btn-sm btn-info">
+        Current Project File
+        </button>
+      </a>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">New Project File (Signed)</label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input" name="projfile" id="projfile">

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 	
@@ -10,12 +9,12 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1 class="m-0">Home: Add Project</h1>
+						<h1 class="m-0">Home: Edit Project</h1>
 					</div><!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Add Projects</li>
+							<li class="breadcrumb-item active">Edit Projects</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -30,11 +29,11 @@
 					@include('projects.manager.flexMenuAdminNewProjects')
 				@endhasrole
 				<!-- Main row -->
-          @if(session()->has('message'))
-            <div class="alert alert-info">
-                {{ session('message') }}
-            </div>
-         @endif
+        @if(session()->has('message'))
+          <div class="alert alert-info">
+              {{ session('message') }}
+          </div>
+        @endif
 				<div class="row">
 					<!-- Left col -->
 					<section class="col-lg-12 connectedSortable">
@@ -77,7 +76,6 @@
 			</div><!-- /.container-fluid -->
 		</section>
 
-		
 	</div>	
 
 
