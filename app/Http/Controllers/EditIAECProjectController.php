@@ -21,7 +21,7 @@ class EditIAECProjectController extends Controller
     public function __invoke(Request $request)
     {
       $input = $request->all();
-      dd($input);
+      //dd($input);
       if( Auth::user()->hasAnyRole('pisg','pient','manager') )
       {
         $purpose = "edit";
