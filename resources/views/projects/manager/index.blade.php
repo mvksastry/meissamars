@@ -63,7 +63,8 @@
 													<th>Title</th>                       
                           <th>Start Date</th>
                           <th>End Date</th>
-													<th>Details</th>
+													<th>Actions</th>
+                          
 												</tr>
 											</thead>
 											<tbody>
@@ -75,6 +76,11 @@
                             <td>{{ date('d-m-Y', strtotime($row->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($row->end_date)) }}</td>
                             <td>
+                              <a href="{{ route('projectsmanager.edit',[$row->tempproject_id]) }}">
+                                <button class="btn btn-sm btn-warning">
+                                  Edit
+                                </button>
+                              </a>
                               <a href="{{ route('projectsmanager.submitted',[$row->tempproject_id]) }}">
                                 <button class="btn btn-sm btn-info">
                                   Decision

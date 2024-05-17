@@ -218,7 +218,33 @@ class ProjectsManagerController extends Controller
    */
   public function edit(string $id)
   {
-      //
+    $freestrains = $this->strains_open();
+        
+    if( Auth::user()->hasAnyRole('pisg','pient') )
+		{
+      $tempproject = Tempproject::where('pi_id', Auth::id() )->where('tempproject_id', $id )
+                  ->whereIn('status', ['submitted'])->get();
+    }
+
+    if( Auth::user()->hasAnyRole('manager') )
+		{
+      $tempproject = Tempproject::where('tempproject_id', $id )
+                  ->whereIn('status', ['submitted'])->first();
+    }
+    
+    $own_strains = $this->strains_by_owner($tempproject->pi_id);
+    
+    $strainsPosted = Tempstrain::with('strains')
+                  ->where('tempproject_id', $id )->get();
+    $users = User::where('id', '<>', 1)->get();
+    
+    //dd($users);
+    return view('projects.manager.editProject',
+      [	'users'=>$users,
+        'tempproject'=>$tempproject,
+          'freestrains'=>$freestrains,
+            'own_strains'=>$own_strains,
+              'strainsPosted'=>$strainsPosted]);
   }
 
   /**
