@@ -236,9 +236,9 @@ class ProjectsManagerController extends Controller
     
     $strainsPosted = Tempstrain::with('strains')
                   ->where('tempproject_id', $id )->get();
-    $users = User::where('id', '<>', 1)->get();
+                  
+    $users = User::where('id', '=', $tempproject->pi_id)->get();
     
-    //dd($users);
     return view('projects.manager.editProject',
       [	'users'=>$users,
         'tempproject'=>$tempproject,
