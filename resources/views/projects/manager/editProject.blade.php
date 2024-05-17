@@ -14,7 +14,7 @@
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Edit Projects</li>
+							<li class="breadcrumb-item active">Edit Project</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -55,7 +55,7 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <form method="POST" action="/post-iaec-project" enctype ="multipart/form-data">
+                  <form method="POST" action="/edit-iaec-project" enctype ="multipart/form-data">
                     @csrf
                     <!-- project data entry form -->
                     @hasrole('manager')

@@ -85,7 +85,7 @@
     <label class="text-sm font-normal" for="end date">
       Strain Data Posted
     </label>
-    <table id="userIndex2" class="table table-bordered table-hover">
+    <table id="userIndex2" class="table table-bordered table-hover table-sm">
       <tbody>
         <tr class="px-4 pt-1 pb-1 bg-indigo-200">
           <td> Strain </td>
