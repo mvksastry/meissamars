@@ -55,7 +55,7 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <form method="POST" action="#" enctype ="multipart/form-data">
+                  <form method="POST" action="/edit-iaec-project" enctype ="multipart/form-data">
                     @csrf
                     <!-- project data entry form -->
                     @hasrole('manager')
