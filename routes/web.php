@@ -141,7 +141,7 @@ Route::middleware(['auth','verified'])->group(function() {
     
     //-- PI & Manager specific : IAEC Project submission route
     Route::post('/post-iaec-project', IaecProjectSubmissionController::class);
-    Route::post('/edit-iaec-project', EditIaecProjectController::class);
+    Route::get('/edit-iaec-project', EditIaecProjectController::class);
     
 
 
