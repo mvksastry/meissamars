@@ -98,7 +98,9 @@
                     </div>
                     <div class="feature-content">
                       <h3 class="feature-title mt-0">IAEC Projects</h3>
-                      <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                      <p class="text-sm mb-0">IAEC research project can be managed end-to-end
+                      with a few clicks. Know consumption, experiments, individual cagel information with costs.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -110,7 +112,8 @@
                     </div>
                     <div class="feature-content">
                       <h3 class="feature-title mt-0">Breeding</h3>
-                      <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                      <p class="text-sm mb-0">Multi-species breeding by following JAX mice coding standards with 
+                      details of every mouse used for experiments and its pedegree.</p>
                     </div>
                   </div>
                 </div>
@@ -122,7 +125,9 @@
                     </div>
                     <div class="feature-content">
                       <h3 class="feature-title mt-0">Facility</h3>
-                      <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                      <p class="text-sm mb-0">Manage rooms, infrastructure, cage level information
+                      at finger tips. Walk with a tablet or mobile phone, record all information and walk away
+                      with detailed report generation.</p>
                     </div>
                   </div>
                 </div>
