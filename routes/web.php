@@ -48,7 +48,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomsnRacksController;
 use App\Http\Controllers\VetController;
 use App\Http\Controllers\FacilityHelpController;
-
+use App\Http\Controllers\ReportsController;
 
 
 //livewire - Facility Management
@@ -142,7 +142,7 @@ Route::middleware(['auth','verified'])->group(function() {
     //-- PI & Manager specific : IAEC Project submission route
     Route::post('/post-iaec-project', IaecProjectSubmissionController::class);
     Route::post('/edit-iaec-project', EditIAECProjectController::class);
-    
+    Route::resource('/reports', ReportsController::class);   
 
 
 

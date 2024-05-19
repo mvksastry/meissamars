@@ -19,7 +19,7 @@
       @endhasexactroles
 
       @hasexactroles('manager')
-        @include('layouts.menus.director')
+        @include('layouts.menus.manager.manager')
       @endhasexactroles
       
       @hasexactroles('admin|team_leader|employee')
