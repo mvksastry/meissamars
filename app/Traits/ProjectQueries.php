@@ -11,8 +11,8 @@ use App\Models\Species;
 use App\Models\Strain;
 use App\Models\Tempproject;
 use App\Models\Tempstrain;
-use App\Models\Project;
-use App\Models\Assent;
+use App\Models\Iaecproject;
+use App\Models\Iaecassent;
 use App\Models\Projectstrains;
 
 //use File;
@@ -28,23 +28,23 @@ trait ProjectQueries
 
   public function projectById($id)
   {
-    return Project::where('project_id', $id)->first();
+    return Iaecproject::where('iaecproject_id', $id)->first();
   }
 
   public function allowedProjectIds()
   {
-    return Assent::with('project')
-              ->with('permitted')
+    return Iaecassent::with('projectiaec')
+              //->with('permitted')
               ->where('allowed_id', Auth::id())
               ->where('end_date', '>=', date('Y-m-d'))
-              ->where('status', 1)
+              ->where('status', 'active')
               ->get();
 
   }
 
   public function checkProjectAllowedOrNot($id)
   {
-    $res = Assent::where('project_id', $id)
+    $res = Iaecassent::where('project_id', $id)
             ->where('allowed_id', Auth::id())
             ->where('end_date', '>=', date('Y-m-d'))
             ->where('status', 1)

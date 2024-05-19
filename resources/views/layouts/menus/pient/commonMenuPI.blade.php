@@ -11,7 +11,7 @@
 				</li>
  
 				<li class="nav-item">
-					<a href="{{ route('projectsmanager.index') }}" class="nav-link">
+					<a href="/iaec-projects" class="nav-link">
 					  <i class="nav-icon fas fa-copy"></i>
 					  <p>
 						Projects
@@ -47,16 +47,6 @@
             <i class="nav-icon fas fa-tree"></i>
             <p>
             Billing
-            <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-			  </li>
-
-			  <li class="nav-item">
-          <a href="{{ route('bhome.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-tree"></i>
-            <p>
-            Breeding
             <i class="fas fa-angle-left right"></i>
             </p>
           </a>

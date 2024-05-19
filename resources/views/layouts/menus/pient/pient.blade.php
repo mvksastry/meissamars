@@ -12,11 +12,11 @@
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 				<!-- Add icons to the links using the .nav-icon class
 				  with font-awesome or any other icon font library -->
-        @include('layouts.menus.manager.commonMenuManager')
+        @include('layouts.menus.pient.commonMenuPI')
        
-        @include('layouts.menus.manager.officeSettingsManager')
+        @include('layouts.menus.pient.officeSettingsPI')
        
-				@include('layouts.menus.manager.confMenuManager')
+				@include('layouts.menus.pient.confMenuPI')
 			</ul>
 		</nav>
 		<!-- /.sidebar-menu -->

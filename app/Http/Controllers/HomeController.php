@@ -77,7 +77,7 @@ class HomeController extends Controller
 
     if( Auth::user()->hasAnyRole('pisg','pient') )
     {
-      /*
+      
       //IAEC projects
       $appProjects = $this->approvedProjects();
       $subProjects = $this->submittedProjects();
@@ -92,12 +92,12 @@ class HomeController extends Controller
       
       //research projects
       $actvProjs = $this->allowedProjectIds();
-      */
+      //dd($appProjects, $subProjects, $amendProjects, $expiredProjects);
+      //dd($submittedIssues, $confirmedIssues, $approvedIssues, $issuedIssues);
       //Log::channel('activity')->info('Logged in user [ '.Auth::user()->name.' ] dashboard requested');
       Log::channel('activity')->info('Logged in user [ '.Auth::user()->name.' ] dashboard requested');
       return view('layouts.home.pi.dashboard')->with([
-                /*
-                'appProjects'=>$appProjects,
+                  'appProjects'=>$appProjects,
                   'subProjects'=>$subProjects,
                   'amendProjects'=>$amendProjects,
                   'expiredProjects'=>$expiredProjects,
@@ -108,7 +108,6 @@ class HomeController extends Controller
                   'actvProjs'=>$actvProjs,
                   'personalTasks'=>$personalTasks,
                   'groupTasks'=> $groupTasks
-                  */
       ]);
     }
 

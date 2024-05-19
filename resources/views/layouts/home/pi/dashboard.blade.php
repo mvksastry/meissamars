@@ -49,37 +49,67 @@
                 <table id="userIndex2" class="table table-bordered table-hover">
 											<thead>
 												<tr bgcolor="#BBCEFB">												
-													<th colspan="6"  style="text-align:center;">
-                          Facility at a glance
+													<th colspan="8"  style="text-align:center;">
+                          Dashboard
                           </th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr bgcolor="#BBDEFB">												
+                        <tr>
+                          <td colspan="8">
+                          Projects
+                          </td>
+                        </tr>
+												<tr bgcolor="#E1BEE7"   data-entry-id="">											
 													<td style="text-align:left;">
-                            Building
+                            Active
                           </td>
-													<td></td>
-                          <td>Floors</td>
-													<td>
-                            
-                            </br>
-                            
+													<td>{{ $appProjects }}</td>
+                          <td>Submitted</td>
+													<td>                        
+                          {{ $subProjects }}
                           </td>
-													<td>Rooms</td>
+													<td>Amended</td>
 													<td>
-                            </br>
+                          {{ $amendProjects }}
+                            </td>
+                            <td>Expired</td>
+													<td>
+                          {{ $expiredProjects }}
                             </td>
 												</tr>
-                        <tr bgcolor="#E1BEE7"   data-entry-id="">
-                          <td>Racks</td>
-                          <td></td>
-                          <td>Slots Occupied</td>
-                          <td></td>
-                          <td>Slots Avalilable</td>
-                          <td></td>
+                        <tr>
+                          <td colspan="8">
+                          Usage Requests
+                          </td>
                         </tr>
-																	
+                        <tr bgcolor="#E1BEE7"   data-entry-id="">
+                          <td>Submitted</td>
+                          <td>{{ $submittedIssues }}</td>
+                          <td>Confirmed</td>
+                          <td>{{ $confirmedIssues }}</td>
+                          <td>Approved</td>
+                          <td>{{ $approvedIssues }}</td>
+                          <td>Issued</td>
+                          <td>{{ $issuedIssues }}</td>
+                        </tr>
+
+                        
+                        <tr>
+                          <td colspan="8">
+                            Tasks
+                          </td>
+                        </tr>
+                        <tr bgcolor="#E1BEE7"   data-entry-id="">
+                          <td></td>
+                          <td></td>
+                          <td>Personal Tasks</td>
+                          <td>{{ $personalTasks }}</td>
+                          <td>Group Tasks</td>
+                          <td>{{ $groupTasks }}</td>
+                          <td></td>
+                          <td></td>
+                        </tr>																	
 											</tbody>
 										</table>                  
               </div>

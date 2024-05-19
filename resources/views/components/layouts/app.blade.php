@@ -38,6 +38,10 @@
         @include('layouts.menus.strpur')
       @endhasrole
       
+      @hasexactroles('pient')
+        @include('layouts.menus.pient.pient')
+      @endhasexactroles
+      
       @hasexactroles('employee')
         @include('layouts.menus.employee')
       @endhasexactroles
