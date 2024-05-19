@@ -201,7 +201,7 @@ class ProjectsManagerController extends Controller
     $formd = DB::table($table)->get();
 
     $costs = $this->ProjectWiseCost($id);
-    
+
     return view('projects.manager.showProjectDetails',
                 [	'iaecproject'=>$iaecproject,
                   'projectstrains'=>$projectstrains, 

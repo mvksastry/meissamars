@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 use DateTime;
 use App\Models\User;
-use App\Models\Project;
+use App\Models\Iaecproject;
 use App\Models\Strain;
 use App\Models\Species;
 use App\Models\Projectstrains;
-use App\Models\Issue;
+use App\Models\Usage;
 
 use App\Traits\Base;
 use App\Traits\StrainConsumption;
@@ -25,7 +25,7 @@ trait IssueRequest
 	
   public function postIssueRequest($input)
   {
-    $projectInfo = Project::where('project_id', $input['project_id'])->first();
+    $projectInfo = Iaecproject::where('project_id', $input['project_id'])->first();
       
     $end_date = $projectInfo->end_date;
 
@@ -75,7 +75,7 @@ trait IssueRequest
 				
 	public function strainConsumed($input)
 	{
-		$result = Issue::where('species_id', $input['species_id'])
+		$result = Usage::where('species_id', $input['species_id'])
                    ->where('strain_id', $input['strain_id'])
                    ->where('project_id', $input['project_id'])
                    ->where('issue_status', 'Approved')
@@ -125,17 +125,17 @@ trait IssueRequest
 			                      										
     if($input['issue_id'] != null)
 		{
-			$result = Issue::where('issue_id', $input['issue_id'])->update($issueRequest);
+			$result = Usage::where('issue_id', $input['issue_id'])->update($issueRequest);
 		}
 		else {
-			$result = Issue::create($issueRequest);
+			$result = Usage::create($issueRequest);
 		}
 		return $result;
 	}
 		
 	public function postStatusExpired($project_id)
 	{
-		$result = Project::where('project_id', $project_id)->update($sql1);
+		$result = Iaecproject::where('project_id', $project_id)->update($sql1);
 		$old = $result->comments;
 		$result->status = "Expired";
 		$result->comments = $old.";;; [".date('Y-m-d')."] No more issue possible.";
