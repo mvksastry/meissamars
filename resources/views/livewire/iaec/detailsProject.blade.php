@@ -176,26 +176,7 @@
 		</div>
 	<!-- / End of Left Panel Graph Card-->
 
-	<!--Table Card-->
-		<div class="bg-orange-100 border border-gray-800 rounded shadow">
-  		<div class="border-b border-gray-800 p-3">
-    		<h5 class="font-bold uppercase text-gray-900">Cost</h5>
-  		</div>
-  		<div class="p-2">
-        <table id="userIndex2" class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>
-								Click the Cost to view all details
-              </th>
-						<tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-  		</div>
-		</div>
-  </div>
+	<!--Table Card-->  
 	<!--/table Card-->
 
 	<!-- Right Panel Graph Card-->

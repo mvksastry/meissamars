@@ -32,35 +32,7 @@
 					</a>
 				</li>
 
-			  <li class="nav-item">
-          <a href="{{ route('facility.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
-            <p>
-            Facility
-            <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-			  </li>
-        
-			  <li class="nav-item">
-          <a href="{{ route('billing.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-tree"></i>
-            <p>
-            Billing
-            <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-			  </li>
-
-			  <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tree"></i>
-            <p>
-            Reports
-            <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-			  </li>
+			  
         
 			  <li class="nav-item">
           <a href="#" class="nav-link">
