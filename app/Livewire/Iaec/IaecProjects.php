@@ -566,11 +566,11 @@ class IaecProjects extends Component
            //$tname = $id.'formd';
             $tname = $id.'notebook';
             $this->nbqs = DB::table($tname)
-                                ->leftJoin('issues','issues.issue_id', '=', $id.'notebook.issue_id')
+                                ->leftJoin('usages','usages.usage_id', '=', $id.'notebook.usage_id')
                                 ->leftJoin('cages','cages.cage_id', '=', $id.'notebook.cage_id')
                                 ->leftJoin('strains', 'strains.strain_id', '=', 'cages.strain_id')
                                 ->leftJoin('species', 'species.species_id', '=', 'cages.species_id')
-                                ->where($id.'notebook.issue_id', '=', $issId)
+                                ->where($id.'notebook.usage_id', '=', $issId)
                                 ->where($id.'notebook.cage_id', '=', $cagId)
                                 ->select()
                                 ->get();
