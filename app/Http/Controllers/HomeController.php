@@ -95,7 +95,9 @@ class HomeController extends Controller
       */
       //Log::channel('activity')->info('Logged in user [ '.Auth::user()->name.' ] dashboard requested');
       Log::channel('activity')->info('Logged in user [ '.Auth::user()->name.' ] dashboard requested');
-      return view('pi.piHome')->with(['appProjects'=>$appProjects,
+      return view('layouts.home.pi.dashboard')->with([
+                /*
+                'appProjects'=>$appProjects,
                   'subProjects'=>$subProjects,
                   'amendProjects'=>$amendProjects,
                   'expiredProjects'=>$expiredProjects,
@@ -106,6 +108,7 @@ class HomeController extends Controller
                   'actvProjs'=>$actvProjs,
                   'personalTasks'=>$personalTasks,
                   'groupTasks'=> $groupTasks
+                  */
       ]);
     }
 

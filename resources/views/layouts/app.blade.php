@@ -38,8 +38,8 @@
         @include('layouts.menus.strpur')
       @endhasrole
       
-      @hasexactroles('employee')
-        @include('layouts.menus.employee')
+      @hasexactroles('pient')
+        @include('layouts.menus.pient.pient')
       @endhasexactroles
 			<!-- /.Main Sidebar Container -->
 			
