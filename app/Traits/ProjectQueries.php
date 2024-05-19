@@ -44,10 +44,10 @@ trait ProjectQueries
 
   public function checkProjectAllowedOrNot($id)
   {
-    $res = Iaecassent::where('project_id', $id)
+    $res = Iaecassent::where('iaecproject_id', $id)
             ->where('allowed_id', Auth::id())
             ->where('end_date', '>=', date('Y-m-d'))
-            ->where('status', 1)
+            ->where('status', 'active')
             ->get();
 
     if( count($res) == 1 )

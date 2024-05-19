@@ -89,7 +89,7 @@ class IaecProjects extends Component
   		    
         if($this->updateFormD)
         {
-          $this->formD($this->project_id);
+          $this->showFormDInfo($this->project_id);
         }
         if($this->notebookUpdate)
         {
@@ -389,7 +389,7 @@ class IaecProjects extends Component
           $this->images = "";
       }
 
-      public function formD($id)
+      public function showFormDInfo($id)
       {
           if($this->checkProjectAllowedOrNot($id))
           {
@@ -543,7 +543,7 @@ class IaecProjects extends Component
             //$tablename = $id.'formd';
             //$test = Image::where('tablename', $tablename)->get();  
             $this->nbes = DB::table($tablename)
-                            ->leftJoin('issues','issues.issue_id', '=', $tablename.'.issue_id')
+                            ->leftJoin('usages','usages.usage_id', '=', $tablename.'.usage_id')
                             ->leftJoin('cages','cages.cage_id', '=', $tablename.'.cage_id')
                             ->leftJoin('strains', 'strains.strain_id', '=', 'cages.strain_id')
                             ->leftJoin('species', 'species.species_id', '=', 'cages.species_id')

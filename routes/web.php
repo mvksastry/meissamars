@@ -58,6 +58,7 @@ use App\Livewire\CompleteAllottment;
 
 //livewire - Project Management
 use App\Livewire\Iaec\IaecProjects;
+use App\Livewire\Usage\IaecUsage;
 
 //Breeding - Routes
 use App\Http\Controllers\Breeding\BreedingHomeController;
@@ -151,7 +152,7 @@ Route::middleware(['auth','verified'])->group(function() {
     // -- Livewire component -- //
     // -- PI group: Investigator, Researcher, Veternarian and Facility help -- //
     Route::get('iaec-projects', IaecProjects::class);
-
+    Route::get('iaec-usage', IaecUsage::class);
 
 
 
