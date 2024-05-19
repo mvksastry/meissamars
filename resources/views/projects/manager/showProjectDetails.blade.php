@@ -13,7 +13,7 @@
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Project Details</li>
+							<li class="breadcrumb-item active">Project Detailsx</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -148,7 +148,7 @@
                         <td class="text-wrap text-sm">View File</td>
                         <td class="text-wrap text-sm">								
                           <a href="$">
-                            <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs text-gray-900 btn-info">
+                            <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs btn-info">
                               View Project File
                             </button>
                           </a>
@@ -232,86 +232,78 @@
 
               
 
-                    <label class="block text-gray-900 text-sm font-normal mt-6 mb-2" for="end date">
-                      Issue Information
+                    <label class="block text-sm font-normal mt-6 mb-2" for="end date">
+                      Usage Information
                     </label>
-
-                    <table class="w-full p-5 text-gray-700">
+                    <table id="userIndex2" class="table table-sm table-bordered border-primary table-striped table-hover">
                       <tbody>
                         @if(count($issueConfirmed) > 0)
                           <tr>
-                            <td class="text-gray-900 text-xs font-bold"> Date </td>
-                            <td class="text-gray-900 text-xs font-bold"> Issue Id </td>
-                            <td class="text-gray-900 text-xs font-bold"> Strain </td>
-                            <td class="text-gray-900 text-xs font-bold"> Number </td>
-                            <td class="text-gray-900 text-xs font-bold"> Cages </td>
-                            <td class="text-gray-900 text-xs font-bold"> Status </td>
+                            <td class="text-xs font-bold"> Date </td>
+                            <td class="text-xs font-bold"> Issue Id </td>
+                            <td class="text-xs font-bold"> Strain </td>
+                            <td class="text-xs font-bold"> Number </td>
+                            <td class="text-xs font-bold"> Cages </td>
+                            <td class="text-xs font-bold"> Status </td>
                           </tr>
                           
                           @foreach($issueConfirmed as $val)
-                            <tr class="text-gray-900 text-sm font-normal mt-3 mb-4">
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <tr class="text-sm font-normal mt-3 mb-4">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ date('d-m-Y', strtotime($val->status_date)) }}
                               </td>
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ $val->issue_id }}
                               </td>
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ $val->strain->strain_name }}
                               </td>
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ $val->number }}
                               </td>
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ $val->cagenumber }}
                               </td>
-                              <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                              <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ ucfirst($val->issue_status) }}
                               </td>
                             </tr>
                           @endforeach
                         @else
-                          <tr class="text-gray-900 text-sm font-normal mt-3 mb-4">
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                          <tr colspan="6">
+                            <td>
                               Confirmed Usage Entries Not Found.
                             </td>
                           </tr>
                         @endif
 
                         @if(count($issue) > 0)
-                        <tr>
-                          <td class="text-gray-900 text-xs font-bold"> Date </td>
-                          <td class="text-gray-900 text-xs font-bold"> Issue Id </td>
-                          <td class="text-gray-900 text-xs font-bold"> Strain </td>
-                          <td class="text-gray-900 text-xs font-bold"> Number </td>
-                          <td class="text-gray-900 text-xs font-bold"> Cages </td>
-                          <td class="text-gray-900 text-xs font-bold"> Status </td>
-                        </tr>
+                        
                           @foreach($issue as $val)
-                          <tr class="text-gray-900 text-sm font-normal mt-3 mb-4">
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                          <tr>
+                            <td class="text-xs">
                               {{ $val->status_date}}
                             </td>
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <td class="text-xs">
                               {{ $val->issue_id }}
                             </td>
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <td class="text-xs">
                               {{ $val->strain->strain_name }}
                             </td>
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <td class="text-xs">
                               {{ $val->number }}
                             </td>
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <td class="text-xs">
                               {{ $val->cagenumber }}
                             </td>
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                            <td class="text-xs">
                               {{ ucfirst($val->issue_status) }}
                             </td>
                           </tr>
                           @endforeach
                         @else
-                          <tr class="text-gray-800 text-sm font-normal mt-3 mb-4">
-                            <td class="text-gray-900 text-xs mt-1 mb-1 font-normal">
+                          <tr class="text-sm">
+                            <td class="text-xs">
                               Usage Entries Not Found
                             </td>
                           </tr>
@@ -368,8 +360,7 @@
 								<label class="block text-pink-200 text-sm font-normal mt-3 mb-2" for="end date">
 
 								</label>
-
-								<table class="w-full p-5 text-gray-700">
+                <table id="userIndex2" class="table table-bordered table-hover">
 									<tbody>
                     @if(count($formd) > 0)
                       <tr>
@@ -448,9 +439,7 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-
-                  
-										<table id="userIndex2" class="table table-bordered table-hover">
+									<table id="userIndex2" class="table table-bordered table-hover">
                     @if(!empty($cageCost))
 											<thead>
 												<tr bgcolor="#BBDEFB">												
@@ -467,20 +456,19 @@
 											</thead>
 											<tbody>
                         @foreach($cageCost as $val)
-                            <tr bgcolor="#E1BEE7"   data-entry-id="">
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
+                          <tr bgcolor="#E1BEE7"   data-entry-id="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
                         @endforeach
 											</tbody>
-										                   
                     @else
-										No Information to display
+                      No Information to display
                     @endif
 									</table>   
 
