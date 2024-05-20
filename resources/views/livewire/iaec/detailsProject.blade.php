@@ -44,7 +44,8 @@
 								Date Approved
 							</td>
 							<td>
-								{{ $date_approved }}
+                {{ date('d-m-Y', strtotime($date_approved)) }}
+								
 							</td>
 						</tr>
 
@@ -71,7 +72,7 @@
 								File
 							</td>
 							<td>
-								<button wire:click="piprojectDownload('{{ $projfile }}')" class="bg-blue-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-2 rounded">View Projet</button>
+								<button wire:click="piprojectDownload('{{ $projfile }}')" class="btn btn-info rounded">View Projet File</button>
 							</td>
 						</tr>
 					</tbody>
@@ -81,21 +82,21 @@
 	<!-- / End of table Card-->
 </br>
 	<!-- Left Panel Graph Card-->
-    <div class="bg-orange-100 border border-gray-800 rounded shadow">
+    <div class="border rounded shadow">
   		<div class="border-b border-gray-800 p-3">
-        <h5 class="font-bold uppercase text-gray-900">Usage: Strain wise Issue Info</h5>
+        <h5 class="font-bold uppercase">Usage: Strain wise usage info</h5>
   		</div>
 			<div class="p-2">
 				@if(count($issueConfirmed) > 0)
-          <table id="userIndex2" class="table table-bordered table-hover">
+          <table id="userIndex2" class="table table-sm table-bordered table-hover">
 						<thead>
 							<tr>
-								<th> Usage ID </td>
-								<th> Date </td>
-								<th> Strain </td>
-								<th> Number </td>
-								<th> Cages </td>
-								<th> Status </td>
+								<th align="center"> Usage ID </th>
+								<th align="center"> Date </th>
+								<th align="center"> Strain </th>
+								<th align="center"> Number </th>
+								<th align="center"> Cages </th>
+								<th align="center"> Status </th>
 							</tr>
 						</thead>
 						<tbody>
@@ -122,10 +123,13 @@
 						      </td>
 						    </tr>
 							@endforeach
+              <tr>
+        				<td colspan='6' class="text-xs text-left">End of Details</td>
+      				</tr>
 						</tbody>
 					</table>
 				@else
-          <table id="userIndex2" class="table table-bordered table-hover">
+          <table id="userIndex2" class="table table-sm table-bordered table-hover">
 						<thead>
 							<tr>
 								<th> No Entries Found. </td>
@@ -139,16 +143,20 @@
 
       <div class="p-2">
         <div class="content table-responsive table-full-width">
-          <table id="userIndex2" class="table table-bordered table-hover">
+          <table id="userIndex2" class="table table-sm table-bordered table-hover">
 						<thead>
 							<tr>
-	              <th>Strain</td>
-	              <th>Sanctioned <br>(All Years)</td>
-	              <th>Total Consumed <br> (All Years)</td>
-	              <th>Balance (All Years)</td>
-	              <th>Current </br>Year </br>Limit</td>
-	              <th>Current </br>Year </br> Used</td>
-	              <th>Current </br>Year </br> Left</td>
+	              <th rowspan="2" style="vertical-align : middle;text-align:center;">Strain</th>
+	              <th colspan="3" style="vertical-align : middle;text-align:center;">All Years</th>
+	              <th colspan="3" style="vertical-align : middle;text-align:center;">Current Year</th>
+               </tr>
+               <tr>
+	              <td align="center">Sanctioned</td>
+	              <td align="center">Consumed</td>
+	              <td align="center">Balance</td>
+	              <td align="center">Sanctioned</td>
+	              <td align="center">Consumed</td>
+	              <td align="center">Balance</td>
 							<tr>
 						</thead>
 						<tbody>
