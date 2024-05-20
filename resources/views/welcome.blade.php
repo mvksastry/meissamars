@@ -141,7 +141,9 @@
             <div class="cta-inner section-inner">
               <div class="cta-header text-center">
                 <h2 class="section-title mt-0">Get it and Switch</h2>
-                <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                <p class="section-paragraph">Why wait! Make management of your facility
+                a cake-walk. Never to worry of data back-ups or non-upto-date information.
+                Drop us an email.</p>
                 <div class="cta-cta">
                   <a class="button button-primary" href="#">Contact</a>
                 </div>
