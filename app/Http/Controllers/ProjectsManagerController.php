@@ -195,7 +195,7 @@ class ProjectsManagerController extends Controller
     $issue	= Usage::with('strain')->where('iaecproject_id', $id )
                     ->whereIn('issue_status', ['approved', 'issued'])
                     ->get();
-                 
+    //dd($issue);             
     $swc	= $this->consumptionByProjectId($id);
     
     $formd = DB::table($table)->get();

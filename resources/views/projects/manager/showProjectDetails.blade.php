@@ -13,7 +13,7 @@
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Project Detailsx</li>
+							<li class="breadcrumb-item active">Project Details</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -240,7 +240,7 @@
                         @if(count($issueConfirmed) > 0)
                           <tr>
                             <td class="text-xs font-bold"> Date </td>
-                            <td class="text-xs font-bold"> Issue Id </td>
+                            <td class="text-xs font-bold"> Usage Id </td>
                             <td class="text-xs font-bold"> Strain </td>
                             <td class="text-xs font-bold"> Number </td>
                             <td class="text-xs font-bold"> Cages </td>
@@ -253,7 +253,7 @@
                                 {{ date('d-m-Y', strtotime($val->status_date)) }}
                               </td>
                               <td class="text-xs mt-1 mb-1 font-normal">
-                                {{ $val->issue_id }}
+                                {{ $val->usage_id }}
                               </td>
                               <td class="text-xs mt-1 mb-1 font-normal">
                                 {{ $val->strain->strain_name }}
@@ -278,14 +278,13 @@
                         @endif
 
                         @if(count($issue) > 0)
-                        
                           @foreach($issue as $val)
                           <tr>
                             <td class="text-xs">
                               {{ $val->status_date}}
                             </td>
                             <td class="text-xs">
-                              {{ $val->issue_id }}
+                              {{ $val->usage_id }}
                             </td>
                             <td class="text-xs">
                               {{ $val->strain->strain_name }}
