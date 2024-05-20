@@ -270,8 +270,8 @@
                             </tr>
                           @endforeach
                         @else
-                          <tr colspan="6">
-                            <td>
+                          <tr>
+                            <td colspan="6">
                               Confirmed Usage Entries Not Found.
                             </td>
                           </tr>
@@ -301,8 +301,8 @@
                           </tr>
                           @endforeach
                         @else
-                          <tr class="text-sm">
-                            <td class="text-xs">
+                          <tr> 
+                            <td colspan="6" class="text-xs">
                               Usage Entries Not Found
                             </td>
                           </tr>
