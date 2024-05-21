@@ -34,7 +34,7 @@ trait CageTermination
 
     // get the cages that are having same issue id
     // these are same as shown onthe web page
-    $cageIdsx = Cage::where('issue_id', $ex[1])->pluck('cage_id');
+    $cageIdsx = Cage::where('usage_id', $ex[1])->pluck('cage_id');
 
     foreach($cageIdsx as $x)
     {

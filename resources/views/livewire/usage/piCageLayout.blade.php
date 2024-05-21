@@ -18,42 +18,40 @@
     $row_limit = $row; $col_limit = $col; $shelf = 1;
 ?>
 
-<div class="w-1/2 md:w-1/2 p-3">
+<div class="w-1/2 md:w-1/2">
     <div class="bg-orange-100 border border-gray-800 rounded shadow">
         <div class="border-b border-gray-800 p-3">
-            <h5 class="font-bold uppercase text-gray-900">Layout</h5>
+            <h5 class="font-bold uppercase text-gray-900">Layout Information</h5>
         </div>
-        <div class="w-full p-5">
-            <label class="block text-gray-900 text-sm font-bold mt-1 mb-2" for="end date">
-                Layout Information
-            </label>
-            <table class='table-auto mx-auto w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
-      				<thead class="bg-gray-900">
-      					<tr class="text-white text-left">
-      						<th class="font-semibold text-sm uppercase px-6 py-2"> Item </th>
-      						<th class="font-semibold text-sm uppercase px-6 py-2"> Details </th>
+        <div class="w-full p-1">
+            <table id="userIndex2" class="table table-bordered table-sm table-hover">
+            
+      				<thead>
+      					<tr>
+      						<th> Item </th>
+      						<th> Details </th>
       					</tr>
       				</thead>
                 <tbody>
-                    <tr class="border-b bg-purple-100 border-purple-200">
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> Cage Id </td>
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> {{ $cage_id }} </td>
+                    <tr>
+                        <td> Cage Id </td>
+                        <td> {{ $cage_id }} </td>
                     </tr>
-                    <tr class="border-b bg-indigo-100 border-indigo-200">
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> Building </td>
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> XYZ Building </td>
+                    <tr>
+                        <td> Building </td>
+                        <td> XYZ Building </td>
                     </tr>
-                    <tr class="border-b bg-indigo-100 border-indigo-200">
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> Room </td>
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> ABC Room </td>
+                    <tr>
+                        <td> Room </td>
+                        <td> ABC Room </td>
                     </tr>
-                    <tr class="border-b bg-indigo-100 border-indigo-200">
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> Rack Name </td>
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap">{{ $rack_name }} </td>
+                    <tr>
+                        <td> Rack Name </td>
+                        <td>{{ $rack_name }} </td>
                     </tr>
-                    <tr class="border-b bg-green-100 border-green-200">
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap"> Marked Cages </td>
-                        <td class="text-sm text-gray-900 font-medium px-3 py-1 whitespace-nowrap">{{ $markedCages }}</td>
+                    <tr>
+                        <td> Marked Cages </td>
+                        <td>{{ $markedCages }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -91,18 +89,18 @@ for($k = 0; $k < $levels; $k++)
 
                     <span wire:click="markCages('{{ $row['cage_id'] }}')" >
 
-                        <x-button class="btn min-w-15 btn-sm text-sm bg-green-800 text-gray-200 p-1 bg-green-800" data-toggle="popover" title="Cage ID: <?php echo $row['cage_id']; ?>" data-trigger="hover" data-content="Cage ID: <?php echo $row['cage_id']; ?>" >
+                        <button class="btn btn-success rounded p-1" data-toggle="popover" title="Cage ID: <?php echo $row['cage_id']; ?>" data-trigger="hover" data-content="Cage ID: <?php echo $row['cage_id']; ?>" >
 
                             <i class="fa fa-square" aria-hidden="true"></i>
                          <?php echo sprintf("%02d", $row['slot_id'] ); ?>
-                        </x-button>
+                        </button>
                     </span>
 <?php               } else {  ?>
                     <span>
-                        <x-button class="btn min-w-15 btn-sm text-sm bg-orange-700 text-gray-200 p-1" data-toggle="popover" title="Occupied/Other's Cage" data-trigger="hover" data-content="Other's Cage" >
+                        <button class="btn btn-danger rounded p-1" data-toggle="popover" title="Occupied/Other's Cage" data-trigger="hover" data-content="Other's Cage" >
                             <i class="fa fa-square" aria-hidden="false"></i>
                         <?php echo sprintf("%02d", $row['slot_id'] ); ?>
-                        </x-button>
+                        </button>
                     </span>
 <?php           }
                 //echo $seatNo;
@@ -120,11 +118,11 @@ for($k = 0; $k < $levels; $k++)
                     <tr >
                         <td align="center">
                         </br>
-                        <button wire:click="terminateCages()" class="bg-blue-500 hover:bg-blue-700 text-white font-normal py-1 px-1 rounded">
+                        <button wire:click="terminateCages()" class="btn btn-warning rounded">
                         Terminate Marked Cages
                         </button>
 
-                        <button wire:click="clearMarkedCages()" class="bg-orange-500 hover:bg-orange-700 text-white font-normal mx-10 py-1 px-1 rounded">
+                        <button wire:click="clearMarkedCages()" class="btn btn-secondary rounded">
                         Clear Selection
                         </button>
                         </td>
