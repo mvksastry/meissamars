@@ -1,6 +1,6 @@
 	<div class="inline-flex flex-row flex-wrap flex-grow mt-2">
 		<!-- Right Panel Graph Card-->
-    <div class="w-1/2 md:w-1/2 p-3">
+    <div class="w-1/2 md:w-1/2">
     	<div class="bg-orange-100 border border-gray-800 rounded shadow">
      		<div class="border-b border-gray-800 p-3">
      			<h5 class="font-bold uppercase text-gray-900">Issue Request Form</h5>
@@ -10,29 +10,27 @@
 						{{ $irqMessage }}
 					</span>
 				</div>
-        <div class="p-5">
+        <div class="p-1">
 					<div class="">
 						<form>
-            	<table class="table table-hover" align='l'>
+              <table id="userIndex2" class="table table-bordered table-hover">
+            
 								<tr>
          					<td class="text-text-base text-left text-gray-900">Request Id</td>
-									<td class="text-sm text-left text-gray-900"></td>
-									<td class="text-sm text-left text-gray-900">
-										{{ $issue_id }}
+									<td>
+										{{ $usage_id }}
 									</td>
        					</tr>
 								<tr>
-           				<td class="text-text-base text-left text-gray-900">Project Id</td>
-									<td class="text-sm text-left text-gray-900"></td>
-									<td class="text-sm text-left text-gray-900">
-									{{ $project_id }}
+           				<td>Project Id</td>
+									<td>
+									{{ $iaecproject_id }}
 									</td>
        					</tr>
 								<tr>
-           				<td class="text-text-base text-left text-gray-900">Strain</td>
-									<td class="text-sm text-left text-gray-900"></td>
-									<td class="text-sm text-left text-gray-900">
-										<select class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" name="psbi1" id="psbi1" wire:model.lazy="psbi1">
+           				<td>Strain</td>
+									<td>
+										<select class="form-control shadow appearance-none border rounded" name="psbi1" id="psbi1" wire:model.lazy="psbi1">
 										<option value="">Select</option>
 										@foreach($psbi as $val)
 										<option value="{{ $val['species_id'].";".$val['strain_id'] }}">{{ $val['name'] }}</option>
@@ -42,8 +40,6 @@
        					</tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('psbi1')
 											<span class="text-red-500 text-sm">
 											{{ $message }}
@@ -52,12 +48,11 @@
 									</td>
 								</tr>
        					<tr>
-         					<td class="text-base text-left text-gray-900">
+         					<td>
          						Sex
 									</td>
-									<td></td>
 									<td class="text-xs text-left text-gray-900">
-										<select class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" name="sex" id="sex" wire:model.lazy="sex">
+										<select class="form-control shadow appearance-none border rounded" name="sex" id="sex" wire:model.lazy="sex">
 											<option value="">Select</option>
 											<option value="Male">Male</option>
 											<option value="Female">Female</option>
@@ -67,8 +62,6 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('sex')
 											<span class="text-red-500 text-xs">
 											{{ $message }}
@@ -77,19 +70,15 @@
 									</td>
 								</tr>
 								<tr>
-	                <td class="text-base text-left text-gray-900">
+	                <td>
 	                  Age
 	                </td>
-	                <td class="text-xs text-left text-gray-900">
-	                </td>
-	                <td class="text-xs text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="age" placeholder="Age" wire:model="age">
+	                <td>
+										<input type="text" class="form-control shadow appearance-none border rounded" id="age" placeholder="Age" wire:model="age">
 	                </td>
 								</tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('age')
 											<span class="text-red-500 text-xs">
 											{{ $message }}
@@ -98,10 +87,9 @@
 									</td>
 								</tr>
 					      <tr>
-					        <td class="text-base text-left text-gray-900">Age - Unit</td>
-									<td class="text-xs text-left text-gray-900"></td>
-					        <td class="text-xs text-left text-gray-900">
-										<select class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" name="ageunit" id="ageunit" wire:model.lazy="ageunit">
+					        <td>Age - Unit</td>
+					        <td>
+										<select class="form-control shadow appearance-none border rounded" name="ageunit" id="ageunit" wire:model.lazy="ageunit">
 											<option value="">Select</option>
 											<option value="Days">Days</option>
 											<option value="Weeks">Weeks</option>
@@ -111,8 +99,7 @@
 					        </td>
 					      </tr>
 		            <tr>
-									<td colspan="2"></td>
-									<td>
+									<td colspan="2">
 										@error('ageunit')
 											<span class="text-red-500 text-xs">
 												{{ $message }}
@@ -121,34 +108,30 @@
 									</td>
 								</tr>
 								<tr>
-                	<td class="text-base text-left text-gray-900">Required Number</td>
-									<td ></td>
-									<td class="text-base text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="number" placeholder="Number" wire:model="number">
+                	<td>Required Number</td>
+									<td>
+										<input type="text" class="form-control shadow appearance-none border rounded" id="number" placeholder="Number" wire:model="number">
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2"></td>
-									<td>
+									<td colspan="2">
 											@error('number')
-											<span class="text-red-500 text-xs">
+											<span>
 												{{ $message }}
 											</span>
 											@enderror
 									</td>
 								</tr>
 						    <tr>
-						      <td class="text-base text-left text-gray-900">
+						      <td>
 						        Number of Cages
 						      </td>
-						      <td class="text-base text-left text-gray-900"></td>
-						      <td class="text-xs text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="cagenumber" placeholder="Cage Number" wire:model="cagenumber">
+						      <td>
+										<input type="text" class="form-control shadow appearance-none border rounded" id="cagenumber" placeholder="Cage Number" wire:model="cagenumber">
 						      </td>
 						    </tr>
 								<tr>
-									<td colspan="2"></td>
-									<td>
+									<td colspan="2">
 										@error('cagenumber')
 											<span class="text-red-500 text-xs">
 												{{ $message }}
@@ -157,38 +140,32 @@
 									</td>
 								</tr>
 						    <tr>
-						      <td class="text-base text-left text-gray-900">
+						      <td>
 						        Expt Termination
 						      </td>
-						      <td class="text-xs text-left text-gray-900"></td>
-						      <td class="text-xs text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="termination" placeholder="Termination" wire:model="termination">
+						      <td>
+										<input type="text" class="form-control shadow border rounded id="termination" placeholder="Termination" wire:model="termination">
 						      </td>
 						    </tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('termination')
-											<span class="text-red-500 text-xs">
+											<span>
 												{{ $message }}
 											</span>
 										@enderror
 									</td>
 								</tr>
 						    <tr>
-						      <td class="text-base text-left text-gray-900">
+						      <td>
 						        Animal Products
 						      </td>
-						      <td class="text-xs text-left text-gray-900"></td>
-						      <td class="text-xs text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="products" placeholder="Products" wire:model="products">
+						      <td>
+										<input type="text" class="form-control shadow appearance-none border rounded" id="products" placeholder="Products" wire:model="products">
 									</td>
 						    </tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('products')
 											<span class="text-red-500 text-xs">
 												{{ $message }}
@@ -197,42 +174,37 @@
 									</td>
 								</tr>
 						    <tr>
-						      <td class="text-base text-left text-gray-900">Issue Remarks</td>
-						      <td class="text-xs text-left text-gray-900"></td>
-						      <td class="text-xs text-left text-gray-900">
-										<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="remarks" placeholder="Remarks" wire:model="remarks">
+						      <td>Issue Remarks</td>
+						      <td>
+										<input type="text" class="form-control shadow appearance-none border rounded w-full py-2 px-3 mt-2 mb-2 text-base text-gray-900 leading-tight focus:outline-none focus:shadow-outline" id="remarks" placeholder="Remarks" wire:model="remarks">
 						      </td>
 						    </tr>
 								<tr>
 									<td colspan="2">
-									</td>
-									<td>
 										@error('products')
-											<span class="text-red-500 text-xs">
+											<span>
 												{{ $message }}
 											</span>
 										@enderror
 									</td>
 								</tr>
 							  <tr>
-							    <td class="text-xs text-left text-gray-900" colspan="3">
-										<input type="checkbox" class="shadow appearance-none border rounded py-2 px-2  text-base text-gray-200 leading-tight focus:outline-none focus:shadow-outline" id="agree" placeholder="Agree" wire:model="agree" value="1">
+							    <td colspan="2">
+										<input type="checkbox" class="shadow appearance-none border rounded" id="agree" placeholder="Agree" wire:model="agree" value="1">
 							      <label class="mb-5 text-base"for="agree">Have you submitted all reports?</label>
-							    <td></td>
 							  </tr>
 								<tr>
-									<td colspan="2"></td>
-									<td>
+									<td colspan="2">
 										@error('agree')
-											<span class="text-red-500 text-xs">
+											<span>
 												{{ $message }}
 											</span>
 										@enderror
 									</td>
 								</tr>
 						    <tr>
-						      <td class="text-base text-left text-gray-900" colspan="3">
-										<button wire:click.prevent="store()" class="bg-green-900 hover:bg-green-500 text-white font-normal py-2 px-4 mt-8 rounded">Submit</button>
+						      <td colspan="2">
+										<button wire:click.prevent="store()" class="bt btn-success rounded">Submit</button>
 						      </td>
 						    </tr>
             	</table>

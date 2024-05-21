@@ -17,7 +17,6 @@ trait ProjectStrainsById
 	public function fetchProjectStrainsById($id)
 	{
 		$ps = Projectstrains::with('strain')->where('iaecproject_id',$id)->get();
-		
 		foreach($ps as $val)
 		{
 			foreach($val as $x)
