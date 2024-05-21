@@ -22,7 +22,7 @@
 				</li>
         
 				<li class="nav-item">
-					<a href="{{ route('usageapprovals.index') }}" class="nav-link">
+					<a href="/iaec-usage" class="nav-link">
 					  <i class="nav-icon fas fa-copy"></i>
 					  <p>
 						Usage

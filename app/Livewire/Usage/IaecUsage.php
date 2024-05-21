@@ -43,7 +43,7 @@ class IaecUsage extends Component
 
     public $irqMessage;
 
-    public $project_id,$issue_id, $psbi1;
+    public $project_id,$usage_id, $psbi1;
 
     public $strain_name, $sex, $age, $ageunit, $number, $cagenumber;
     public $termination, $products, $remarks, $status_date;
@@ -117,8 +117,8 @@ class IaecUsage extends Component
   	{
 		$this->irqMessage = "";
 		$this->updateMode = true;
-		$issueReq = Issue::with('strain')->where('issue_id', $id)->first();
-		$this->issue_id = $id;
+		$issueReq = Usage::with('strain')->where('usage_id', $id)->first();
+		$this->usage_id = $id;
 		$this->project_id = $issueReq->project_id;
 		$this->strain_name = $issueReq->strain->strain_name;
 
@@ -147,7 +147,7 @@ class IaecUsage extends Component
 		$input['species_id'] = $xs[0];
 		$input['strain_id'] = $xs[1];
 
-		$input['issue_id'] = $this->issue_id;
+		$input['usage_id'] = $this->usage_id;
 		$input['project_id'] = $this->project_id;
 		$input['pi_id'] = Auth::id();
 		$input['sex'] = $this->sex;
@@ -196,14 +196,14 @@ class IaecUsage extends Component
 
   	public function cages($id)
   	{
-		$this->issue_id = $id;
-		$this->cageInfo = Cage::with('slots')
-							->where('issue_id', $id)
-							->get();
-		$this->updateMode = false;
-		$this->cageDetailsPi = false;
-		$this->layoutPiCage = false;
-		$this->cageAndLayout = true;
+      $this->usage_id = $id;
+      $this->cageInfo = Cage::with('slots')
+                ->where('usage_id', $id)
+                ->get();
+      $this->updateMode = false;
+      $this->cageDetailsPi = false;
+      $this->layoutPiCage = false;
+      $this->cageAndLayout = true;
   	}
 
   	public function location($id)
@@ -234,7 +234,7 @@ class IaecUsage extends Component
   	{
 		$exp = explode('_', $id);
 		$cage_id = $exp[0];
-		$issue_id = $exp[1];
+		$usage_id = $exp[1];
 		$this->irqMessage = "Cage Selected is: ".$id;
 		$caInfos = Cage::with('user')
 						->with('strain')
@@ -305,7 +305,7 @@ class IaecUsage extends Component
 			//reduce the animal number by that many
 			$cnotes = $cnotes.'[ '.$numdead." ] dead removed;";
 
-			$input['issue_id'] = $cageIdInfo->issue_id;
+			$input['usage_id'] = $cageIdInfo->usage_id;
 			$input['cage_id'] = $cageIdInfo->cage_id;
 			$input['staff_id'] = Auth::user()->id;
 			$input['staff_name'] = Auth::user()->name;
@@ -367,7 +367,7 @@ class IaecUsage extends Component
   	{
 		$exp = explode('_', $idxz);
 		$cage_id = $exp[0];
-		$issue_id = $exp[1];
+		$usage_id = $exp[1];
 		$this->irqMessage = "Cage Selected is: ".$idxz;
 		$caInfos = Cage::with('user')
 						->with('strain')
@@ -415,11 +415,11 @@ class IaecUsage extends Component
 
   	public function inductRequiredCages($id)
   	{
-		$issue_id = $id;
+		$usage_id = $id;
 
 		$is = Issue::with('user')
 					->with('strain')
-					->where('issue_id', $id)
+					->where('usage_id', $id)
 					->get();
 
 		$isInfx = $is[0];
@@ -455,7 +455,7 @@ class IaecUsage extends Component
 			//table 2. Cages table
 			$newCage = new Cage();
 
-			$newCage->issue_id = $isInfx->issue_id;
+			$newCage->usage_id = $isInfx->usage_id;
 			$newCage->project_id = $isInfx->project_id;
 			$newCage->requested_by = Auth::user()->id;
 			$newCage->species_id = $isInfx->species_id;
@@ -480,7 +480,7 @@ class IaecUsage extends Component
 			$vacantFirst->save();
 
 			//table 3. project notebook table
-			$inNew['issue_id'] = $isInfx->issue_id;
+			$inNew['usage_id'] = $isInfx->usage_id;
 			$inNew['cage_id'] = $newCage->cage_id;
 			$inNew['staff_id'] = Auth::user()->id;;
 			$inNew['staff_name'] = Auth::user()->name;
@@ -521,7 +521,7 @@ class IaecUsage extends Component
 
 		$this->issInfos = Issue::with('user')
 								->with('strain')
-								->where('issue_id', $id)
+								->where('usage_id', $id)
 								->get();
 
 		//dd($this->merged);
@@ -569,7 +569,7 @@ class IaecUsage extends Component
 												->where('status', 'A')
 												->first();
 				$newCage = new Cage();
-				$newCage->issue_id = $caInfos->issue_id;
+				$newCage->usage_id = $caInfos->usage_id;
 				$newCage->project_id = $caInfos->project_id;
 				$newCage->requested_by = Auth::user()->id;
 				$newCage->species_id = $caInfos->species_id;
@@ -596,7 +596,7 @@ class IaecUsage extends Component
 				//make notebook entry
 				$table = $caInfos->project_id.'notebook';
 
-				$inOld['issue_id'] = $caInfos->issue_id;
+				$inOld['usage_id'] = $caInfos->usage_id;
 				$inOld['cage_id'] = $cage_id;
 				$inOld['staff_id'] = Auth::user()->id;;
 				$inOld['staff_name'] = Auth::user()->name;
@@ -611,7 +611,7 @@ class IaecUsage extends Component
 
 				$resOld = DB::table($table)->insert($inOld);
 
-				$inNew['issue_id'] = $caInfos->issue_id;
+				$inNew['usage_id'] = $caInfos->usage_id;
 				$inNew['cage_id'] = $newCage->cage_id;
 				$inNew['staff_id'] = Auth::user()->id;;
 				$inNew['staff_name'] = Auth::user()->name;

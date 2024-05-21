@@ -83,19 +83,19 @@
               									<td>
               										@hasrole('pisg|pient')
               											@if ($row->issue_status == 'submitted' || $row->issue_status == 'confirmed')
-              												<button wire:click="edit({{ $row->issue_id }})" class="btn btn-primary rounded">View/Edit</button>
+              												<button wire:click="edit({{ $row->usage_id }})" class="btn btn-primary rounded">View/Edit</button>
               											@endif
               										@endhasrole
               										
                                   @hasrole('pisg|researcher')
                                     @if ($row->issue_status == 'approved')
-                                      <button wire:click="addNewCages('{{ $row->issue_id }}')" class="btn btn-primary rounded">Add New</button>
+                                      <button wire:click="addNewCages('{{ $row->usage_id }}')" class="btn btn-primary rounded">Add New</button>
                                     @endif
               										@endhasrole
               										
                                   @hasrole('pisg|pient|researcher')
                                     @if ($row->issue_status == 'issued' )
-                                      <button wire:click="cages('{{ $row->issue_id }}')" class="btn btn-primary rounded">Cages</button>
+                                      <button wire:click="cages('{{ $row->usage_id }}')" class="btn btn-primary rounded">Cages</button>
                                     @else
                                       Waiting For Issue
                                     @endif
@@ -126,7 +126,7 @@
 					</section>
         </div>
         <div class="row">
-          <section class="col-lg-12 connectedSortable">
+          <section class="col-lg-6 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
@@ -145,7 +145,11 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-									
+
+ 							@if($cageAndLayout)
+          			@include('livewire.usage.cageInfoLayout')
+          		@endif   
+          		
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -156,6 +160,56 @@
           
 					<!-- /.Left col -->
 					<!-- right col -->
+          <section class="col-lg-6 connectedSortable">
+						<!-- Custom tabs (Charts with tabs)-->
+						<div class="card card-primary card-outline">
+						  <div class="card-header">
+							<h3 class="card-title">
+							  <i class="fas fa-chart-pie mr-1"></i>
+							  Result
+							</h3>
+							<div class="card-tools">
+							  <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item"></li>
+                  <li class="nav-item"></li>
+							  </ul>
+							</div>
+						  </div><!-- /.card-header -->
+						  <div class="card-body">
+							<div class="tab-content p-0">
+								<!-- Morris chart - Sales -->
+								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+                  @if($cageDetailsPi)
+                    @include('livewire.usage.detailsPiCage')
+                  @endif
+
+                  @if($layoutPiCage)
+                    @include('livewire.usage.piCageLayout')
+                  @endif
+
+                  @if($transferCage)
+                    @include('livewire.usage.transferCageNeed')
+                  @endif
+    
+                  @if($cageInduction)
+                    @include('livewire.usage.newCageIssues')
+                  @endif
+                  
+                  @if($updateMode)
+                    @include('livewire.usage.issue-update')
+                  @endif
+								</div>
+							</div>
+						  </div><!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+						<!-- /.card -->
+					</section>         
+          
+          
+          
+          
+          
 				</div><!-- /.row (main row) -->
 			</div><!-- /.container-fluid -->
 		</section>

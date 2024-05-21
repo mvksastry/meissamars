@@ -194,7 +194,7 @@
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                     <table id="userIndex2" class="table table-sm table-bordered border-primary table-striped table-hover">
                       <tr>
-                        <td class="text-wrap text-center" colspan="7">Strain wise Consumption
+                        <td class="text-wrap text-center" colspan="7">Strain wise consumption
                         </td>
                       </tr>
                       <tr>
