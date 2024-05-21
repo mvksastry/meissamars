@@ -28,7 +28,7 @@ trait CageTermination
 
     $ex = explode('_', $id);
     $rackInfo['cage_id'] = $ex[0];
-    $rackInfo['issue_id'] = $ex[1];
+    $rackInfo['usage_id'] = $ex[1];
 
     //dd($ex, $rackInfo);
 

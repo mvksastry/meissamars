@@ -118,7 +118,7 @@ for($k = 0; $k < $levels; $k++)
                     <tr >
                         <td align="center">
                         </br>
-                        <button wire:click="terminateCages()" class="btn btn-warning rounded">
+                        <button wire:click="terminateCages()" class="btn btn-warning rounded mx-3">
                         Terminate Marked Cages
                         </button>
 
