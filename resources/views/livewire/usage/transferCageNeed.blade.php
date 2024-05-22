@@ -1,21 +1,21 @@
 <!--Table Card-->
 	<div class="w-1/2 md:w-1/2">
 		<div class="bg-orange-100 border border-gray-800 rounded shadow">
-			<div class="border-b border-gray-800 p-3">
+			<div class="border-b border-gray-800 p-2">
 				<h5 class="font-bold uppercase text-gray-900">Transfer to New Cage</h5>
 			</div>
 			<div class="p-1">
         <table id="userIndex2" class="table table-bordered table-sm table-hover">
 				
-					<thead class="bg-gray-900">
-						<tr class="text-white text-left">
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Item </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Details </th>
+					<thead>
+						<tr>
+							<th> Item </th>
+							<th> Details </th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($caInfos as $x)
-							<tr class="border-b bg-purple-100 border-purple-200">
+							<tr>
 								<td>Cage Id</td>
 								<td>{{ $x->cage_id }}</td>
 							</tr>
@@ -56,7 +56,7 @@
 							</tr>
 
 						@endforeach
-							<tr class="mt-10">
+							<tr>
 								<td >
 
 										<strong>Animal # to New Cage</strong>
