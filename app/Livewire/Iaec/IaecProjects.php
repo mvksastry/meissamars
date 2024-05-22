@@ -97,7 +97,7 @@ class IaecProjects extends Component
         }
 			
         $actvProjs = $this->allowedProjectIds();
-//dd($actvProjs);
+        //dd($actvProjs);
         //implement here cost, issues and consumption details one by one
         return view('livewire.iaec.iaec-projects')->with(['actvProjs'=>$actvProjs]);
   		}
@@ -549,7 +549,6 @@ class IaecProjects extends Component
                             ->leftJoin('species', 'species.species_id', '=', 'cages.species_id')
                             ->select()
                             ->get();
-            
         }
         else {
         return view('livewire.permError');

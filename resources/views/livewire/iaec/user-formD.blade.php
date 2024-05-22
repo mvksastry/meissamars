@@ -1,10 +1,10 @@
     <!--Table Card-->
-    <div class="w-full p-3">
+    <div class="w-full">
       <div class="bg-orange-100 border border-gray-800 rounded shadow">
-        <div class="border-b border-gray-800 p-3">
+        <div class="border-b border-gray-800">
             <h5 class="font-bold uppercase text-gray-900">Form-D</h5>
         </div>
-        <div class="p-5">
+        <div class="p-1">
           <table id="userIndex2" class="table table-bordered table-hover">
             <thead>
               <tr>
@@ -56,10 +56,10 @@
           </table>
         </div>
     
-    		<div class="border-b border-gray-800 p-3">
+    		<div class="border-b border-gray-800 p-1">
     			<h5 class="font-bold uppercase text-gray-900">Detailed Entries</h5>
     		</div>
-    		<div class="p-5">
+    		<div class="p-1">
     			@if(count($nbes) > 0 )
     				<table id="userIndex2" class="table table-bordered table-hover">
     					<thead>
@@ -67,9 +67,9 @@
     							<th> Select </th>
     							<th> AV Inf </th>
     							<th> Entered By </th>
-    							<th> Date </br> Entry </th>
-    							<th> Issue Id </th>
-    							<th> Cage Id </th>
+    							<th> Entry </br> Date </th>
+    							<th> Usage ID </th>
+    							<th> Cage ID </th>
     							<th> Animal # </th>
     							<th> Details </th>
     							<th> Expt. Date </th>
@@ -78,15 +78,15 @@
     					</thead>
     					<tbody>
     						@foreach($nbes as $row)
-    							<?php $ixd = $row->project_id."_".$row->issue_id."_".$row->cage_id;?>
+    							<?php $ixd = $row->iaecproject_id."_".$row->usage_id."_".$row->cage_id;?>
     							<tr>
     								<td>
-    									<button wire:click="nbUpdate('{{ $ixd }}')" class="bg-blue-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-2  mx-3 rounded">Update</button>
+    									<button wire:click="nbUpdate('{{ $ixd }}')" class="btn btn-info btn-sm rounded">Update</button>
     								</td>
     								<td>{{ ucfirst($row->av_info) }}</td>
     								<td>{{ Auth::user()->name }}</td>
     								<td>{{ $row->entry_date }}</td>
-    								<td>{{ $row->issue_id }}</td>
+    								<td>{{ $row->usage_id }}</td>
     								<td>{{ $row->cage_id }}</td>
     								<td>{{ $row->number_animals }}</td>
     								<td>{{ $row->species_name }};{{ $row->strain_name }};{{ $row->sex }};{{ $row->age }}- {{ $row->ageunit }}</td>

@@ -1,45 +1,45 @@
 <!--Table Card-->
-<div class="w-full p-3">
+<div class="w-full">
 	<div class="bg-orange-100 border border-gray-800 rounded shadow">
 		<div class="border-b border-gray-800 p-3">
   		<h5 class="font-bold uppercase text-gray-900">Cost as on {{ date('d-m-Y') }}* (Experiments may be in progress)</h5>
 		</div>
-		<div class="p-5">
+		<div class="p-2">
 			@if(!empty($ic))
-				<table class='table-auto mx-auto w-full whitespace-wrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
-					<thead class="bg-gray-900">
-						<tr class="text-white text-left">
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Project ID </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Cage ID </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> From </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> To* </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Days </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Price </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Cost* </th>
+        <table id="userIndex2" class="table table-bordered table-sm table-hover">
+					<thead>
+						<tr>
+							<th> Project ID </th>
+							<th> Cage ID </th>
+							<th> From </th>
+							<th> To* </th>
+							<th> Days </th>
+							<th> Price </th>
+							<th> Cost* </th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($ic as $val)
-							<tr class="border-b bg-indigo-100 border-indigo-200">
-								<td class="text-sm text-gray-900 font-medium px-8 py-4">
+							<tr>
+								<td>
 									{{ $val[1] }}
     						  	</td>
-    						  	<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    						  	<td>
     									{{ $val[0] }}
     						  	</td>
-    						  	<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    						  	<td>
     									{{ date('d-m-Y', strtotime($val[2])) }}
     						  	</td>
-    						  	<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    						  	<td>
     									{{ date('d-m-Y', strtotime($val[3])) }}
     						  	</td>
-    						  	<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    						  	<td>
     									{{ $val[4] }}
     						  	</td>
-    								<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    								<td>
     									&#x20B9; {{ $val[5] }}
     						  	</td>
-    								<td class="text-sm text-gray-900 font-medium px-6 py-4">
+    								<td>
     									&#x20B9;  {{ number_format((float)$val[6], 2, '.', '') }}
     						  	</td>
 							</tr>
@@ -47,7 +47,7 @@
 					</tbody>
 				</table>
 			@else
-				<table class='table-auto mx-auto w-full whitespace-wrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
+				<table id="userIndex2" class="table table-bordered table-sm  table-hover">
 					<thead class="bg-gray-900">
 						<tr class="text-white text-left">
 							<th class="font-semibold text-sm uppercase px-12 py-2"> No Entries Found</th>
@@ -65,24 +65,24 @@
 
 			</br>
 			@if(!empty($pc))
-				<table class='table-auto mx-auto w-full whitespace-wrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
-					<thead class="bg-gray-900">
-						<tr class="text-white text-left">
-							<th class="font-semibold text-sm uppercase px-12 py-2"> Project ID </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Total Cages </th>
-							<th class="font-semibold text-sm uppercase px-6 py-2"> Cost* </th>
+				<table id="userIndex2" class="table table-bordered table-sm table-hover">
+					<thead>
+						<tr>
+							<th> Project ID </th>
+							<th> Total Cages </th>
+							<th> Cost* </th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($pc as $x)
-							<tr class="border-b bg-indigo-100 border-indigo-200">
-								<td class="px-12 text-sm text-gray-900 font-medium px-3 py-1">
+							<tr>
+								<td>
 								{{ $x[0] }}
 								</td>
-						  	<td class="px-6 text-sm text-gray-900 font-medium px-3 py-1">
+						  	<td>
 								{{ $x[1] }}
 						  	</td>
-						  	<td class="text-sm text-gray-900 font-medium px-3 py-1">
+						  	<td>
 								&#x20B9; {{ number_format((float)$x[2], 2, '.', '') }}
 						  	</td>
 							</tr>
@@ -90,15 +90,15 @@
 					</tbody>
 				</table>
 			@else
-				<table class='table-auto mx-auto w-full whitespace-wrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
-					<thead class="bg-gray-900">
-						<tr class="text-white text-left">
-							<th class="font-semibold text-lg uppercase px-12 py-2"> No Entries Found </th>
+				<table id="userIndex2" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th> No Entries Found </th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="border-b bg-indigo-100 border-indigo-200">
-							<td class="text-sm text-gray-900 font-medium px-3 py-1"></td>
+						<tr>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
