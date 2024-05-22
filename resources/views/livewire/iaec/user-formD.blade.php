@@ -1,9 +1,6 @@
     <!--Table Card-->
     <div class="w-full">
       <div class="bg-orange-100 border border-gray-800 rounded shadow">
-        <div class="border-b border-gray-800">
-            <h5 class="font-bold uppercase text-gray-900">Form-D</h5>
-        </div>
         <div class="p-1">
           <table id="userIndex2" class="table table-bordered table-hover">
             <thead>
@@ -57,7 +54,7 @@
         </div>
     
     		<div class="border-b border-gray-800 p-1">
-    			<h5 class="font-bold uppercase text-gray-900">Detailed Entries</h5>
+    			<h6 class="font-bold uppercase text-gray-900">Details</h6>
     		</div>
     		<div class="p-1">
     			@if(count($nbes) > 0 )
