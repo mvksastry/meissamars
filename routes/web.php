@@ -8,13 +8,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DownloadController;
 
+//-------------------------------------------------------//
 //kanban
 use App\Http\Controllers\KanbanController;
 use App\Http\Controllers\KanbanBoardsController;
 use App\Http\Controllers\KanbanCardsController;
 
+//-------------------------------------------------------//
+//Events
 use App\Http\Controllers\EventController;
-
 use App\Http\Controllers\CalendarController;
 
 //-------------------------------------------------------//
@@ -23,16 +25,15 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\IaecProjectSubmissionController;
 use App\Http\Controllers\EditIAECProjectController;
 
+//-------------------------------------------------------//
 // Manager specific
 use App\Http\Controllers\ProjectsManagerController;
 use App\Http\Controllers\UsageApprovalController;
 
-// Super Admin and Manager specific
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
 
 
+//-------------------------------------------------------//
+// Manager and Manager specific
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\StrainManagementController;
 
@@ -57,12 +58,22 @@ use App\Livewire\Reorganize;
 use App\Livewire\CompleteAllottment;
 
 //livewire - Project Management
+use App\Http\Controllers\Breeding\Cvhome\CVHomeController;
+use App\Http\Controllers\Breeding\Cvhome\ColonyHomeController;
+
+//livewire - Project Management
 use App\Livewire\Iaec\IaecProjects;
 use App\Livewire\Usage\IaecUsage;
 
 //Breeding - Routes
 use App\Http\Controllers\Breeding\BreedingHomeController;
 
+
+//-------------------------------------------------------//
+// Super Admin and Manager specific
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -202,6 +213,25 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('reorganize', Reorganize::class);
     Route::get('occupancy', Occupancy::class);
     Route::get('comp-allot', CompleteAllottment::class);
+
+
+
+
+
+
+
+    // -- CV Terms Manager -- //
+    Route::get('cv-terms-home', CVHomeController::class);
+    Route::get('colony-home', ColonyHomeController::class);
+
+
+
+
+
+
+
+
+
 
 
 
