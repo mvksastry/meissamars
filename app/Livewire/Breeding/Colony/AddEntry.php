@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Breeding;
+namespace App\Livewire\Breeding\Colony;
 
 use Livewire\Component;
 
@@ -75,7 +75,7 @@ class AddEntry extends Component
     //$this->cmsg = $this->cageInfos;
     $this->LiveNewTagCheck($this->tagBase);
 
-        return view('livewire.breeding.add-entry')
+        return view('livewire.breeding.colony.add-entry')
                 ->extends('layouts.breeding');
   }
 
