@@ -29,7 +29,7 @@
 		<section class="content">
 			<div class="container-fluid">
         @hasrole('manager')
-					@include('livewire.occupancy.flexMenuOccupancy')
+					@include('livewire.occupancy.flexMenuColony')
 				@endhasrole
 				
 				<!-- Main row -->

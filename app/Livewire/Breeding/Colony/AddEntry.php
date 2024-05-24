@@ -18,20 +18,20 @@ use App\Models\Slot;
 use App\Models\Rack;
 use App\Models\Room;
 
-use App\Models\Breeding\CVSpecies;
-use App\Models\Breeding\Usescheduleterm;
-use App\Models\Breeding\CVProtocol;
-use App\Models\Breeding\Strain;
-use App\Models\Breeding\CVGeneration;
-use App\Models\Breeding\CVPhenotype;
-use App\Models\Breeding\Lifestatus;
+use App\Models\Breeding\Cvterms\CVSpecies;
+use App\Models\Breeding\Cvterms\Usescheduleterm;
+use App\Models\Breeding\Cvterms\CVProtocol;
+use App\Models\Breeding\Cvterms\Strain;
+use App\Models\Breeding\Cvterms\CVGeneration;
+use App\Models\Breeding\Cvterms\CVPhenotype;
+use App\Models\Breeding\Cvterms\Lifestatus;
 //use App\Models\Breeding\Room;
-use App\Models\Breeding\CVCoatcolor;
-use App\Models\Breeding\CVDiet;
-use App\Models\Breeding\Owner;
-use App\Models\Breeding\CVOrigin;
-use App\Models\Breeding\Container;
-use App\Models\Breeding\Mouse;
+use App\Models\Breeding\Cvterms\CVCoatcolor;
+use App\Models\Breeding\Cvterms\CVDiet;
+use App\Models\Breeding\Cvterms\Owner;
+use App\Models\Breeding\Cvterms\CVOrigin;
+use App\Models\Breeding\Cvterms\Container;
+use App\Models\Breeding\Colony\Mouse;
 
 use App\Traits\Breed\BAddMice;
 use App\Traits\Breed\BContainer;
@@ -75,8 +75,7 @@ class AddEntry extends Component
     //$this->cmsg = $this->cageInfos;
     $this->LiveNewTagCheck($this->tagBase);
 
-        return view('livewire.breeding.colony.add-entry')
-                ->extends('layouts.breeding');
+        return view('livewire.breeding.colony.add-entry');
   }
 
 	public function show($id)
