@@ -75,6 +75,44 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 
+
+//livewire - Breeding/Colnoy management CV terms
+use App\Livewire\Breeding\Cvterms\Approvedmatingstraincomp;
+use App\Livewire\Breeding\Cvterms\Causeofdeathcomp;
+use App\Livewire\Breeding\Cvterms\Coatcolorcomp;
+use App\Livewire\Breeding\Cvterms\Dietcomp;
+use App\Livewire\Breeding\Cvterms\Gclass;
+use App\Livewire\Breeding\Cvterms\Genecomp;
+use App\Livewire\Breeding\Cvterms\Generationcomp;
+use App\Livewire\Breeding\Cvterms\GenotypeSpecimenLocationcomp;
+use App\Livewire\Breeding\Cvterms\Lifestatuscomp;
+use App\Livewire\Breeding\Cvterms\Mouseorigincomp;
+use App\Livewire\Breeding\Cvterms\Mouseusecomp;
+use App\Livewire\Breeding\Cvterms\Phenotypecomp;
+use App\Livewire\Breeding\Cvterms\Straincomp;
+use App\Livewire\Breeding\Cvterms\Strainstatuscomp;
+use App\Livewire\Breeding\Cvterms\Straintypecomp;
+//-------------------------------------------------------//
+
+//livewire - Breeding/Colnoy management
+use App\Livewire\Breeding\Colony\AddEntry;
+use App\Livewire\Breeding\Colony\EditEntry;
+use App\Livewire\Breeding\Colony\AddMating;
+use App\Livewire\Breeding\Colony\EditMating;
+use App\Livewire\Breeding\Colony\AddLitter;
+use App\Livewire\Breeding\Colony\EditLitter;
+//-------------------------------------------------------//
+
+//Livewiere - Search Engines
+use App\Livewire\Breeding\Searches\Searchmice;
+use App\Livewire\Breeding\Searches\Searchmatings;
+use App\Livewire\Breeding\Searches\Searchlitter;
+use App\Livewire\Breeding\Searches\Searchcages;
+use App\Livewire\Breeding\Searches\Searchbcages;
+use App\Livewire\Breeding\Searches\Searchplugdates;
+//-------------------------------------------------------//
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -226,7 +264,42 @@ Route::middleware(['auth','verified'])->group(function() {
 
 
 
-
+        // Breeding - Livewire CV Terms
+        Route::get('/genecomp', Genecomp::class);
+        Route::get('/gclass', Gclass::class);
+        Route::get('/genotypespecimenlocation', GenotypeSpecimenLocationcomp::class);
+        Route::get('/approvedmatingstrain', Approvedmatingstraincomp::class);
+        Route::get('/causeofdeath', Causeofdeathcomp::class);
+        Route::get('/coatcolor', Coatcolorcomp::class);
+        Route::get('/diet', Dietcomp::class);
+        Route::get('/generation', Generationcomp::class);
+        Route::get('/lifestatus', Lifestatuscomp::class);
+        Route::get('/mouseorigin', Mouseorigincomp::class);
+        Route::get('/mouseuse', Mouseusecomp::class);
+        Route::get('/phenotype', Phenotypecomp::class);
+        Route::get('/strain', Straincomp::class);
+        Route::get('/strainstatus', Strainstatuscomp::class);
+        Route::get('/straintype', Straintypecomp::class);
+        //Route::get('/useschedule', Useschedule::class);
+        // -------------- //
+        
+        // Breeding - Livewire Colony Routes
+        Route::get('/add-entry', AddEntry::class);
+        Route::get('/edit-entry', EditEntry::class);
+        Route::get('/add-mating', AddMating::class);
+        Route::get('/edit-mating', EditMating::class);
+        Route::get('/add-litter', AddLitter::class);
+        Route::get('/edit-litter', EditLitter::class);
+        // -------------- //
+        
+        // Breeding - Livewire Search engine
+        Route::get('/searchmice', Searchmice::class);
+        Route::get('/searchmatings', Searchmatings::class);
+        Route::get('/searchlitter', Searchlitter::class);
+        Route::get('/searchcages', Searchcages::class);
+        Route::get('/searchbcages', Searchbcages::class);
+        Route::get('/searchplugdates', Searchplugdates::class);
+        // -------------- //
 
 
 
