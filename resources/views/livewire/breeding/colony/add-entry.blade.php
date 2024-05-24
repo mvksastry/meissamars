@@ -29,7 +29,7 @@
 		<section class="content">
 			<div class="container-fluid">
         @hasrole('manager')
-					@include('livewire.occupancy.flexMenuColony')
+					@include('livewire.breeding.colony.flexMenuColony')
 				@endhasrole
 				
 				<!-- Main row -->
@@ -59,10 +59,6 @@
                         <table id="userIndex2" class="table table-bordered table-hover">
                           <thead>
                             <tr>
-                              <th> ID </th>
-                              <th> Title </th>
-                              <th> Status </th>
-                              <th> Action</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -70,15 +66,15 @@
                               <tr>
                                 <td>
                                   <p class="">  </p>
+                                  <button wire:click="show({{ 1 }})">
+                                        <img class="species_id m-4" id ="MC" name="MC" src="{{ asset('/storage/colony/mouse.png') }}" alt="" width="65px" height="65px">
+                                  </button>
+      			
                                 </td>
                                 <td>
-                                    <p>  </p>
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-
+                                    <p> <button wire:click="show({{ 4 }})">
+                                          <img class="species_id m-4" id ="RT" name="RT" src="{{ asset('/storage/colony/rat.png') }}" alt="" width="55px" height="55px">
+                                    </button> </p>
                                 </td>
                               </tr>
                             
@@ -124,7 +120,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-									
+									@if($showEntryForm)
+                       @include('livewire.breeding.entryDetailForm')
+                   @endif
 								</div>
 							</div>
 						  </div><!-- /.card-body -->

@@ -2,7 +2,39 @@
   <div class="row">
     
     <!-- .col -->
-    <div class="col-lg-2 col-6">
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h4>EDIT ENTRY</h4>
+          <p>Cages</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
+        </div>
+        <a href="/edit-entry" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+   
+    <!-- .col -->
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h4>EDIT MATING</h4>
+          <p>Cages</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
+        </div>
+        <a href="/edit-mating" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+
+    <!-- .col -->
+    <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
@@ -16,11 +48,23 @@
       </div>
     </div>
     <!-- ./col -->
-   
 
-
-
-
+    <!-- .col -->
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h4>RESHUFFLE</h4>
+          <p>Cages</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
+        </div>
+        <a href="/reorganize" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    
   <!-- ./col -->
   </div> <!-- /.Small boxes end -->
   <!-- /.row -->
