@@ -52,10 +52,10 @@
 							Room
 						</td>
 						<td class="p-1">
-							<select wire:model.lazy="cageRooms" name="cageRooms" id="cageRooms" multiple>
+							<select wire:model.lazy="cageRooms" name="cageRooms" id="cageRooms">
                 <option value="-1"></option>
                   @foreach($rooms as $item)
-                    <option value="{{ $item->_room_key }}">{{ $item->roomName }}</option>
+                    <option value="{{ $item->room_id }}">{{ $item->room_name }}</option>
                   @endforeach
               </select>
 						</td>

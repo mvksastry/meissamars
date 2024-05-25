@@ -1,10 +1,8 @@
-<div class="w-1/2 md-1/2 p-3">
+<div class="w-1/2 md-1/2 p-1">
 	<div class="bg-purple-100 border border-gray-800 rounded shadow">
-		<div class="border-b border-gray-800 p-3">
-			<h5 class="font-bold uppercase text-gray-600">New Cage</h5>
-		</div>
-		<div class="p-5">
-			<table class="w-full p-5 text-xs text-gray-800">
+		
+		<div class="p-2">
+			<table class="w-full p-1 text-xs text-gray-800">
 
 				<thead>
 					<div id="iaMessage">
@@ -15,10 +13,10 @@
 				<tbody>
 
 					<tr>
-                		<td class="p-1">
+            <td class="p-1">
 							Cage ID*
-                		</td>
-                		<td class="p-1">
+            </td>
+            <td class="p-1">
 							<input wire:model.lazy="cageChars" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" type="text" name="cageChars" id="cageChars" >
 							<input wire:model.lazy="nextCageId" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" value="true" type="checkbox" checked name="nextCageId" id="nextCageId" > Use Next ID
 						</td>
@@ -39,11 +37,11 @@
 						</td>
 						<td class="p-1">
 							<select wire:model.lazy="cageStatus" name="cageStatus" id="cageStatus" multiple>
-                            <option value="-1"></option>
-                            <option value="2">Active</option>
-                            <option value="3">Proposed</option>
-							<option value="4">Retired</option>
-                        	</select>
+                <option value="-1"></option>
+                <option value="2">Active</option>
+                <option value="3">Proposed</option>
+                <option value="4">Retired</option>
+              </select>
 						</td>
 					</tr>
 
@@ -52,7 +50,7 @@
 							Date
 						</td>
 						<td class="p-1">
-							<input wire:model.lazy="datex" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" type="text" name="datex" id="datex" >
+							<input wire:model.lazy="datex" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" type="text" name="datex" id="datex">
 						</td>
 					</tr>
 
@@ -61,13 +59,13 @@
 							Room
 						</td>
 						<td class="p-1">
-							<select wire:model.lazy="cageRooms" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" name="cageRooms" id="cageRooms" multiple>
-                            <option value="-1"></option>
-							@foreach($rooms as $item)
-								<option value="{{ $item->_room_key }}">{{ $item->roomName }}</option>
-							@endforeach
-                        	</select>
-                		</td >
+							<select wire:model.lazy="cageRooms" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" name="cageRooms" id="cageRooms">
+                <option value="-1"></option>
+                  @foreach($rooms as $item)
+                    <option value="{{ $item->room_id }}">{{ $item->room_name }}</option>
+                  @endforeach
+              </select>
+            </td >
 					</tr>
 
 					<tr>
@@ -77,7 +75,7 @@
 						<td class="p-1">
 							<textarea wire:model.lazy="cageComment" rows="3"></textarea>
 						</td>
-              		</tr>
+          </tr>
 
 					<tr>
 						<td colspan="2">
@@ -93,7 +91,7 @@
 						<td class="p-1">
 							<button wire:click="closeNewCage()" class="btn btn-primary rounded">Close</button>
 						</td>
-              		</tr>
+          </tr>
 				</tbody>
 			</table>
 		</div>
