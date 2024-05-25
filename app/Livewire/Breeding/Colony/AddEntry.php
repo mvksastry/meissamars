@@ -82,7 +82,9 @@ class AddEntry extends Component
 	{
 		if($id == 1) { $this->iaMessage = "Selected Mice"; }
 		if($id == 4) { $this->iaMessage = "Selected Rat"; }
-
+    if($id == 3) { $this->iaMessage = "Selected Rabbit"; }
+		if($id == 5) { $this->iaMessage = "Selected Guniea Pig"; }
+    
 		$q1 = CVSpecies::where('_species_key', $id)->first();
 		$this->speciesKey = $q1->_species_key;
 		$this->speciesName = $q1->species;

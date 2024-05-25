@@ -1,14 +1,14 @@
 <div class="w-full md-1/2">
 	<div class="bg-purple-100 border border-gray-800 rounded shadow">
-		<div class="border-b border-gray-800 p-3">
-			<h5 class="font-bold uppercase text-gray-600">Details:
+		<div class="border-b border-gray-800 p-3" id="iaMessage">
+			<h5 class="font-bold uppercase text-gray-600">Details: <font color="blue"> {{ $iaMessage }}</font>
 			</h5>
 		</div>
 		<div class="p-1">
 			<table class="w-full p-5 text-lg-bold text-gray-800">
 				<thead>
 					<div id="iaMessage">
-						{{ $iaMessage }}
+						
 					</div>
 				</thead>
 				<tbody>
@@ -61,7 +61,7 @@
               </select>
             </td>
 						<td>
-							<button wire:target.prevent="littersel" class="bg-blue-400 hover:bg-blue-600 text-white font-normal ml-1 mt-1 py-1 px-2 rounded">Select Litter</button>
+							<button wire:target.prevent="littersel" class="btn btn-primary btn-sm rounded">Select Litter</button>
 							Or Enter#
 						</td>
 						<td>
@@ -175,10 +175,10 @@
             </td>
 
             <td >
-              <button wire:target.prevent="cagesel" class="bg-blue-400 hover:bg-blue-600 text-white font-normal ml-1 mt-1 py-1 px-2 rounded">Select Cage</button>
+              <button wire:target.prevent="cagesel" class="btn btn-primary btn-sm rounded">Select Cage</button>
             </td >
             <td>
-              <button wire:target.prevent="cagenew" class="bg-blue-400 hover:bg-blue-600 text-white font-normal ml-1 mt-1 py-1 px-2 rounded">New Cage</button>
+              <button wire:target.prevent="cagenew" class="btn btn-primary btn-sm rounded">New Cage</button>
           </tr>
 					<tr bgcolor="#EAEDED">
             <td class="p-2">
@@ -342,13 +342,13 @@
            	</td>
 						<td>
 							@if($addToCageFlag)
-							<button wire:click="post()" class="bg-green-200 hover:bg-green-500 text-white font-normal mt-2 py-2 px-4 rounded">Enter</button>
+							<button wire:click="post()" class="btn btn-primary rounded">Enter</button>
 							@else
 
 							@endif
 						</td>
 						<td>
-							<button wire:target.prevent="resetForm()" class="bg-red-200 hover:bg-red-600 text-white font-normal ml-10 mt-2 py-2 px-4 rounded">Cancel</button>
+							<button wire:target.prevent="resetForm()" class="btn btn-primary rounded">Cancel</button>
 						</td>
          	</tr>
 				</tbody>

@@ -53,45 +53,21 @@
 						  <div class="card-body">
                 <div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                    <div class="table-responsive">
-                      
-                        <table id="userIndex2" class="table table-bordered table-hover">
-                          <thead>
-                            <tr>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            
-                              <tr>
-                                <td>
-                                  <p class="">  </p>
-                                  <button wire:click="show({{ 1 }})">
-                                        <img class="species_id m-4" id ="MC" name="MC" src="{{ asset('/storage/colony/mouse.png') }}" alt="" width="65px" height="65px">
-                                  </button>
-      			
-                                </td>
-                                <td>
-                                    <p> <button wire:click="show({{ 4 }})">
-                                          <img class="species_id m-4" id ="RT" name="RT" src="{{ asset('/storage/colony/rat.png') }}" alt="" width="55px" height="55px">
-                                    </button> </p>
-                                </td>
-                              </tr>
-                            
-                          </tbody>
-                        </table>
-                     
-                        <table class='table-auto mx-auto w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
-                          <thead class="bg-gray-900">
-                            <tr class="text-white text-left">
-                              <th class="font-semibold text-sm uppercase px-6 py-4"> No Data Found </th>
-                            </tr>
-                          </thead>
-                          <tbody>                          
-                          </tbody>
-                        </table>
-                      
-                    </div>
+                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
+                    <div class="p-2">
+                      <button wire:click="show({{ 1 }})">  
+                        <img class="species_id m-4" id ="MC" name="MC" src="{{ asset('/storage/colony/mouse.png') }}" alt="" width="55px" height="55px">
+                      </button>
+                      <button wire:click="show({{ 4 }})">
+                        <img class="species_id m-4" id ="RT" name="RT" src="{{ asset('/storage/colony/rat.png') }}" alt="" width="55px" height="55px">
+                      </button> 
+                      <button wire:click="show({{ 3 }})">
+                        <img class="species_id m-4" id ="RB" name="RB" src="{{ asset('/storage/colony/rabbit.png') }}" alt="" width="55px" height="55px">
+                      </button>
+                      <button wire:click="show({{ 5 }})">
+                        <img class="species_id m-4" id ="GP" name="GP" src="{{ asset('/storage/colony/gpig.png') }}" alt="" width="55px" height="55px">
+                      </button>
+                    </div>         
                   </div>
                 </div>
 						  </div><!-- /.card-body -->
