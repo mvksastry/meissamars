@@ -121,7 +121,7 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 									@if($showEntryForm)
-                       @include('livewire.breeding.entryDetailForm')
+                       @include('livewire.breeding.colony.entryDetailForm2')
                    @endif
 								</div>
 							</div>
