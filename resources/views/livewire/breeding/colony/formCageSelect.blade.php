@@ -5,26 +5,22 @@
 		</div>
 		<div class="p-2">
 			<table class="w-full p-5 text-xs text-gray-800">
-
 				<thead>
 					<div id="iaMessage">
-
 					</div>
 				</thead>
-
 				<tbody>
 					<tr>
-                		<td class="p-1">
+            <td class="p-1">
 							Cage ID*
-                		</td>
-                		<td class="p-1">
+            </td>
+            <td class="p-1">
 							<select wire:model.lazy="cageParams" name="paramcage" id="paramcage" multiple>
-                            <option value="-1"></option>
-                            <option value="equals">Equals</option>
-                            <option value="greater than">Greater than</option>
-							<option value="less than">Less than</option>
-                        	</select>
-
+                <option value="-1"></option>
+                <option value="equals">Equals</option>
+                <option value="greater than">Greater than</option>
+                <option value="less than">Less than</option>
+              </select>
 							<input wire:model.lazy="cageChars" style="background-color:#EAEDED; font-weight: bold; font-size: 12px;" type="text" name="cageChars" id="cageChars" >
 						</td>
 					</tr>
@@ -43,11 +39,11 @@
 						</td>
 						<td class="p-1">
 							<select wire:model.lazy="cageStatus" name="cageStatus" id="cageStatus" multiple>
-                            <option value="-1"></option>
-                            <option value="active">Active</option>
-                            <option value="proposed">Proposed</option>
-							<option value="retired">Retired</option>
-                        	</select>
+                <option value="-1"></option>
+                <option value="active">Active</option>
+                <option value="proposed">Proposed</option>
+                <option value="retired">Retired</option>
+              </select>
 						</td>
 					</tr>
 
@@ -57,21 +53,21 @@
 						</td>
 						<td class="p-1">
 							<select wire:model.lazy="cageRooms" name="cageRooms" id="cageRooms" multiple>
-                            <option value="-1"></option>
-							@foreach($rooms as $item)
-								<option value="{{ $item->_room_key }}">{{ $item->roomName }}</option>
-							@endforeach
-                        	</select>
+                <option value="-1"></option>
+                  @foreach($rooms as $item)
+                    <option value="{{ $item->_room_key }}">{{ $item->roomName }}</option>
+                  @endforeach
+              </select>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button wire:click="searchCage()" class="bg-green-200 hover:bg-green-500 text-white font-normal mt-8 py-2 px-4 rounded">Search</button>
+							<button wire:click="searchCage()" class="btn btn-primary rounded">Search</button>
 						</td>
 						<td>
-							<button wire:click="closeSearchCage()" class="bg-red-200 hover:bg-red-500 text-white font-normal mt-8 py-2 px-4 rounded">Close</button>
+							<button wire:click="closeSearchCage()" class="btn btn-primary rounded">Close</button>
 						</td>
-              		</tr>
+          </tr>
 				</tbody>
 			</table>
 		</div>

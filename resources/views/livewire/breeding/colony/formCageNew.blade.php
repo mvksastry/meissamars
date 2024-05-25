@@ -88,10 +88,10 @@
 					</tr>
 					<tr>
 						<td class="p-1">
-							<button wire:click="addNewCage()" class="bg-green-200 hover:bg-green-500 text-white font-normal mt-8 py-2 px-4 rounded">Add Cage</button>
+							<button wire:click="addNewCage()" class="btn btn-primary rounded">Add Cage</button>
 						</td>
 						<td class="p-1">
-							<button wire:click="closeNewCage()" class="bg-red-200 hover:bg-red-500 text-white font-normal mt-8 py-2 px-4 rounded">Close</button>
+							<button wire:click="closeNewCage()" class="btn btn-primary rounded">Close</button>
 						</td>
               		</tr>
 				</tbody>
