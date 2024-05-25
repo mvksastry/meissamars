@@ -4,7 +4,7 @@
 			<h5 class="font-bold uppercase text-gray-600" >Details: <font color="blue">{{ $iaMessage }}</font>
 			</h5>
 		</div>
-		<div class="p-2 text-xs-bold">
+		<div class="p-1 text-xs-bold">
 			<table class="w-full p-5 text-xs-bold text-gray-800" style="font-size: 12px;">
 				<thead>
 				</thead>

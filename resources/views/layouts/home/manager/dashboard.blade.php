@@ -46,44 +46,45 @@
                 </div>
               </div>
               <div class="card-body">
-                <table id="userIndex2" class="table table-bordered table-hover">
-											<thead>
-												<tr bgcolor="#BBCEFB">												
-													<th colspan="6"  style="text-align:center;">
-                          Facility at a glance
-                          </th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr bgcolor="#BBDEFB">												
-													<td style="text-align:left;">
-                            Building
-                          </td>
-													<td>{{ $bldgName}}</td>
-                          <td>Floors</td>
-													<td>
-                            @foreach($floorNames as $name)
-                            {{ $name->floor_name }}
-                            </br>
-                            @endforeach
-                          </td>
-													<td>Rooms</td>
-													<td>@foreach($roomNames as $name)
-                            {{ $name->room_name }}
-                            </br>
-                            @endforeach</td>
-												</tr>
-                        <tr bgcolor="#E1BEE7"   data-entry-id="">
-                          <td>Racks</td>
-                          <td>{{ $totalRacks }}</td>
-                          <td>Slots Occupied</td>
-                          <td>{{ $occupiedSlots }}</td>
-                          <td>Slots Avalilable</td>
-                          <td>{{ $slotsAvailable }}</td>
-                        </tr>
-																	
-											</tbody>
-										</table>                  
+                <div class="table-responsive">
+                  <table id="userIndex2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr bgcolor="#BBCEFB">												
+                        <th colspan="6"  style="text-align:center;">
+                        Facility at a glance
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr bgcolor="#BBDEFB">												
+                        <td style="text-align:left;">
+                          Building
+                        </td>
+                        <td>{{ $bldgName}}</td>
+                        <td>Floors</td>
+                        <td>
+                          @foreach($floorNames as $name)
+                          {{ $name->floor_name }}
+                          </br>
+                          @endforeach
+                        </td>
+                        <td>Rooms</td>
+                        <td>@foreach($roomNames as $name)
+                          {{ $name->room_name }}
+                          </br>
+                          @endforeach</td>
+                      </tr>
+                      <tr bgcolor="#E1BEE7"   data-entry-id="">
+                        <td>Racks</td>
+                        <td>{{ $totalRacks }}</td>
+                        <td>Slots Occupied</td>
+                        <td>{{ $occupiedSlots }}</td>
+                        <td>Slots Avalilable</td>
+                        <td>{{ $slotsAvailable }}</td>
+                      </tr>
+                    </tbody>
+                  </table>  
+                </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
