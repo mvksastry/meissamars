@@ -144,7 +144,7 @@
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
                     <div class="p-2">
                       @if($entrySearchResult)
-                          @include('livewire.breeding.searchResultsForMating')
+                          @include('livewire.breeding.colony.searchResultsForMating')
                       @endif
                     </div>         
                   </div>
