@@ -2,6 +2,8 @@
 
 namespace App\Models\Breeding\Colony;
 
+use App\Models\Breeding\Cvterms\Strain;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Permission;

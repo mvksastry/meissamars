@@ -160,7 +160,11 @@ class AddMating extends Component
       $exr = explode('_', $speciesName);
 
       $this->species_name = $speciesName;
-      if( $exr[0] == "Mice" ){ $_species_key = 1; }
+      if( $exr[0] == "Mice" )     { $_species_key = 1; }
+      if( $exr[0] == "Rat" )      { $_species_key = 2; }
+      if( $exr[0] == "Rabbit" )   { $_species_key = 3; }
+      if( $exr[0] == "Guinea_Pig"){ $_species_key = 4; }
+      
       $this->searchFor = $exr[1];
       $this->strains = Strain::where('_species_key', $_species_key)->get();
       $this->generations = CVGeneration::all();

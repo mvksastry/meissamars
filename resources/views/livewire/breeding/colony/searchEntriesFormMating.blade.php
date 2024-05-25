@@ -117,7 +117,7 @@
 
 				<tr>
 					<td>
-						<button wire:click="pullDetails()" class="bg-blue-400 hover:bg-blue-600 text-white font-normal ml-1 mt-1 py-1 px-2 rounded">Pull Entries</button>
+						<button wire:click="pullDetails()" class="btn btn-info rounded">Pull Entries</button>
 					</td.
 				</tr>
 
