@@ -41,7 +41,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Active Projects
+							  Active Species
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -92,10 +92,6 @@
 			</div><!-- /.container-fluid -->
 		</section>
 		<!-- Main content -->
-    
-    
-
-
 
 		<section class="content">
 			<div class="container-fluid">
@@ -138,11 +134,7 @@
 			</div><!-- /.container-fluid -->
 		</section>
 		<!-- Main content -->    
-    
-    
-    
-    
-    
+
 		<section class="content">
 			<div class="container-fluid">
 				
@@ -183,8 +175,7 @@
         </div>
       </div>
     </section>
-        
-        
+   
 		<section class="content">
 			<div class="container-fluid">
 				        
@@ -219,7 +210,6 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-
 
           <section class="col-lg-6 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
@@ -259,18 +249,6 @@
 			</div><!-- /.container-fluid -->
 		</section>
 		<!-- Main content -->    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <!-- / End of Left Panel Graph Card-->
 	</div>
 </div>

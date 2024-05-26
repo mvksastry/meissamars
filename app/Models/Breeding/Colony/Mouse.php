@@ -3,6 +3,14 @@
 namespace App\Models\Breeding\Colony;
 
 use App\Models\Breeding\Cvterms\Strain;
+use App\Models\Breeding\Cvterms\CVProtocol;
+use App\Models\Breeding\Cvterms\CVGeneration;
+use App\Models\Breeding\Cvterms\Lifestatus;
+
+use App\Models\Breeding\Cvterms\CVOrigin;
+use App\Models\Breeding\Cvterms\Owner;
+use App\Models\Breeding\Cvterms\Container;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

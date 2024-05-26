@@ -31,17 +31,16 @@
         @hasrole('manager')
 					@include('livewire.breeding.colony.flexMenuColony')
 				@endhasrole
-				
 				<!-- Main row -->
 				<div class="row">
 					<!-- Left col -->
-					<section class="col-lg-12 connectedSortable">
+					<section class="col-lg-5 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Active Projects
+							  Active Species
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -55,15 +54,14 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-        </div>
-        <div class="row">
-          <section class="col-lg-12 connectedSortable">
+          
+          <section class="col-lg-7 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Result
+							  Search Litter Entries
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -76,11 +74,84 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-									@if($showEntryForm)
-                       @include('livewire.breeding.colony.entryDetailForm2')
-                   @endif
+									
 								</div>
 							</div>
+						  </div><!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+						<!-- /.card -->
+					</section>
+        </div>
+      </div>
+    </section>
+        
+    <section class="content">
+			<div class="container-fluid">
+				<!-- Main row -->
+				<div class="row">
+					<!-- Left col -->
+					<section class="col-lg-12 connectedSortable">
+						<!-- Custom tabs (Charts with tabs)-->
+						<div class="card card-primary card-outline">
+						  <div class="card-header">
+							<h3 class="card-title">
+							  <i class="fas fa-chart-pie mr-1"></i>
+							  Litter Search Results
+							</h3>
+							<div class="card-tools">
+							  <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item"></li>
+                  <li class="nav-item"></li>
+							  </ul>
+							</div>
+						  </div><!-- /.card-header -->
+						  <div class="card-body">
+                <div class="tab-content p-0">
+								<!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
+                    <div class="p-2">
+                      
+                    </div>         
+                  </div>
+                </div>
+						  </div><!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+						<!-- /.card -->
+					</section>
+        </div>
+			</div><!-- /.container-fluid -->
+		</section>
+		<!-- Main content -->    
+
+    <section class="content">
+			<div class="container-fluid">        
+        <div class="row">
+          <section class="col-lg-12 connectedSortable">
+						<!-- Custom tabs (Charts with tabs)-->
+						<div class="card card-primary card-outline">
+						  <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Result
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                  </ul>
+                </div>
+						  </div><!-- /.card-header -->
+						  <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+                      @if($showEntryForm)
+                         @include('livewire.breeding.colony.entryDetailForm2')
+                      @endif
+                  </div>
+                </div>
 						  </div><!-- /.card-body -->
 						</div>
 						<!-- /.card -->
@@ -94,5 +165,5 @@
 		</section>
 		<!-- Main content -->
     <!-- / End of Left Panel Graph Card-->
-	</div>
+  </div>
 </div>
