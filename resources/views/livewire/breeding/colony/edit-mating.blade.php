@@ -61,7 +61,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Search Species Entries
+							  Search Mating Entries
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -74,7 +74,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-									
+									@if($showSearchMatingEntryForm)
+                    @include('livewire.breeding.colony.searchMatingEntryForm')
+                  @endif
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -111,7 +113,9 @@
 								<!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
                     <div class="p-2">
-                      
+                      @if($searchResultsMating)
+                           @include('livewire.breeding.colony.matingSearchResults')
+                      @endif
                     </div>         
                   </div>
                 </div>
@@ -147,7 +151,9 @@
                 <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                      
+                      @if($displayEditMatingForm)
+             @include('livewire.breeding.colony.formEditMatingEntry')
+        @endif
                   </div>
                 </div>
 						  </div><!-- /.card-body -->

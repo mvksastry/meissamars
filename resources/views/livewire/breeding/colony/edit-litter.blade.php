@@ -74,7 +74,9 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-									
+                  @if($searchLitterEntryForm)
+                    @include('livewire.breeding.colony.formSearchLitterEntries')
+                  @endif
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -111,7 +113,9 @@
 								<!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
                     <div class="p-2">
-                      
+                      @if($srchResForLitter)
+                        @include('livewire.breeding.colony.searchResultsForLitter')
+                      @endif
                     </div>         
                   </div>
                 </div>
@@ -147,7 +151,9 @@
                 <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                      
+                    @if($displayLitterForm)
+                      @include('livewire.breeding.colony.litterDetailForm')
+                    @endif                      
                   </div>
                 </div>
 						  </div><!-- /.card-body -->

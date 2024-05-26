@@ -1,9 +1,5 @@
 
 	<div class="bg-purple-100 border border-gray-800 rounded shadow">
-		<div class="border-b border-gray-800 p-4">
-			<h5 class="font-bold uppercase text-gray-600">Search Entry</h5>
-		</div>
-
 		<div class="p-2">
 			<table class="text-xs">
 				<tr>
