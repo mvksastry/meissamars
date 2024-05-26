@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use DateTime;
-use App\Traits\Breed\Bbase;
+use App\Traits\Breed\BBase;
 use App\Traits\Breed\BCVTerms;
 
 
@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Log;
 
 trait BManageLitter
 {
-    use Bbase, BCVTerms;
+    use BBase, BCVTerms;
 
 	    /* Before addition, we must do the following.
        1. First add a cage to the system.

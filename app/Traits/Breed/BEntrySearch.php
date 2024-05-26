@@ -12,7 +12,7 @@ use App\Traits\Breed\BCVTerms;
 
 trait BEntrySearch
 {
-    use Bbase, BCVTerms;
+    use BBase, BCVTerms;
 
 
 	public function searchEntry($input)

@@ -13,7 +13,7 @@ use App\Traits\Breed\BCVTerms;
 
 trait BMatingSearch
 {
-  use Bbase, BCVTerms;
+  use BBase, BCVTerms;
 
 
 	public function searchMatings($input)

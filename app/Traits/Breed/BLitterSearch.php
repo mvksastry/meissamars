@@ -12,7 +12,7 @@ use App\Traits\Breed\BCVTerms;
 
 trait BLitterSearch
 {
-  use Bbase, BCVTerms;
+  use BBase, BCVTerms;
 
 	public function searchLiiterEntries($input)
     {

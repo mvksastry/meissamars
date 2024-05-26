@@ -12,7 +12,7 @@ use App\Traits\Breed\BEntrySearch;
 
 trait BEditMice
 {
-  use Bbase;
+  use BBase;
   use BEntrySearch;
 
   public    $entrySearchResult = false;

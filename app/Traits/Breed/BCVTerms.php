@@ -17,7 +17,7 @@ use App\Traits\Breed\BBase;
 
 trait BCVTerms
 {
-  use Bbase;
+  use BBase;
 
 	public function findAllSex()
     {

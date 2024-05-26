@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use DateTime;
-use App\Traits\Breed\Bbase;
+use App\Traits\Breed\BBase;
 use App\Traits\Breed\BCVTerms;
 
 use App\Models\Breeding\Cvterms\Container;
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Log;
 
 trait BContainer
 {
-    use Bbase;
+    use BBase;
 
 	use BCVTerms;
 
