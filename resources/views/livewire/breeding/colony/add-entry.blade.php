@@ -9,12 +9,12 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1 class="m-0">Colony: Home</h1>
+						<h1 class="m-0">Colony: Entry</h1>
 					</div><!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Colony</a></li>
-							<li class="breadcrumb-item active">Home</li>
+							<li class="breadcrumb-item active">Entry</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -56,16 +56,16 @@
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">                   
                     <div class="p-2">
                       <button wire:click="show({{ 1 }})">  
-                        <img class="species_id m-4" id ="MC" name="MC" src="{{ asset('/storage/colony/mouse.png') }}" alt="" width="55px" height="55px">
+                        <img class="species_id m-1" id ="MC" name="MC" src="{{ asset('/storage/colony/mouse.png') }}" alt="" width="55px" height="55px">
                       </button>
                       <button wire:click="show({{ 4 }})">
-                        <img class="species_id m-4" id ="RT" name="RT" src="{{ asset('/storage/colony/rat.png') }}" alt="" width="55px" height="55px">
+                        <img class="species_id m-1" id ="RT" name="RT" src="{{ asset('/storage/colony/rat.png') }}" alt="" width="55px" height="55px">
                       </button> 
                       <button wire:click="show({{ 3 }})">
-                        <img class="species_id m-4" id ="RB" name="RB" src="{{ asset('/storage/colony/rabbit.png') }}" alt="" width="55px" height="55px">
+                        <img class="species_id m-1" id ="RB" name="RB" src="{{ asset('/storage/colony/rabbit.png') }}" alt="" width="55px" height="55px">
                       </button>
                       <button wire:click="show({{ 5 }})">
-                        <img class="species_id m-4" id ="GP" name="GP" src="{{ asset('/storage/colony/gpig.png') }}" alt="" width="55px" height="55px">
+                        <img class="species_id m-1" id ="GP" name="GP" src="{{ asset('/storage/colony/gpig.png') }}" alt="" width="55px" height="55px">
                       </button>
                     </div>         
                   </div>
