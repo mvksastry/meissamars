@@ -10,10 +10,10 @@ use DateTime;
 use App\Traits\Breed\Bbase;
 use App\Traits\Breed\BCVTerms;
 
-use App\Models\Breeding\Mouse;
-use App\Models\Breeding\Phenotypemouselink;
-use App\Models\Breeding\Usescheduleterm;
-use App\Models\Breeding\Useschedule;
+use App\Models\Breeding\Colony\Mouse;
+use App\Models\Breeding\Cvterms\Phenotypemouselink;
+use App\Models\Breeding\Cvterms\Usescheduleterm;
+use App\Models\Breeding\Cvterms\Useschedule;
 
 use Illuminate\Support\Facades\Log;
 
@@ -104,14 +104,14 @@ public function addMice($input)
     }
 
 
-	if(empty($phenotypes_Selected))
-	{
-		$phenotypes_Selected = array();
-	}
-    if(empty($use_schedulSelected))
-	{
-		$use_schedulSelected  = array();
-	}
+    if(empty($phenotypes_Selected))
+    {
+      $phenotypes_Selected = array();
+    }
+      if(empty($use_schedulSelected))
+    {
+      $use_schedulSelected  = array();
+    }
     if(empty($_litter_key))
     {
       $_litter_key = null;
@@ -213,7 +213,7 @@ public function addMice($input)
 	       Log::channel('coding')->info('array ready for insert, before try');
            //Stage 5. insert
            //dd($newMouseEntry);
-try {
+    try {
           $version = 1;
           //the following three lines are needed for edit not for first posting.
           //$phenotypeKeysInDB   = $this->getPhenotypeKeysMatchingMouseKey($mouse_key);

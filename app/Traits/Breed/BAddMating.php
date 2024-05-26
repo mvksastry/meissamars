@@ -10,9 +10,9 @@ use DateTime;
 use App\Traits\Breed\Bbase;
 use App\Traits\Breed\BCVTerms;
 
-use App\Models\Breeding\Mouse;
-use App\Models\Breeding\Mating;
-use App\Models\Breeding\Matingunitlink;
+use App\Models\Breeding\Colony\Mouse;
+use App\Models\Breeding\Colony\Mating;
+use App\Models\Breeding\Cvterms\Matingunitlink;
 
 use Illuminate\Support\Facades\Log;
 

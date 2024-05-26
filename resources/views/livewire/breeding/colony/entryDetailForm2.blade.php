@@ -179,6 +179,7 @@
             </td >
             <td>
               <button wire:target.prevent="cagenew" class="btn btn-primary btn-sm rounded">New Cage</button>
+            </td>  
           </tr>
 					<tr bgcolor="#EAEDED">
             <td class="p-2">

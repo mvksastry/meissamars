@@ -11,12 +11,12 @@ use App\Traits\Breed\Bbase;
 use App\Traits\Breed\BCVTerms;
 
 
-use App\Models\Breeding\Mouse;
-use App\Models\Breeding\Mating;
-use App\Models\Breeding\Litter;
-use App\Models\Breeding\Phenotypemouselink;
-use App\Models\Breeding\Usescheduleterm;
-use App\Models\Breeding\Useschedule;
+use App\Models\Breeding\Colon\Mouse;
+use App\Models\Breeding\Colon\Mating;
+use App\Models\Breeding\Colon\Litter;
+use App\Models\Breeding\Cvterms\Phenotypemouselink;
+use App\Models\Breeding\Cvterms\Usescheduleterm;
+use App\Models\Breeding\Cvterms\Useschedule;
 
 
 

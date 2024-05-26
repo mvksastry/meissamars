@@ -10,8 +10,8 @@ use DateTime;
 use App\Traits\Breed\Bbase;
 use App\Traits\Breed\BCVTerms;
 
-use App\Models\Breeding\Container;
-use App\Models\Breeding\Containerhistory;
+use App\Models\Breeding\Cvterms\Container;
+use App\Models\Breeding\Cvterms\Containerhistory;
 use Illuminate\Support\Facades\Log;
 
 trait BContainer
@@ -35,7 +35,7 @@ trait BContainer
 
         $newContainerhistory = new Containerhistory();
 
-        $newContainerhistory->_room_key = $input['cageRooms'];
+        $newContainerhistory->_room_key = $input['_room_key'];
         $newContainerhistory->_container_key = $newContainer->_container_key;
         $newContainerhistory->actionDate = $input['datex'];
         $newContainerhistory->_containerStatus_key = $input['cageStatus'];

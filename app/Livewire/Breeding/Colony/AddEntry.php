@@ -142,9 +142,9 @@ class AddEntry extends Component
 		//$this->validate(['lifeStatus' => 'required|numeric']);
 		$input['_breedingStatus_key'] = $this->_breedingStatus_key;
 		//$this->validate(['_breedingStatus_key' => 'required|numeric']);
-		//$input['cage_id'] = $this->cage_id;
+		$input['cage_id'] = $this->cage_id;
 		//$this->validate(['cage_id' => 'required|numeric']);
-		$input['_room_key'] = $this->_room_key;
+		$input['_room_key'] = $this->room_id; // changed by ks
 		//$this->validate(['_room_key' => 'required|numeric']);
 		$input['_coatColor_key'] = $this->_coatColor_key;
 		//$this->validate(['_coatColor_key' => 'required|numeric']);
@@ -225,8 +225,9 @@ class AddEntry extends Component
 		$input['cageName'] = $this->speciesIdcode;
 		$input['cageStatus'] = 2; //suppose 2 refers Active, 3 Proposed, 4 Retired
 		$input['datex'] = date('Y-m-d');
-		$input['cageRooms'] = $this->_room_key;
+		$input['_room_key'] = $this->room_id; //ks changed iton 26may2024
 		$input['cageComment'] = "New Cage Id [ ".$input['cage_id']." ] Inserted";
+ 
 		if($this->addNew($input))
 		{
 		    //check for empty slot first before returning true
