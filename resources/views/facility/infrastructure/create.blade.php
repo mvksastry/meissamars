@@ -167,7 +167,7 @@
                             <label for="exampleInputBorderWidth2">Location Building*</label>
                             <input class="form-control form-control-border" name="building" value="{{ old('building') }}" type="text" placeholder="Building">
                             @if($errors->has('building'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('building') }}
                                 </p>
                             @endif
@@ -176,7 +176,7 @@
                             <label for="exampleInputBorderWidth2">Floor*</label>
                             <input class="form-control form-control-border" name="floor" type="text" value="{{ old('floor') }}" placeholder="Floor">
                             @if($errors->has('floor'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('floor') }}
                                 </p>
                             @endif
@@ -185,7 +185,7 @@
                             <label for="exampleInputBorderWidth2">Room*</label>
                             <input class="form-control form-control-border" name="room" type="text" value="{{ old('room') }}" placeholder="Room">
                             @if($errors->has('room'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('room') }}
                                 </p>
                             @endif
@@ -197,7 +197,7 @@
                             <label for="exampleInputBorderWidth2">AMC*</label>
                             <input class="form-control form-control-border" name="amc" type="text" value="{{ old('amc') }}" placeholder="AMC">
                             @if($errors->has('amc'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('amc') }}
                                 </p>
                             @endif
@@ -206,7 +206,7 @@
                             <label for="exampleInputBorderWidth2">AMC Strat*</label>
                             <input class="form-control form-control-border" name="amcstart" type="date" value="{{ old('amcstart') }}" placeholder="AMC Start">
                             @if($errors->has('amcstart'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('amcstart') }}
                                 </p>
                             @endif
@@ -215,7 +215,7 @@
                             <label for="exampleInputBorderWidth2">AMC End*</label>
                             <input class="form-control form-control-border" name="amcend" type="date" value="{{ old('amcend') }}" placeholder="AMC End">
                             @if($errors->has('amcend'))
-                                <p class="help-block text-red-900">
+                                <p class="help-block text-danger">
                                   {{ $errors->first('amcend') }}
                                 </p>
                             @endif
@@ -227,7 +227,7 @@
                           <input class="form-control form-control-border" 
                           name="supervisor" type="text" value="{{ old('supervisor') }}" placeholder="Supervisor">                            
                           @if($errors->has('supervisor'))
-                              <p class="help-block text-red-900">
+                              <p class="help-block text-danger">
                                 {{ $errors->first('supervisor') }}
                               </p>
                           @endif

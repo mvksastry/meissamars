@@ -53,38 +53,37 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
-
+                  @if(count($infras) > 0)
 
 									
 										<table id="userIndex2" class="table table-bordered table-hover">
 											<thead>
 												<tr bgcolor="#BBDEFB">												
 													<th style="text-align:center;">
-                          <input type="checkbox" id="select-all" />
+                          Name/</br> Nick Name
                           </th>
-													<th></th>
-                          <th></th>
-													<th></th>
-													<th></th>
-													<th></th>
+													<th>Make / Model</th>
+                          <th>Vendor</th>
+													<th>AMC</th>
+													<th>Status</th>
+													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												
+											@foreach($infras as $row)	
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{  $row->name }}/ </br> {{ $row->nickName }}</td>
+                            <td>{{  $row->make }}/ </br> {{ $row->model }}</td>
+                            <td>{{  $row->vendor_address }}/ </br> {{ $row->vendor_phone }}/ </br> {{ $row->vendor_email }}</td>
+                            <td>{{  $row->amc }}/ </br> {{ $row->amc_start }}/ </br> {{ $row->amc_end }}</td>
+                            <td>{{  $row->status }}</td>
                           </tr>
-																	
+											@endforeach						
 											</tbody>
 										</table>                      
-									
+									@else
 										No Information to display
-									
+									@endif
 
 								</div>
 							</div>

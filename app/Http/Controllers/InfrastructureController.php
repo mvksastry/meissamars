@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Models\Infrastructure;
 
-use App\Http\Requests\InfrastructureFormRequest;
+use App\Http\Requests\Infra\InfraFormRequest;
 
 use App;
 use File;
+
+use App\Traits\Infrasave;
 
 use Carbon\Carbon;
 use Illuminate\Log\Logger;
@@ -17,13 +19,15 @@ use Log;
 
 class InfrastructureController extends Controller
 {
+  use Infrasave;
+  
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $infra = Infrastructure::all();
-        return view('facility.infrastructure.index')->with('infra', $infra);
+        $infras = Infrastructure::all();
+        return view('facility.infrastructure.index')->with('infras', $infras);
     }
 
     /**
@@ -37,10 +41,10 @@ class InfrastructureController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InfraFormRequest $request)
     {
         $input = $request->all();
-
+        /*
         $infra = new Infrastructure();
         $infra->name = $input['name'];
         $infra->nickName = $input['nickname'];
@@ -61,7 +65,9 @@ class InfrastructureController extends Controller
         //dd($infra);
 
         $result = $infra->save();
-
+        */
+        $result = $this->save_infra_item($input);
+        
         return redirect()->route('infrastructure.index')
             ->with('flash_message',
              'Infrastructure entry successfully added.');
