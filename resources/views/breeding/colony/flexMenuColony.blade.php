@@ -3,7 +3,7 @@
     
     <!-- .col -->
     
-    <div class="card-body row">
+    <div class="card-body row p-3">
       <div class="col-md-3">
       <a href="/add-entry" class="small-box-footer">
         <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-bell"></i> ADD MICE</button>

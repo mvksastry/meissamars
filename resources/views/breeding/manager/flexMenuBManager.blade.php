@@ -6,8 +6,8 @@
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
-          <h5>CV Terms</h5>
-          <p>...</p>
+          <h5>CV</h5>
+          <p>Terms</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -23,8 +23,8 @@
       <div class="small-box bg-info">
         <div class="inner">
           <!-- h3><sup style="font-size: 20px"></sup></h3 -->
-          <h5>COLONY HOME</h5>
-          <p>...</p>
+          <h5>COLONY</h5>
+          <p>Home</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>

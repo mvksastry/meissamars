@@ -24,7 +24,7 @@
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
-          <h5>ADD MATING</h5>
+          <h5>ADD MAT'G</h5>
           <p>Cages</p>
         </div>
         <div class="icon">

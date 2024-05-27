@@ -28,6 +28,7 @@
   
   <!-- fullCalendar -->
   <link rel="stylesheet" href="{{asset('assets/plugins/fullcalendar/main.css')}}">
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
   
@@ -41,7 +42,8 @@
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
   <!-- link rel="stylesheet" href="{{asset('assets/dist/css/custom.css')}}" -->
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{asset('assets/plugins/ionicons/iconic.css')}}">
+  <!-- link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" -->
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{asset('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- JQVMap -->
