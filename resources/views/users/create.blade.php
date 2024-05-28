@@ -10,12 +10,12 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1 class="m-0">Home: Edit User</h1>
+						<h1 class="m-0">Home: New User</h1>
 					</div><!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Edit User</li>
+							<li class="breadcrumb-item active">New User</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -54,11 +54,83 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <form method="POST" action="{{ route('users.update', $user->id) }}" enctype ="multipart/form-data">
-                    @method('PUT')
+                  <form method="POST" action="{{ route('users.store') }}" enctype ="multipart/form-data">
                     @csrf
-                   <!-- project data entry form -->
+                    <!-- project data entry form -->
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">Name*</label>
+                      <input type="text" class="form-control form-control-border" 
+                      name="name" id="name" placeholder="Name">
+                      @if($errors->has('name'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('name') }}
+                        </p>
+                      @endif
+                    </div>
                     
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">Email*</label>
+                      <input type="text" class="form-control form-control-border" 
+                      name="email" id="email" placeholder="Email">
+                      @if($errors->has('email'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('email') }}
+                        </p>
+                      @endif
+                    </div>
+
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">password*</label>
+                      <input type="text" class="form-control form-control-border" 
+                      name="password" id="password" value="secret1234" placeholder="Password">
+                      @if($errors->has('password'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('password') }}
+                        </p>
+                      @endif
+                    </div>  
+                    
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">Start Date*</label>
+                      <input type="date" class="form-control form-control-border" 
+                      name="start_date" id="start_date" placeholder="Start Date">
+                      @if($errors->has('start_date'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('start_date') }}
+                        </p>
+                      @endif
+                    </div>                     
+
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">End Date*</label>
+                      <input type="date" class="form-control form-control-border" 
+                      name="end_date" id="end_date" placeholder="End Date">
+                      @if($errors->has('end_date'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('end_date') }}
+                        </p>
+                      @endif
+                    </div>                     
+                    
+                    <div class="col-xs-12 form-group">
+                      <label for="exampleInputBorderWidth2">Role*</label>
+                      <select class="form-control shadow border rounded" name="role" id="role">
+                        <option value="researcher">Researcher</option>
+                        <option value="facility_help">Facility Help</option>
+                        <option value="tech_help">Facility Help</option>
+                        <option value="guest">Guest</option>
+                      </select>
+                      @if($errors->has('role'))
+                        <p class="help-block text-danger">
+                          {{ $errors->first('role') }}
+                        </p>
+                      @endif
+                    </div>
+                          
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                         
                     <!-- end of project data entry form -->
                   </form>
 								</div>

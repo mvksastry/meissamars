@@ -43,7 +43,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -51,7 +51,66 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      if( Auth::user()->hasRole('manager|superadmin') )
+  		{
+      		$newUser = $request->all();
+           
+            Validator::make($newUser, [
+                'name' => ['required', 'string', 'max:55'],
+                'email' => ['required', 'string', 'email', 'max:55', 'unique:users'],
+                'start_date' => ['required', 'date'],
+                'end_date' => ['required', 'after:start_date'],
+            ])->validate();
+    
+            switch ($newUser['role']) {
+              case "Principle Investigator":
+                  $newUser['role'] = 'pient'; //user's table
+                break;
+              case "manager":
+                  $newUser['role'] = 'manager';
+                break;
+              default:
+                $newUser['role'] = 'guest';
+            }
+    
+            $newUser['folder'] = $this->generateCode(15); //added by ks
+    
+            //$newUser['password'] = $this->generateCode(10);
+            $newUser['password'] = "secret1234"; //should be loggable
+            
+            $uuid = Str::uuid()->toString();
+
+            //dd($uuid, $newUser);
+            $newUserResult = User::create([
+                'name'        => $newUser['name'],
+                'email'       => $newUser['email'],
+                'password'    => Hash::make($newUser['password']),
+                'folder'      => $newUser['folder'],
+                'role'        => $newUser['role'],
+                'uuid'        => $uuid,
+                'start_date'  => $newUser['st_date'],
+                'expiry_date' => $newUser['end_date'],
+            ]);
+            
+            //dd($newUser, $newUserResult);
+            // now assign Role
+            $newUserResult->assignRole('manager');
+    
+            //now send mail to the newly registered user using registered event
+            event(new Registered($newUserResult));
+    
+            //$users = $this->activeUsers();
+            //dd($users);
+            $users = User::whereNotIn('role', ['superadmin','manager'])->get();
+            return view('users.index')->with([
+                        'users'=> $users]);
+  		}
+        else {
+          return view('norole.noroleHome');
+        }
+        
+        
+        
     }
 
     /**
@@ -81,6 +140,8 @@ class UsersController extends Controller
     {
       $input = $request->all();
       //dd($id, $input);
+      $input = $request->only('password', 'inactivate');
+      $input['password'] = Hash::make($input['password']);
     }
 
     /**

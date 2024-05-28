@@ -1,4 +1,4 @@
-				<li class="nav-header">OFFICE ROLE</li>
+				<li class="nav-header">ADMINISTRATIVE</li>
         
 			  <li class="nav-item">
           <a href="#" class="nav-link">
@@ -14,7 +14,7 @@
             <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Employees</p>
+              <p>Authorization</p>
             </a>
             </li>
             
