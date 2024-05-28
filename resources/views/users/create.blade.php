@@ -26,9 +26,7 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-				@hasrole('manager')
-					@include('users.flexMenuAdminNewProjects')
-				@endhasrole
+				
 				<!-- Main row -->
           @if(session()->has('message'))
             <div class="alert alert-info">
@@ -56,7 +54,8 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  <form method="POST" action="/post-iaec-project" enctype ="multipart/form-data">
+                  <form method="POST" action="{{ route('users.update', $user->id) }}" enctype ="multipart/form-data">
+                    @method('PUT')
                     @csrf
                    <!-- project data entry form -->
                     

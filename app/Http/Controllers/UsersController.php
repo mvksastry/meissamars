@@ -68,6 +68,10 @@ class UsersController extends Controller
     public function edit(string $id)
     {
         //
+        $user = User::findOrFail($id);
+        
+        return view('users.edit')
+          ->with('user',$user);
     }
 
     /**
@@ -75,7 +79,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+      $input = $request->all();
+      //dd($id, $input);
     }
 
     /**
