@@ -1,6 +1,5 @@
   <!-- Small boxes (Stat box) -->
-  <div class="row">
-    
+  <div class="row"> 
     <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
@@ -26,7 +25,6 @@
       </div>
     </div>
     
-    
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box">
@@ -50,11 +48,9 @@
         </a>
       </div>
     </div>
-    
   </div>
 
   <div class="row">  
-
     <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
@@ -80,7 +76,6 @@
       </div>
     </div>
     
-    
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box">
@@ -104,16 +99,9 @@
         </a>
       </div>
     </div>  
-
   </div>
   
-
-
-
-
-
   <div class="row">  
-
     <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
@@ -138,8 +126,7 @@
         </a>
       </div>
     </div>
-    
-    
+
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box">
@@ -163,19 +150,9 @@
         </a>
       </div>
     </div>  
-
   </div>
 
-
-
-
-
-
-
-
-
   <div class="row">  
-
     <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
@@ -201,7 +178,6 @@
       </div>
     </div>
     
-    
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box">
@@ -225,14 +201,4 @@
         </a>
       </div>
     </div>  
-
   </div>
-
-
-
-
- 
-               
-  <!-- ./col -->
-  <!-- /.Small boxes end -->
-  <!-- /.row -->
