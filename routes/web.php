@@ -73,7 +73,7 @@ use App\Http\Controllers\Breeding\BreedingHomeController;
 // Super Admin and Manager specific
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 
 
 //livewire - Breeding/Colnoy management CV terms
@@ -314,8 +314,8 @@ Route::middleware(['auth','verified'])->group(function() {
 
     //-- Super admin and Manager specific routes    
 		//Users routes
-		Route::resource('users', UserController::class);	
-		Route::post('users_mass_destroy', ['uses' => 'App\Http\Controllers\UserController@massDestroy', 'as' => 'users.mass_destroy']);
+		Route::resource('users', UsersController::class);	
+		Route::post('users_mass_destroy', ['uses' => 'App\Http\Controllers\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
 
 		//roles routes
 		Route::resource('roles', RoleController::class);	
