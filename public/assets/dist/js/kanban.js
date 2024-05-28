@@ -28,7 +28,7 @@ let dataCards = {
     },
     cards:[]
 };
-
+  let dataKboards = {};
 let theme="light";
 //get current cards
 let kanBoards = JSON.parse(dataKboards);

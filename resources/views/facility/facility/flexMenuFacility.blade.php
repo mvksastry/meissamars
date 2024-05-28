@@ -23,8 +23,8 @@
       <div class="small-box bg-info">
         <div class="inner">
           <!-- h3><sup style="font-size: 20px"></sup></h3 -->
-          <h5>ROOMS-RACKS</h5>
-          <p>Rooms: {{$rooms}}; Racks: {{$racks}}</p>
+          <h5>R & R</h5>
+          <p>Room: {{$rooms}}; Rack: {{$racks}}</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
@@ -86,7 +86,7 @@
     <!-- small box -->
     <div class="small-box bg-primary">
       <div class="inner">
-        <h5>MAINTENANCE</h5>
+        <h5>MAINT'ANCE</h5>
         <p>Items:</p>
       </div>
       <div class="icon">
