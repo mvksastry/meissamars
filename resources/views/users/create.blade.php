@@ -115,10 +115,10 @@
                     <div class="col-xs-12 form-group">
                       <label for="exampleInputBorderWidth2">Role*</label>
                       <select class="form-control shadow border rounded" name="role" id="role">
-                        <option value="researcher">Researcher</option>
-                        <option value="facility_help">Facility Help</option>
-                        <option value="tech_help">Facility Help</option>
-                        <option value="guest">Guest</option>
+                        <option value="">Select</option>
+                        @foreach($roles as $role)
+                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                        @endforeach
                       </select>
                       @if($errors->has('role'))
                         <p class="help-block text-danger">
