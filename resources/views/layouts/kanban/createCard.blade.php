@@ -69,9 +69,8 @@
                         <div class="container">
                           <div class="row align-items-start">	
                           
-
                               <div class="form-group col">
-                                {!! Form::label('color', 'Uuid*', ['class' => 'control-label']) !!}
+                              <label for="exampleInputBorderWidth2">Uuid*</label>
                                 <input hidden type="text" name="todo_id" id="todo_id" 
                                   class="form-control" value="{{ $todo }}">
  
@@ -84,31 +83,28 @@
 
                         <div class="container">
                           <div class="row align-items-start">	
-                          
-                              <div class="form-group col">
-                                {!! Form::label('card_name', 'Card Name*', ['class' => 'control-label']) !!}
-                                {!! Form::text('card_name', old('card_name'), ['class' => 'form-control']) !!}
+                            <div class="form-group col">
+                              <label for="exampleInputBorderWidth2">Card Name*</label>
+                                <input type="text" name="card_name" id="card_name" 
+                                  class="form-control" value="">
+                                
                                 <p class="help-block"></p>
                                 @if($errors->has('board_name'))
                                   <p class="help-block">
                                     {{ $errors->first('board_name') }}
                                   </p>
                                 @endif
-                              </div>
-                
-                            
+                            </div>
                           </div>
                         </div>
 
 
                         <div class="container">
                           <div class="row align-items-start">	
-                          
-
-
-                              <div class="form-group col">
-                                {!! Form::label('budget_head', 'Description*', ['class' => 'control-label']) !!}
-                                {!! Form::text('description', old('description'), ['class' => 'form-control']) !!}
+                            <div class="form-group col">
+                              <label for="exampleInputBorderWidth2">Description*</label>
+                                <input type="text" value="{{ old('description') }}"name="description" id="description" 
+                                  class="form-control">  
                                 <p class="help-block"></p>
                                 @if($errors->has('description'))
                                   <p class="help-block">
@@ -120,17 +116,12 @@
                           </div>
                         </div>
 
-
-
-
-
 												<div class="card-footer">
 													<button type="submit" class="btn btn-primary">Submit</button>
 												</div>
 
 											</form>
 										</div>
-
 
 									  <!-- /.card-body -->
 									</div>

@@ -44,7 +44,7 @@ class KanbanCardsController extends Controller
         //return view('layouts.kanban.indexCards', compact('kanban_cards'));
       }
       
-      if( Auth::user()->hasExactRoles(['director','employee']) )
+      if( Auth::user()->hasExactRoles(['manager']) )
       {
         $kanban_cards = Kanbancards::where('posted_by', Auth::user()->name)->get();
         //return view('layouts.kanban.indexCards', compact('kanban_cards'));

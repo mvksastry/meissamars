@@ -54,7 +54,8 @@
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
 										<div class="card-body">
-                      {!! Form::model($kcard, ['method' => 'PUT', 'route' => ['kanban-cards.update', $kcard->kbocard_id]]) !!}
+                    <form method="POST" action="{{ route('kanban-cards.update', $kcard->kbocard_id) }}">
+                      
 												@csrf
                         @method('PUT')
                         
@@ -63,8 +64,9 @@
                           
                             <div class="form-group col">
                               <label for="exampleInputBorderWidth2">Name*</label>
-                              {!! Form::text('item_name', $kcard->item_name, ['class' => 'form-control']) !!}
-
+              
+            <input type="text" name="item_name" id="item_name" 
+            value="{{ $kcard->item_name }}" class="form-control" value="">
                               @if($errors->has('item_name'))
                                 <p class="help-block text-danger">
                                   {{ $errors->first('item_name') }}
@@ -73,7 +75,9 @@
                             </div>
 
                               <div class="form-group col">
-                                {!! Form::label('color', 'color*', ['class' => 'control-label']) !!}
+                                
+<label for="exampleInputBorderWidth2">Color*</label>
+
                                 <select class="custom-select form-control rounded-1" 
                                       name="color" id="color">
                                   @foreach($colors as $key => $value)
@@ -99,8 +103,10 @@
                           <div class="row align-items-start">	
                           
                               <div class="form-group col">
-                                {!! Form::label('budget_head', 'Description*', ['class' => 'control-label']) !!}
-                                {!! Form::text('item_desc', old('item_desc'), ['class' => 'form-control']) !!}
+                                
+                                <label for="exampleInputBorderWidth2">Description*</label>
+<input type="text" name="item_desc" id="item_desc" 
+            value="{{ $kcard->item_desc }}" class="form-control" value="">
                                 <p class="help-block"></p>
                                 @if($errors->has('item_desc'))
                                   <p class="help-block">
