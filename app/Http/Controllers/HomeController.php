@@ -22,6 +22,7 @@ use App\Models\Iaecproject;
 use App\Models\Task;
 use App\Models\Tempproject;
 use App\Models\User;
+use App\Models\Kanbancards;
 
 use App\Traits\Base;
 use App\Traits\DashAdminTrait;
@@ -74,7 +75,8 @@ class HomeController extends Controller
     $roles = $user->getRoleNames();
     $groupTasks = $this->groupsTasks();
     $personalTasks = $this->personalTasks();
-
+    $kbCards = Kanbancards::where('posted_by', Auth::user()->name)->get();
+    
     if( Auth::user()->hasAnyRole('pisg','pient') )
     {
       
@@ -107,7 +109,8 @@ class HomeController extends Controller
                   'issuedIssues'=>$issuedIssues,
                   'actvProjs'=>$actvProjs,
                   'personalTasks'=>$personalTasks,
-                  'groupTasks'=> $groupTasks
+                  'groupTasks'=> $groupTasks,
+                  'kbCards' => $kbCards
       ]);
     }
 
@@ -136,12 +139,10 @@ class HomeController extends Controller
                   'users'=>$users,
                   'subProjects'=>$subProjects,
   								'activeProjects'=>$activeProjects,
-  								 
-                  'totalRacks'=>$totalRacks,
-                  
+  								'kbCards' => $kbCards,
+                  'totalRacks'=>$totalRacks,                
                   'occupiedSlots'=>$occupiedSlots,
-                  'slotsAvailable'=>$slotsAvailable,   
-                  
+                  'slotsAvailable'=>$slotsAvailable,                     
   								'freeStrains' => $freeStrains, 
                   'ownerStrains' => $ownerStrains,
   								'penUsage' =>$penUsage,

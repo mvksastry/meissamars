@@ -44,7 +44,7 @@
                 <div class="hero-copy">
                     <h2 class="hero-title mt-0">Management and Automation of Research Systems</h2>
                     <p class="hero-paragraph">Manage your Breeding, Experiments & Systems with MARS to automate
-                    you animal Facility.</p>
+                    your animal facility.</p>
                     <div class="hero-cta">
                       <a class="button button-primary" href="{{ route('login') }}">Login</a>
 
