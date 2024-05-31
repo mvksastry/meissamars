@@ -7,7 +7,7 @@
         </div>
         <div class="p-2">
           @if($adr !=  null)
-            <table class='table-sm'>
+            <table id="userIndex2" class="table table-sm table-bordered table-hover">
               <thead>
                 <tr>
                   <th> Check</th>
@@ -86,83 +86,83 @@
 
     <!--Table Card-->
 
-      <div class="border rounded shadow">
-        <div class="border p-2">
-          <h5>Search for Issue Id: </h5>
-        </div>
-        <div class="p-2">
-          <table class='table-sm border'>
-            <thead>
-              <tr>
-                <th class=""> Species </th>
-                <th class=""> Strain </th>
-                <th class=""> Born After</th>
-                <th class=""> Born Before</th>
-                <th class=""> Sex </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-sm text-left text-gray-900 w-1/5">
-                  <label class="inline-flex items-center">
-                    <span class="ml-2">
-                      <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="1" checked>
-                      Mice
-                    </span>
-                  </label>
-                  <label class="inline-flex items-center">
-                    <span class="ml-2">
-                      <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="2">
-                        Rat
-                    </span>
-                  </label>
-                  <label class="inline-flex items-center">
-                    <span class="ml-2">
-                      <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="3">
-                        Rabbit
-                    </span>
-                  </label>
-                  <label class="inline-flex items-center">
-                    <span class="ml-2">
-                      <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="4">
-                        G-Pig
-                    </span>
-                  </label>
-                </td>
-
-                <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
-                  <input type="text" placeholder="Born After" value={{ $strain_name }} wire:model="strain_name"
-                  class="form-control px-2 py-1 rounded text-sm border" />
-                </td>
-
-                <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
-                  <div class="mb-3 pt-3">
-                    <input type="date" placeholder="Born After" wire:model="adate"
-                      class="form-control px-2 py-1 rounded text-sm border" />
-                  </div>
-                </td>
-
-                <td class="px-6 py-4 text-sm text-left text-gray-900">
-                  <input type="date" placeholder="Born Before" wire:model="bdate"
-                    class="form-control px-2 py-1 rounded text-sm border" />
-                </td>
-
-                <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
-                  <input type="text" placeholder="Sex M/F/A" wire:model="xsex"
-                    class="form-control px-2 py-1 rounded text-sm" />
-                </td>
-              </tr>
-              <td>
-              </br>
-                  <button wire:click="dbQuery()" class="btn btn-primary rounded">Search</button>
-                  @if($alotButton)
-                    <button wire:click="alottComplete({{ $val->issue_id }})" class="btn btn-success rounded">Alott</button>
-                  @endif
-              </td>
-            </tbody>
-          </table>
-        </div>
+    <div class="border rounded shadow">
+      <div class="border p-2">
+        <h5>Search for Issue Id: </h5>
       </div>
+      <div class="p-2">
+        <table id="userIndex2" class="table table-sm table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class=""> Species </th>
+              <th class=""> Strain </th>
+              <th class=""> Born After</th>
+              <th class=""> Born Before</th>
+              <th class=""> Sex </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-sm text-left text-gray-900 w-1/5">
+                <label class="inline-flex items-center">
+                  <span class="ml-2">
+                    <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="1" checked>
+                    Mice
+                  </span>
+                </label>
+                </br>
+                <label class="inline-flex items-center">
+                  <span class="ml-2">
+                    <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="2">
+                      Rat
+                  </span>
+                </label>
+                </br>
+                <label class="inline-flex items-center">
+                  <span class="ml-2">
+                    <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="3">
+                      Rabbit
+                  </span>
+                </label>
+                </br>
+                <label class="inline-flex items-center">
+                  <span class="ml-2">
+                    <input wire:model="spcx" type="radio" class="form-radio" name="radio" value="4">
+                      G-Pig
+                  </span>
+                </label>
+              </td>
 
+              <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
+                <input type="text" placeholder="Born After" value={{ $strain_name }} wire:model="strain_name"
+                class="form-control px-2 py-1 rounded text-sm border" />
+              </td>
+
+              <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
+                <input type="date" placeholder="Born After" wire:model="adate"
+                class="form-control px-2 py-1 rounded text-sm border" />
+              </td>
+
+              <td class="px-6 py-4 text-sm text-left text-gray-900">
+                <input type="date" placeholder="Born Before" wire:model="bdate"
+                class="form-control px-2 py-1 rounded text-sm border" />
+              </td>
+
+              <td class="px-6 py-4 text-sm text-left text-gray-900 w-1/5">
+                <input type="text" placeholder="Sex M/F/A" wire:model="xsex"
+                class="form-control px-2 py-1 rounded text-sm" />
+              </td>
+            </tr>
+            <td colspan="5">
+            </br>
+                <button wire:click="dbQuery()" class="btn btn-primary rounded">Search</button>
+                @if($alotButton)
+                  <button wire:click="alottComplete({{ $val->issue_id }})" class="btn btn-success rounded">Alott</button>
+                @endif
+            </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 	<!-- / End of table Card-->
