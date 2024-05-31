@@ -3,8 +3,12 @@
     <div class="tab-content p-0">
       <div class="bg-orange-100 border border-gray-800 rounded shadow">
         <div class="border-b border-gray-800 p-3">
+        @if($adr !=  null)
           <h5 class="font-bold uppercase text-gray-900">Search Results: Total found: @if( empty($this->adr) ) 0 @else {{ count($this->adr) }} @endif ; Checked: {{ count($mice_id) }}</h5>
-        </div>
+        @else
+          <h5 class="font-bold uppercase text-gray-900">Not Yet Searched </h5>
+        @endif
+       </div>
         <div class="p-2">
           @if($adr !=  null)
             <table id="userIndex2" class="table table-sm table-bordered table-hover">
@@ -88,7 +92,7 @@
 
     <div class="border rounded shadow">
       <div class="border p-2">
-        <h5>Search for Issue Id: </h5>
+        <h5>Search for Issue Id: {{ $usage_id }}</h5>
       </div>
       <div class="p-2">
         <table id="userIndex2" class="table table-sm table-bordered table-hover">

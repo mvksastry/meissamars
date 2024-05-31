@@ -55,7 +55,7 @@ class CompleteAllottment extends Component
     public $rooms;
 
     //issue related
-    public $issues, $issue_id, $iss_id, $issx_id=[];
+    public $issues,$usage_id, $issue_id, $iss_id, $issx_id=[];
     //public $age, $sex;
     public $srs2, $adr;
     public $updateMode;
@@ -205,6 +205,7 @@ class CompleteAllottment extends Component
 
     public function selectForSearch($id)
     {   
+        $this->usage_id = $id;
         $irq = Usage::with('species')
                       ->with('user')
                       ->with('strain')
