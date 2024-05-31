@@ -40,7 +40,7 @@
       <div class="small-box bg-info">
         <div class="inner">
           <!-- h3><sup style="font-size: 20px"></sup></h3 -->
-          <h5>CLOSE PROJECT</h5>
+          <h5>AMEND PROJECT</h5>
           <p>Enter</p>
         </div>
         <div class="icon">

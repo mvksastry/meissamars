@@ -37,7 +37,7 @@ trait FormD
 			
   }
 				
-	public function saveFormDInfo($input)
+	public function saveFormDInfo($tablename, $input)
 	{
 		$formDInfo['project_id']   = $input['project_id'];
     $formDInfo['pi_id']        = $input['pi_id'];

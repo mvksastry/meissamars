@@ -274,7 +274,7 @@
 							</div>
 						  </div><!-- /.card-header -->
 						  <div class="card-body">
-							<div class="tab-content p-0">
+							<div class="tab-content p-3">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                   <table id="userIndex2" class="table table-bordered table-hover">
@@ -295,7 +295,7 @@
                         <tr>
                           <td>
                             <label class="inline-flex items-center">
-                              <input type="checkbox" class="form-checkbox" value="{{ $val->issue_id }}" wire:model="issx_id">
+                              <input type="checkbox" class="form-checkbox" value="{{ $val->usage_id }}" wire:model="issx_id">
                             </label>
                           </td>
                           <td>
@@ -317,7 +317,7 @@
                             {{ $val->cagenumber }}
                           </td>
                           <td>
-                            <button wire:click="alottSearch({{ $val->issue_id }})" class="bg-pink-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-3 rounded">Search</button>
+                            <button wire:click="selectForSearch({{ $val->usage_id }})" class="btn btn-success rounded">Select</button>
                           </td>
                         </tr>
                       @endforeach
@@ -352,7 +352,7 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                   @if($updateMode)
-                    @include('livewire.alottment.detailsAllottment')
+                    @include('livewire.allottment.detailsAllottment')
                   @endif                     								
 								</div>
 							</div>
