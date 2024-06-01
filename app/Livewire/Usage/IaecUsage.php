@@ -515,7 +515,7 @@ class IaecUsage extends Component
 
   	public function addNewCages($id)
   	{
-      $this->irqMessage = "Issue Id Selected is: ".$id;
+      $this->irqMessage = "Usage Id Selected is: ".$id;
 
       $this->issInfos = Usage::with('user')
                   ->with('strain')
