@@ -23,7 +23,7 @@ trait NewFormDTable
 		$dropx = DB::statement('DROP TABLE IF EXISTS '.$formd_tablename);
 		$dropy = DB::statement('DROP TABLE IF EXISTS '.$nbook_tablename);
 
-		$resx = DB::statement('CREATE TABLE '. $formd_tablename. ' LIKE formd');
+		$resx = DB::statement('CREATE TABLE '. $formd_tablename. ' LIKE nformd');
 		$resy = DB::statement('CREATE TABLE '. $nbook_tablename. ' LIKE notebook');
 				
 		if ($resy)
