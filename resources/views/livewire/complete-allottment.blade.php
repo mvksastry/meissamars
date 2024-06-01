@@ -444,7 +444,6 @@
 											<thead>
 												<tr bgcolor="#BBDEFB">												
 													<th style="text-align:center;">
-                          <input type="checkbox" id="select-all" />
                           </th>
 													<th></th>
                           <th></th>

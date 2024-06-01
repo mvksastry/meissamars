@@ -79,6 +79,8 @@ class CompleteAllottment extends Component
     public $caInfos;
     
     public $strain_name;
+    
+    
     public function render()
     {
         if( Auth::user()->hasAnyRole(['manager','pisg','pient','investigator', 'researcher', 'veterinarian']) )
@@ -116,14 +118,18 @@ class CompleteAllottment extends Component
         }
     }
 
-    public function liveCheckIssId($id){
+    public function liveCheckIssId($id)
+    {
       $this->iss_id = $id;
     }
 
-    public function liveCheckRackId($id){
+    public function liveCheckRackId($id)
+    {
       $this->rack_id = $id;
     }
-    public function liveCheckedMice($id){
+    
+    public function liveCheckedMice($id)
+    {
       $this->mice_id = $id;
     }
 
@@ -248,7 +254,7 @@ class CompleteAllottment extends Component
 
                 //check for number of cages Requested
                 $issueId = $this->issx_id[0];
-                $irq = Issue::findOrFail($issueId);
+                $irq = Usage::findOrFail($issueId);
                 $reqCageNum = $irq->cagenumber;
                 $miceInfos = $this->idmice; // mice keys are here for issue
                 $miceInfosJson = json_encode($miceInfos); //convert whole array to json

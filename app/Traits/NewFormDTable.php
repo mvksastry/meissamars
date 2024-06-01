@@ -17,7 +17,7 @@ trait NewFormDTable
 {
 	public function makeFormDNoteBookTables($id)
 	{
-		$formd_tablename = $id."formd";
+		$formd_tablename = $id."nformd";
 		$nbook_tablename = $id."notebook";
 
 		$dropx = DB::statement('DROP TABLE IF EXISTS '.$formd_tablename);

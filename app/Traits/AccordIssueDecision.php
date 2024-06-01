@@ -35,24 +35,24 @@ trait AccordIssueDecision
 		break;
 
 		case 1:
-			$input['remarks'] = $this->addNotes(strip_tags($input['remarks']), "Usage Approval Pending");
+			$input['remarks'] = $this->addNotes(strip_tags($input['remarks']), "Usage Approved");
 			$input['remarks'] = $this->addTimeStamp("Approved");
 
 			$issueRequest = Usage::with('user')
 								->with('species')
 								->with('strain')
 								->where('issue_status', 'confirmed')
-								->where('issue_id', $input['issue_id'])
+								->where('usage_id', $input['usage_id'])
 								->get();
 
 			$sql['remarks'] = $input['remarks'];
 			$sql['status_date'] = date('Y-m-d');
 			$sql['issue_status'] = 'approved';
-			$res = Usage::where('usage_id', $input['issue_id'])->update($sql);
+			$res = Usage::where('usage_id', $input['usage_id'])->update($sql);
 			
       // now make entry in Form-D table
 			$result = $this->enterFormD($issueRequest, $input);
-			$msg = "Issue ID:".$input['issue_id']." Approved";
+			$msg = "Usage ID:".$input['usage_id']." Approved";
 			return $msg;
 		break;
 

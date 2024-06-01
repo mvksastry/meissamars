@@ -314,7 +314,7 @@ class IaecUsage extends Component
         $input['expt_date'] = date('Y-m-d');
         $input['expt_description'] = "Cage observation: [ ".$numdead." ] dead, removed";
         $input['authorized_person'] = "PI";
-        $input['signature'] = "NA";
+        $input['signature'] = "Auto Entry-Signed";
         $input['remarks'] = "none";
 
         $result = DB::table($table)->insert($input);

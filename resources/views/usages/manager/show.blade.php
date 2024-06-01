@@ -101,7 +101,7 @@
                         <tr>
                           <td>Remarks</td>
                           <td>
-                          <input class="form-control shadow appearance-none border rounded" value="None" id="remarks" name="remarks" type="text" placeholder="Remarks if any">
+                          <input class="form-control shadow appearance-none border rounded" value="{{ old('remarks') }}" id="remarks" name="remarks" type="text" placeholder="Remarks if any">
                           </td>
                         </tr>
                         <tr>
@@ -109,13 +109,13 @@
                           <td>
                             <div class="form-group">
                               <div class="form-check">
-                                <input class="form-check-input" value="1" id="decision" name="usage_decision" type="radio">
+                                <input class="form-check-input" value="1" id="decision" value="{{ old('decision') }}"name="decision" type="radio">
                                 <label class="form-check-label">Approved</label>
                               </div>
                             
                             
                               <div class="form-check">
-                                <input class="form-check-input" value="0" id="decision" name="usage_decision" type="radio">
+                                <input class="form-check-input" value="0" id="decision" name="decision" type="radio">
                                 <label class="form-check-label">Not Approved</label>
                               </div>
                               @if($errors->has('decision'))

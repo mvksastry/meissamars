@@ -113,11 +113,11 @@ class UsageApprovalController extends Controller
       if( $result != null )
       {
         $input = $request->validated();
-        $input['issue_id'] = $id;
+        $input['usage_id'] = $id;
         $msg = $this->approveUsageRequest($input);
-        }
+      }
         
-      return redirect()->route('usageapproval.index')
+      return redirect()->route('usages.manager.index')
                       ->with('flash_message', $msg);
     }
 

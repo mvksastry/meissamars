@@ -60,7 +60,7 @@ trait ApproveProjectTrait
 				$project->filename          = $tempProj->filename;
 				$project->date_approved     = $iaecApproveDate;
 				$project->status            = 'active';
-				$project->formD             = $id."formD";
+				$project->formD             = $id."nformD";
         $project->notebook          = $id."notebook";
 				$project->save();
 
