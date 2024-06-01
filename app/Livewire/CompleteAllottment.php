@@ -278,7 +278,7 @@ class CompleteAllottment extends Component
                       // gather data for cages table
                       $cageInfo = new Cage();
                       $cageInfo->issue_id = $issueId;
-                      $cageInfo->project_id = $irq->project_id;
+                      $cageInfo->project_id = $irq->iaecproject_id;
                       $cageInfo->requested_by = $irq->pi_id;
                       $cageInfo->species_id = $irq->species_id;
                       $cageInfo->strain_id = $irq->strain_id;
@@ -308,6 +308,25 @@ class CompleteAllottment extends Component
                                     ->update(['exitDate' => date('Y-m-d H:i:s'),
                                   'comment' => "Issued to project id ".$irq->project_id ]);
                       //dd($percage, $mids, $miceInfos, $cageInfo, $res );
+                      
+                      //make notebook entry first time when cages are issued.
+                      
+                      $nb = $irq->iaecproject_id."notebook";
+                      $nbe['usage_id']          = $issueId;
+                      $nbe['cage_id']           = $cage_id;
+                      $nbe['protocol_id']       = 0;
+                      $nbe['av_info']           = "";
+                      $nbe['number_animals']    = $percage;
+                      $nbe['staff_id']          = Auth::user()->id;
+                      $nbe['staff_name']        = Auth::user()->name;
+                      $nbe['entry_date']        = date('Y-m-d');
+                      $nbe['expt_date']         = date('Y-m-d');
+                      $nbe['expt_description']  = 'Cage Issued '.json_encode($mids);
+                      $nbe['authorized_person'] = $irq->user->name;
+                      $nbe['signature']         = '[Auto Entry]';
+                      $nbe['remarks']           = 'Auto Entry by In-charge';                   
+                      $qry = DB::table($nb)->insert($nbe);
+                      
                     }
                     // issue table update
                     $irq->issue_status = "issued";

@@ -517,7 +517,7 @@ class IaecUsage extends Component
   	{
       $this->irqMessage = "Issue Id Selected is: ".$id;
 
-      $this->issInfos = Issue::with('user')
+      $this->issInfos = Usage::with('user')
                   ->with('strain')
                   ->where('usage_id', $id)
                   ->get();
