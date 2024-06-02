@@ -106,6 +106,6 @@ class Occupancy extends Component
   {
     //dd("reached");
     $this->postCageInspectionReport($cage_id);
-    
+
   }
 }

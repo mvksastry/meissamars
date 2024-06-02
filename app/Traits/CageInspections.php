@@ -92,7 +92,7 @@ trait CageInspections
             'notes'=>$notes]);
       
       $this->resetCageObservations();
-      $this->cageDetailsPi = false;
+      $this->cageInfos = false;
   	}
 
 
