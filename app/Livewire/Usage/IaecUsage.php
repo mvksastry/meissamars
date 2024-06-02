@@ -30,6 +30,7 @@ use App\Traits\StrainConsumption;
 use App\Traits\ProjectStrainsById;
 use App\Traits\CageTermination;
 use App\Traits\IssueRequestQueries;
+use App\Traits\CageInspections;
 
 use Validator;
 
@@ -40,6 +41,8 @@ class IaecUsage extends Component
     use IssueRequest;
     use CageTermination;
     use IssueRequestQueries;
+    use CageInspections;
+
 
     public $irqMessage;
 
@@ -276,7 +279,12 @@ class IaecUsage extends Component
       }
   	}
 
-
+  public function cageSurveillance($cage_id)
+  {
+    $this->postCageInspectionReport($cage_id);
+  }
+  
+  /*
   	public function postCageObservations($idcg)
   	{
       $cageIdInfo = Cage::where('cage_id', intval($idcg))->first();
@@ -361,6 +369,9 @@ class IaecUsage extends Component
       $this->xyz = "";
       $this->notes = "";
   	}
+*/
+
+
 
   	public function transferToNewCage($idxz)
   	{
