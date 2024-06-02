@@ -126,7 +126,7 @@ class StrainManagementController extends Controller
      */
     public function edit(string $id)
     {
-      if( Auth::user()->hasAnyRole('pisg','pilg','piblg', 'manager') )
+      if( Auth::user()->hasAnyRole('pient','manager') )
       {
        
         $strain = Strain::findOrfail($id);

@@ -15,11 +15,11 @@
 						</tr>
 						<tr>
 							<td>Issue Id</td>
-							<td>{{ $x->issue_id }}</td>
+							<td>{{ $x->usage_id }}</td>
 						</tr>
 						<tr>
 							<td>Project Id</td>
-							<td>{{ $x->project_id }}</td>
+							<td>{{ $x->iaecproject_id }}</td>
 						</tr>
 						<tr>
 							<td>Owner Id</td>

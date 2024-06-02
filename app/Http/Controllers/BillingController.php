@@ -43,10 +43,10 @@ class BillingController extends Controller
     {
 
       $st_info = Cost::with('strain')->with('species')
-                //->whereRaw('effective_cost_date = (SELECT MAX(effective_cost_date) FROM costs)')
+               //->whereRaw('effective_cost_date = (SELECT MAX(effective_cost_date) FROM costs)')
                 ->get();
 
-          $strain_info = Strain::with('species')->with('cost')->get();
+      $strain_info = Strain::with('species')->with('cost')->get();
       //dd($strain_info);    
       return view('billing.perDiemCostForm')->with('strain_info', $strain_info);
         
@@ -55,6 +55,7 @@ class BillingController extends Controller
     public function setperdiem(Request $request)
     {
       $input = $request->all();
+      //dd($input);
       $result = $this->postPerDiemCost($input);
       return redirect()->route('billing.index')
               ->with('flash_message',

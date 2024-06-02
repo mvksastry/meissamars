@@ -27,14 +27,14 @@ trait SetPerdiemCost
 
     for($i=0; $i < count($per_diem_cost); $i++)
     {
-    $id_posted = $sp_str_id[$i];
-    $array = explode("_", $id_posted); // Split string into an array
-    $newCost = new Cost();
-    $newCost->strain_id = $array[1];
-    $newCost->species_id = $array[0];
-    $newCost->effective_cost_date = date('Y-m-d');
-    $newCost->per_diem_cost = $per_diem_cost[$i];
-        $newCost->save();
+      $id_posted = $sp_str_id[$i];
+      $array = explode("_", $id_posted); // Split string into an array
+      $newCost = new Cost();
+      $newCost->strain_id = $array[1];
+      $newCost->species_id = $array[0];
+      $newCost->effective_cost_date = date('Y-m-d');
+      $newCost->per_diem_cost = $per_diem_cost[$i];
+      $newCost->save();
     }
     return true;
 	}
