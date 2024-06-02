@@ -171,34 +171,7 @@
                   @if($cageInfos)
                     @include('livewire.occupancy.cageDetails')
                   @endif
-										<table id="userIndex2" class="table table-bordered table-hover">
-											<thead>
-												<tr bgcolor="#BBDEFB">												
-													<th style="text-align:center;">
-                          <input type="checkbox" id="select-all" />
-                          </th>
-													<th></th>
-                          <th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-                          <tr bgcolor="#E1BEE7"   data-entry-id="">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-											</tbody>
-										</table>                      
-									
-										No Information to display
-									
-
+										
 								</div>
 							</div>
 						  </div><!-- /.card-body -->

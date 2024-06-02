@@ -18,8 +18,12 @@ use App\Models\Rack;
 use App\Models\Cage;
 use App\Models\Slot;
 
+use App\Traits\CageInspections;
+
 class Occupancy extends Component
 {
+  use CageInspections;
+  
 	public $rackUpdate = false;
 	public $layoutRack = false;
 	public $cageInfos = false;
@@ -30,6 +34,8 @@ class Occupancy extends Component
 	public $irqMessage, $racks, $rackFlayout;
 	public $rows, $cols, $levels, $rackName, $cageIds;
 	public $rack_info, $caInfos;
+  
+  public $cage_id, $appearance, $numdead, $moribund, $housing, $xyz, $notes;
 
   public function render()
   {
@@ -86,6 +92,7 @@ class Occupancy extends Component
 
 	public function cageinfo($id)
 	{
+    $this->cage_id = $id;
 		$this->layoutRack = true;
 		$this->irqMessage = "Cage Selected is: ".$id;
 		$caInfos = Cage::with('user')
@@ -94,4 +101,11 @@ class Occupancy extends Component
 		$this->caInfos = $caInfos;
 		$this->cageInfos = true;
 	}
+  
+  public function cageSurveillance($cage_id)
+  {
+    //dd("reached");
+    $this->postCageInspectionReport($cage_id);
+    
+  }
 }
