@@ -256,13 +256,13 @@ class IaecProjects extends Component
             ]);
 
             if ($this->project_id) {
-                $issue = new Issue();
-                    //dd($issue);
-                    /*
-                    $issue->update([
+                $usage = new Usage();
+                    //dd($usage);
+                    
+                    $usage->update([
                         'strains' => $this->strains
                     ]);
-                    */
+                    
                 $this->updateMode = false;
                 session()->flash('message', 'Issue Request Posted Successfully.');
                 $this->resetInputFields();
@@ -276,7 +276,7 @@ class IaecProjects extends Component
 
       public function reports($id)
       {
-          if( Auth::user()->hasAnyRole(['pisg','pilg','piblg','pient','investigator', 'researcher', 'veterinarian']) )
+          if( Auth::user()->hasAnyRole(['pisg','pient','investigator', 'researcher', 'veterinarian']) )
           {
             $this->updateMode = false;
             $this->updateFormD = false;
@@ -284,7 +284,7 @@ class IaecProjects extends Component
 
             $this->project_id = $id;
 
-            $qry = Report::where('project_id', $id)->get();
+            $qry = Report::where('iaecproject_id', $id)->get();
 
             $this->projReps = $qry;
 
@@ -330,7 +330,7 @@ class IaecProjects extends Component
 
       public function piReportDownload($id)
       {
-          $projSearch = Project::with('user')->where('project_id', $this->project_id)->where('pi_id', Auth::id() )
+          $projSearch = Iaecproject::with('user')->where('iaecproject_id', $this->project_id)->where('pi_id', Auth::id() )
                                               ->first();
           if(!empty($projSearch) )
           {

@@ -107,7 +107,9 @@ class Reorganize extends Component
     
     public function updateTaskOrder($slots)
     {
-      dd($slots);
+      $tslots = $slots;
+      
+      dd($tslots);
         //foreach ($tasks as $task) {
         //    Task::whereId($task['value'])->update(['order' => $task['order']]);
         //}
@@ -123,7 +125,7 @@ class Reorganize extends Component
     
     public function updateGroupOrder()
     {
-      dd($this->slots);
+      //dd($this->slots);
         //foreach ($tasks as $task) {
         //    Task::whereId($task['value'])->update(['order' => $task['order']]);
         //}

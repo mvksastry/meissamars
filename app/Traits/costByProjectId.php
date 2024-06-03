@@ -31,7 +31,7 @@ trait costByProjectId
     $cage_count = 0;
     $diff1=0;
 
-    $query = Cage::where('project_id', $project_id)
+    $query = Cage::where('iaecproject_id', $project_id)
                    ->orderBy('cage_id', 'asc')
                    ->get();
 
@@ -151,7 +151,7 @@ trait costByProjectId
 
   public function fetchCostByProjects()
   {
-    $projects = Project::where('status', 'active')->get();
+    $projects = Iaecproject::where('status', 'active')->get();
     $finalarray = array();
     foreach($projects as $project)
     {
