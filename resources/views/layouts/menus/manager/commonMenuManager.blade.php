@@ -63,21 +63,31 @@
 			  </li>
 
 			  <li class="nav-item">
-          <a href="{{ route('reports.index') }}" class="nav-link">
+          <a href="{{ route('bhome.index') }}" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
-            Reports
+            Inventory
+            <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+			  </li>
+        
+        <li class="nav-item">
+          <a href="{{ route('bhome.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-tree"></i>
+            <p>
+            Reagents
             <i class="fas fa-angle-left right"></i>
             </p>
           </a>
 			  </li>
         
 			  <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
+          <a href="{{ route('reports.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-tree"></i>
             <p>
-            Tasks
-            <i class="right fas fa-angle-left"></i>
+            Reports
+            <i class="fas fa-angle-left right"></i>
             </p>
           </a>
 			  </li>
