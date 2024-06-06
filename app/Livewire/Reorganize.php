@@ -27,7 +27,7 @@ class Reorganize extends Component
 		public $cageInfos = false;
 		public $reshuffle = false;
 
-		public $reorg, $infos, $rack_id;
+		public $reorg, $infos, $rack_id, $errMsg;
 
 		public $adminFolder = "uTdd5jGuTdfHkli";
 
@@ -41,10 +41,10 @@ class Reorganize extends Component
     public $slots;
     
     public $groups = [
-                  "0"=>array("id"=>1, "name"=>"Level#1")];
-                //  "1"=>array("id"=>2, "name"=>"Level#2"),
-                //  "2"=>array("id"=>3, "name"=>"Level#3"),
-                //  "3"=>array("id"=>4, "name"=>"Level#4")];
+                  "0"=>array("id"=>1, "name"=>"Level#1"),
+                  "1"=>array("id"=>2, "name"=>"Level#2"),
+                  "2"=>array("id"=>3, "name"=>"Level#3"),
+                  "3"=>array("id"=>4, "name"=>"Level#4")];
     
     public function render()
     {
@@ -109,23 +109,31 @@ class Reorganize extends Component
     {
       $tslots = $slots;
       
-      dd($tslots);
-        //foreach ($tasks as $task) {
-        //    Task::whereId($task['value'])->update(['order' => $task['order']]);
-        //}
+      dd($this->rack_id, $tslots);
+      /*
+      foreach ($tslots as $value) 
+      {
+        $slot_id = $value['order'];
+        $xA = $value['items'];
+        
+        
+      }
+      */
+      //dd($slots, $slot_id, $xA);
+      
     }
 
-    public function updateCagelocationsOrder()
+    public function updateCagelocationsOrder($slots)
     {
-      dd($this->slots);
+      //dd($this->slots);
         //foreach ($tasks as $task) {
         //    Task::whereId($task['value'])->update(['order' => $task['order']]);
         //}
     }    
     
-    public function updateGroupOrder()
+    public function updateGroupOrder($slots)
     {
-      //dd($this->slots);
+      dd($slots);
         //foreach ($tasks as $task) {
         //    Task::whereId($task['value'])->update(['order' => $task['order']]);
         //}
