@@ -15,7 +15,7 @@
               <tbody>
                 <tr class="bg-gray-100 border-b">
                   <td class="text-sm text-gray-600 text-center font-light px-6 py-2 whitespace-nowrap">
-                    (Drag & Drop the Cage Number to desired location & Updatex)
+                    (Drag & Drop the Cage Number to desired location & Update)
                   </td>
                 </tr>
               </tbody>
@@ -79,22 +79,7 @@
         @endfor
       </div> 
     </div>    
-    
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+     
 </br>
 </br>
   <div id="reorgmsg" class="" align="center">
