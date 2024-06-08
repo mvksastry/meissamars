@@ -1,5 +1,4 @@
   <div class="p-2">
-   
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-3">
         <div class="py-2 inline-block mx-auto w-full sm:px-6 lg:px-8">
           <div class="overflow-hidden">
@@ -23,7 +22,6 @@
           </div>
         </div>
       </div>
-   
   </div>
 
   <?php
@@ -42,52 +40,61 @@
     
   ?>
     
-    <div wire:sortable-group="updateTaskOrder" style="display: flex">      
+    <div wire:sortable-group="updateTaskOrder()" style="display: flex">      
       <div class="table table-bordered">
         @for($k = 0; $k < $levels; $k++)
           @for($i = 0; $i < $row_limit; $i++)
-            
-                <ul wire:sortable-group.item-group="{{ $k+1 }}"  class="list-group list-group-horizontal">
-                  <li class="list-group-item">Shelf #{{ $k+1 }}</li> 
-                    @for($j = 0; $j < $col_limit; $j++)
-                      <?php 
-                        $xseatNo = $j + $xslotNo;          
-                        $xrow = $rack_info[$xseatNo]; 
-                        if( $xrow['status'] == "O")
-                        {
-                          $cage_id = $xrow['cage_id'];
-                        }else {
-                          $cage_id = "A";
-                        }
-                      ?>                                         
-                        <li wire:key="task-{{ $xrow['slot_id'] }}" wire:sortable-group.item="{{ $cage_id }}" class="boarder list-group-item">
-                          @if($cage_id != "A")
-                            <button class="z-n2 btn btn-block btn-success"" type="button" wire:sortable-group.handle>
-                              <?php echo sprintf("%04d", $xrow['cage_id'] ); ?>
-                            </button>
-                          @else
-                            <button class="z-n2 btn btn-block btn-warning" type="button" wire:sortable-group.handle>
-                              <?php echo sprintf("%04d", $xrow['cage_id'] ); ?>
-                            </button>
-                          @endif
-                        </li>                        
-                    @endfor
-                </ul>
-                <?php $xslotNo = $xslotNo +  $col_limit; ?>
-              @endfor
-              </br>
+            <ul wire:sortable-group.item-group="{{ $k+1 }}"  class="list-group list-group-horizontal">
+              <li class="list-group-item">Shelf #{{ $k+1 }}</li> 
+                @for($j = 0; $j < $col_limit; $j++)
+                  <?php 
+                    $xseatNo = $j + $xslotNo;          
+                    $xrow = $rack_info[$xseatNo]; 
+                    if( $xrow['status'] == "O")
+                    {
+                      $cage_id = $xrow['cage_id'];
+                    }else {
+                      $cage_id = "A";
+                    }
+                  ?>                                         
+                    <li wire:key="task-{{ $xrow['slot_id'] }}" wire:sortable-group.item="{{ $xrow['slot_id'] }}_{{ $cage_id }}" class="boarder list-group-item">
+                      @if($cage_id != "A")
+                      <span wire:click="markCages('{{ $xrow['cage_id'] }}')" >
+                      <button class="z-n2 btn btn-block btn-success" type="button" wire:sortable-group.handle
+                        data-toggle="tooltip" title="Cage ID {{ $cage_id }}" data-placement="top">
+                          <?php echo sprintf("%04d", $xrow['cage_id'] ); ?>
+                        </button>
+                      </span>
+                      @else
+                        <span wire:click="markCages('{{ $xrow['cage_id'] }}')">
+                        <button class="z-n2 btn btn-block btn-warning" type="button" wire:sortable-group.handle
+                        data-toggle="tooltip" title="Slot ID {{ $xseatNo + 1 }}" data-placement="top">
+                          <?php echo sprintf("%04d", $xrow['cage_id'] ); ?>
+                        </button>
+                        </span>
+                      @endif
+                    </li>                        
+                @endfor
+            </ul>
+            <?php $xslotNo = $xslotNo +  $col_limit; ?>
+          @endfor
+          </br>
         @endfor
       </div> 
     </div>    
      
-</br>
-</br>
+  </br>
+  </br>
   <div id="reorgmsg" class="" align="center">
+  {{ $cageReorgMsg }}
   </div>
-	<div id="test" class="block text-pink-200 text-sm font-normal mb-2" align="center">
-    <button  wire:click="updateTaskOrder()" type="button" class="btn btn-block btn-primary btn-lg" id="postreorg">
+	<div id="test" class="block text-pink-200 text-sm font-normal mb-2" align="center">                       
+    <button  wire:click="updateCageLocationsOrder()" type="button" class="btn btn-block btn-primary btn-lg" id="postreorg">
       Update Cage Locations
     </button>
 	</div>
-</br>
-</br>
+  </br>
+  </br>
+        
+>
+    
