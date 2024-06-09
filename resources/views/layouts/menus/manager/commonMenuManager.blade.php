@@ -63,7 +63,7 @@
 			  </li>
 
 			  <li class="nav-item">
-          <a href="{{ route('bhome.index') }}" class="nav-link">
+          <a href="/manage-inventory" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
             Inventory
@@ -73,7 +73,7 @@
 			  </li>
         
         <li class="nav-item">
-          <a href="{{ route('bhome.index') }}" class="nav-link">
+          <a href="/manage-reagents" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
             Reagents
