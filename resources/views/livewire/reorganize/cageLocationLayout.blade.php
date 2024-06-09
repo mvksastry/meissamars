@@ -17,6 +17,11 @@
                     (Drag & Drop the Cage Number to desired location & Update)
                   </td>
                 </tr>
+                <tr class="border-b">
+                  <td class="text-lg text-center">
+                  {{ $cageReorgMsg }}
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
