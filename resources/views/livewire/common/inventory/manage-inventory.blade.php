@@ -55,13 +55,15 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-                  
-                   <div class="p-2">
-                    
-                      
-                    
-                    </div>
-                  
+                  <div class="p-2">
+                    @if($viewFineChemForm)
+                      @include('livewire.common.inventory.newFineChemForm')
+                    @endif
+
+                    @if($viewConsumptionForm)
+                      @include('livewire.common.inventory.newConsumptionForm')
+                    @endif
+                  </div>                 
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -69,7 +71,7 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-          
+
           <section class="col-lg-7 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
@@ -90,7 +92,62 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
-									
+                  @if($viewBulkUploadOptions)
+                      @include('livewire.common.inventory.bulkUploadForm')
+                  @endif
+
+                  @if($viewNewCategoryForm)
+                    @include('livewire.common.inventory.newCategoryForm')
+                  @endif
+
+                  @if($showInventoryPanel)
+                    <div class="card-body">
+                      <div class="tab-content p-0">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+                    
+                          @if($fullInventoryTable)
+                            <!--Divider-->
+                            <div class="p-2">
+                              <div class="flex flex-row flex-wrap flex-grow mt-2">									 
+                                <div class="w-full">		
+                                  <livewire:common.inventory.current-inventory
+                                    searchable="pack_mark_code, name, catalog_id"
+                                    exportable
+                                    theme="bootstrap-5"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <!-- insert table -->
+                          @endif
+                    
+                          @if($fullInventorySearchTable)
+                            <!--Divider-->
+                            <div class="p-2">
+                              <div class="flex flex-row flex-wrap flex-grow mt-2">									 
+                                <div class="w-full">		
+                                  <livewire:common.inventory.product-search
+                                    searchable="pack_mark_code, name, catalog_id"
+                                    exportable
+                                    theme="bootstrap-5"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <!-- insert table -->
+                          @endif
+                    
+                          <table class="w-full p-5 text-gray-700">
+                            <tbody>
+                            </tbody>
+                          </table>
+                    
+                        </div>
+                      </div>
+                    </div><!-- /.card-body -->
+                  @endif
+
 
 								</div>
 							</div>
@@ -100,11 +157,19 @@
 						<!-- /.card -->
 					</section>
           
+
 					<!-- /.Left col -->
 					<!-- right col -->
 				</div><!-- /.row (main row) -->
 			</div><!-- /.container-fluid -->
 		</section>
+
+
+
+
+
+
+
 
 		<!-- Main content -->
     <!-- / End of Left Panel Graph Card-->

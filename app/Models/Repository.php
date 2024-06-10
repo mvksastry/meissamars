@@ -67,3 +67,4 @@ class Repository extends Model
         return LogOptions::defaults();
     }
 
+}

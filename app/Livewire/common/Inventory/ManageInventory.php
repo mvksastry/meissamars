@@ -125,7 +125,7 @@ class ManageInventory extends Component
 		$this->repositories = Repository::all();
 		$this->units = Units::all();
 		$this->suppliers = Supplier::all();
-		$this->allActiveResProjects = $this->allResProjects();
+		//$this->allActiveResProjects = $this->allResProjects();
 		//dd($this->allActiveResProjects);
 		$this->panel_title = "Add To Inventory";
 		

@@ -10,9 +10,9 @@
           <p>Add</p>
         </div>
         <div class="icon">
-          <i class="ion ion-bag"></i>
+          <i wire:click="inventoryFormView()" class="ion ion-bag"></i>
         </div>
-        <a href="/reorganize" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <i class="fas fa-arrow-circle-right">More Info</i>
       </div>
     </div>
     <!-- ./col -->
@@ -26,9 +26,9 @@
           <p>Update</p>
         </div>
         <div class="icon">
-          <i class="ion ion-bag"></i>
+          <i wire:click="consumptionFormView()" class="ion ion-bag"></i>
         </div>
-        <a href="/reorganize" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <i class="fas fa-arrow-circle-right">More Info</i>
       </div>
     </div>
     <!-- ./col -->
