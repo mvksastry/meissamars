@@ -94,7 +94,7 @@ class ManageInventory extends Component
 	public $fullInventoryTable = true;
 	public $showConsumptionUpdate = false;
 	public $fullInventorySearchTable = false;
-	
+	public $viewAllStockDetails = false;
 	//searchable
 	public $value, $selectReply, $pack_mark_code;
 	
@@ -114,7 +114,7 @@ class ManageInventory extends Component
   public function render()
   {
     //Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Inventory Management page displayed');
-    
+    $this->currentInventory();
     //return view('livewire.common.manage-inventory');
     return view('livewire.common.inventory.manage-inventory');
   }
@@ -129,8 +129,7 @@ class ManageInventory extends Component
 		$this->units = Units::all();
 		$this->suppliers = Supplier::all();
     $this->products = Products::all();
-    
-		//$this->allActiveResProjects = $this->allResProjects();
+
 		//dd($this->allActiveResProjects);
 		$this->panel_title = "Add To Inventory";
 		
@@ -143,7 +142,7 @@ class ManageInventory extends Component
 		$this->viewNewCategoryForm = false;
 		//$this->fullInventorySearchTable = false;
 		$this->viewBulkUploadOptions = false;
-		
+		$this->viewStockDetails = false;
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Displayed inventory form');
 	}
 	
@@ -226,6 +225,18 @@ class ManageInventory extends Component
 		
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] reset inventory form');
 	}
+
+  public function currentInventory()
+  {
+    $this->products = Products::with('categories')
+								->with('units')
+								->with('vendor')
+								->get();   
+    $this->showInventoryPanel = true;
+  }
+
+
+
   
   public function stockDetails($id)
   {
@@ -234,8 +245,7 @@ class ManageInventory extends Component
 								->with('units')
 								->with('vendor')
 								->where('product_id', $id)
-								->first();
-    //dd($infos);    
+								->first();  
     //$this->showProductDetailsModal($infos);
     $this->viewStockDetails = true;
     $this->showInventoryPanel = true;

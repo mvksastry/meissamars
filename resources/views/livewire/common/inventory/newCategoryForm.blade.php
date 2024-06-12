@@ -44,8 +44,8 @@
 			<tr>
 				 <td colspan="3" class="text-sm text-gray-900">
 					</br>
-					@hasanyrole('pisg|researcher|veterinarin')
-					<button wire:click="postNewCategoryInfo()" class="bg-green-800 w-22 hover:bg-blue-800 text-white font-normal py-2 px-4 mx-3  rounded">Create Category</button>
+					@hasanyrole('pient|manager')
+					<button wire:click="postNewCategoryInfo()" class="btn btn-success rounded">Create Category</button>
 					@endhasanyrole
 				 </td>
 			</tr>
