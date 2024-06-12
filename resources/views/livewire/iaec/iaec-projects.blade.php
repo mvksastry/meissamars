@@ -27,8 +27,8 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-        @hasrole('manager')
-					@include('livewire.occupancy.flexMenuOccupancy')
+        @hasrole('pient')
+					@include('livewire.iaec.flexwrapPiProjects')
 				@endhasrole
 				
 				<!-- Main row -->

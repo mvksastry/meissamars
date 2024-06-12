@@ -83,20 +83,24 @@
 				</tr>
 
 				<tr>
-					<td>
+					<td colspan="3">
 						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Expt ID*</label>
 						<div class="relative h-8 w-72 min-w-[200px]">	
 							<input type='text' placeholder="Experiment ID" class="shadow appearance-none border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" wire:model.defer="expt_id">
 						</div>
 					</td>
-					<td>
+				</tr>
+				<tr>
+					<td colspan="3">
 						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Expt Date*</label>
 						<div class="relative h-8 w-72 min-w-[200px]">	
 							<input type='date' placeholder="Quantity Consumed" class="shadow appearance-none border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" wire:model.defer="expt_date">
 
 						</div>						  
 					</td>
-					<td colspan="2">
+				</tr>
+				<tr>          
+					<td colspan="3">
 						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Consumed*</label>
 						<div class="relative h-8 w-72 min-w-[200px]">	
 							<input type='text' placeholder="Quantity Consumed" class="shadow appearance-none border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" wire:model.defer="consumed">
@@ -105,7 +109,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="3">
 					  <label class="block text-gray-900 text-sm pt-3 mb-2" for="sampdesc">
 							Notes, if any: 
 					  </label>
