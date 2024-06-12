@@ -12,7 +12,7 @@
         <div class="icon">
           <i wire:click="inventoryFormView()" class="ion ion-bag"></i>
         </div>
-        <i class="fas fa-arrow-circle-right">More Info</i>
+        <i wire:click="inventoryFormView()" class="fas fa-arrow-circle-right">More Info</i>
       </div>
     </div>
     <!-- ./col -->
@@ -26,9 +26,9 @@
           <p>Update</p>
         </div>
         <div class="icon">
-          <i wire:click="consumptionFormView()" class="ion ion-bag"></i>
+          <i class="ion ion-bag"></i>
         </div>
-        <i class="fas fa-arrow-circle-right">More Info</i>
+        <a href="/consumption-update" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->

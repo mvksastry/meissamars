@@ -115,6 +115,7 @@ use App\Livewire\Breeding\Searches\Searchplugdates;
 //Livewiere - Common for PI and Manager
 use App\Livewire\Common\Reagents\ManageReagents;
 use App\Livewire\Common\Inventory\ManageInventory;
+use App\Livewire\Common\Inventory\UpdateConsumption;
 
 /*
 |--------------------------------------------------------------------------
@@ -309,7 +310,7 @@ Route::middleware(['auth','verified'])->group(function() {
         // PI and Manager common - Livewire
         Route::get('/manage-reagents', ManageReagents::class);
         Route::get('/manage-inventory', ManageInventory::class);
-
+        Route::get('/consumption-update', UpdateConsumption::class);
 
 
 

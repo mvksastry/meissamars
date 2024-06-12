@@ -55,8 +55,10 @@
 			
 		</div>
 		<!-- scripts -->
+    @livewire('wire-elements-modal')
     @livewireScripts
 		@include('layouts.partials.scripts')
+    
 		<!-- /.scripts -->
 	</body>
 </html>

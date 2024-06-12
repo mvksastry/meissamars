@@ -58,7 +58,8 @@ class ManageInventory extends Component
 	public $categories;
 	public $units;
 	public $suppliers;
-	
+	public $products;
+  
 	//common panel titles
 	public $panel_title = "Select Action";
 	
@@ -72,7 +73,7 @@ class ManageInventory extends Component
 	public $allActiveResProjects, $resproj_id;
 	
 	//Bulk chem form variables
-	public $sampCode, $catalogNumber, $itemDesc, $consumRemark;
+	public $pinfos, $sampCode, $catalogNumber, $itemDesc, $consumRemark;
 	public $category_name, $unit_id, $vendor_name, $units_desc;
 	public $open_status, $status_date, $quantity_left, $full_empty;
 	
@@ -88,7 +89,7 @@ class ManageInventory extends Component
 	public $viewNewCategoryForm = false;
 	public $viewBulkUploadOptions = false;
 	public $showInventoryPanel = false;
-	
+	public $viewStockDetails = false;
 	//public $viewSearchForm = false;
 	public $fullInventoryTable = true;
 	public $showConsumptionUpdate = false;
@@ -97,6 +98,9 @@ class ManageInventory extends Component
 	//searchable
 	public $value, $selectReply, $pack_mark_code;
 	
+  //products
+  public $prod_info;
+  
 	//listeners
 	protected $listeners = [
         'itemSelected' => 'selectedItem',
@@ -107,17 +111,16 @@ class ManageInventory extends Component
 	public $bulkUploadSuccess = false, $bulkUploadFail = false;
 	
 	///////////////////////////////////////////////////
-
-
-    public function render()
-    {
-	    //Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Inventory Management page displayed');
-	    
-      //return view('livewire.common.manage-inventory');
-      return view('livewire.common.inventory.manage-inventory');
-    }
+  public function render()
+  {
+    //Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Inventory Management page displayed');
+    
+    //return view('livewire.common.manage-inventory');
+    return view('livewire.common.inventory.manage-inventory');
+  }
     
 
+  
 	public function inventoryFormView()
 	{
 		$this->packMarkCode = $this->generateCode(6);
@@ -125,6 +128,8 @@ class ManageInventory extends Component
 		$this->repositories = Repository::all();
 		$this->units = Units::all();
 		$this->suppliers = Supplier::all();
+    $this->products = Products::all();
+    
 		//$this->allActiveResProjects = $this->allResProjects();
 		//dd($this->allActiveResProjects);
 		$this->panel_title = "Add To Inventory";
@@ -136,7 +141,7 @@ class ManageInventory extends Component
 		$this->viewFineChemForm = true;
 		$this->fullInventoryTable = true;
 		$this->viewNewCategoryForm = false;
-		$this->fullInventorySearchTable = false;
+		//$this->fullInventorySearchTable = false;
 		$this->viewBulkUploadOptions = false;
 		
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Displayed inventory form');
@@ -156,7 +161,7 @@ class ManageInventory extends Component
 			$nprod->name = $this->item_desc;
 			
 			$nprod->pack_size = $this->pack_size;
-			$nprod->unit_id = $this->unit_desc;
+			$nprod->unit_id = $this->units_desc;
 			$nprod->num_packs = $this->number_packs;
 			
 			$nprod->mfd_date = $this->dateMFD;
@@ -205,7 +210,7 @@ class ManageInventory extends Component
 		$this->catalog_number = null;
 		$this->item_desc = null;
 		$this->pack_size = null;
-		$this->unit_desc = null;
+		$this->units_desc = null;
 		$this->number_packs = null;
 		$this->dateMFD = null;
 		$this->batchCode = null;
@@ -221,6 +226,45 @@ class ManageInventory extends Component
 		
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] reset inventory form');
 	}
+  
+  public function stockDetails($id)
+  {
+    
+    $this->pinfos = Products::with('categories')
+								->with('units')
+								->with('vendor')
+								->where('product_id', $id)
+								->first();
+    //dd($infos);    
+    //$this->showProductDetailsModal($infos);
+    $this->viewStockDetails = true;
+    $this->showInventoryPanel = true;
+    
+    $this->viewFineChemForm = false;
+    $this->viewConsumptionForm = false;
+    $this->viewNewCategoryForm = false;
+    $this->viewBulkUploadOptions = false;
+    //$this->fullInventoryTable = true;
+    $this->showConsumptionUpdate = false;
+    $this->fullInventorySearchTable = false;
+  }
+  
+  public function showProductDetailsModal($info)
+	{
+	    $this->prod_info = $info;
+      
+      $this->dispatch("openModal", 'livewire.stockitem-modal',
+					["prod_info" => $this->prod_info]);
+          
+      $this->dispatch(
+        event: 'openModal',
+        component: 'livewire.stockitem-modal',
+        arguments: [
+        'ispopup' => true,
+        "prod_info" => $this->prod_info]);   
+          
+	}
+  
 	///////////////////////////////////////////////
 	public function consumptionFormView()
 	{

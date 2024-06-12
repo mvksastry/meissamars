@@ -105,7 +105,7 @@
         </td>
         <td>
 					<div>
-						<select wire:model="unit_desc" class="form-group border rounded" aria-label="Category">
+						<select wire:model="units_desc" class="form-group border rounded" aria-label="Category">
 							<option value="-1">Select</option>
 								@foreach($units as $unit)
 								<option value="{{ $unit->unit_id }}">{{ ucfirst($unit->description) }}</option>

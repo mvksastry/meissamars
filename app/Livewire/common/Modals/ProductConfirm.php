@@ -3,8 +3,9 @@
 namespace App\Livewire\Common\Modals;
 
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class ProductConfirm extends Component
+class ProductConfirm extends ModalComponent
 {
   public $displayingModal = false;
 

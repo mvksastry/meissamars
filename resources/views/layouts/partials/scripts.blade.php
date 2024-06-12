@@ -77,6 +77,7 @@
 <script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
 <script src="{{asset('assets/dist/js/kanban.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
+
 <script>
   $(function() {
     //Initialize Select2 Elements

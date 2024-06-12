@@ -26,7 +26,7 @@
 		<section class="content">
 			<div class="container-fluid">
         @hasrole('manager')
-					@include('livewire.common.inventory.flexMenuInventory')
+					@include('livewire.common.inventory.flexMenuConsumption')
 				@endhasrole
 				
 				<!-- Main row -->
@@ -38,7 +38,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Composition
+							  Selected 
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -52,7 +52,10 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                   <div class="p-2">
-                    
+
+                    @if($viewConsumptionForm)
+                      @include('livewire.common.inventory.newConsumptionForm')
+                    @endif                    
                     
                   </div>                 
 								</div>
@@ -92,6 +95,41 @@
                         <!-- Morris chart - Sales -->
                         <div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                     
+                            @if($fullInventoryTable)
+                              <!--Divider-->
+                              <div class="p-2">
+                                <div class="flex flex-row flex-wrap flex-grow mt-2">									 
+                                  <div class="w-full">		
+                                    <table id="example" class="table table-sm table-striped table-bordered" style="width:100%">
+                                      <thead>
+                                          <tr>
+                                              <th>ID</th>
+                                              <th>PMC Code</th>
+                                              <th>Name</th>
+                                              <th>Status</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        @foreach($products as $product)
+                                          <tr>
+                                              <td>
+                                              <button wire:click="viewSelectedItem('{{ $product->pack_mark_code }}')" 
+                                                  class="btn btn-sm btn-success rounded">
+                                                  Details
+                                              </button>
+                                              </td>
+                                              <td>{{ $product->pack_mark_code }}</td>
+                                              <td>{{ $product->name }}</td>
+                                              <td>{{ $product->pack_size }}{{ $product->unit_id }}</td>
+                                          </tr>
+                                        @endforeach
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- insert table -->
+                            @endif
                           
                     
                           

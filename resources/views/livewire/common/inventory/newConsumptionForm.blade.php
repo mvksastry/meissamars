@@ -115,9 +115,9 @@
 				<tr>
 					 <td colspan="4" class="text-sm text-gray-900">
 						</br>
-						@hasanyrole('pisg|researcher|veterinarian')
+						@hasanyrole('pisg|researcher|manager')
 							@if($sampCode != "")
-							<button wire:click="postConsumptionInfo()" class="bg-green-800 w-22 hover:bg-blue-800 text-white font-normal py-2 px-4 mx-3  rounded">Update Consumption</button>
+							<button wire:click="postConsumptionInfo()" class="btn btn-warning btn-sm rounded">Update Consumption</button>
 							@endif
 						@endhasanyrole
 					 </td>

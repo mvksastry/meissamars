@@ -10,25 +10,80 @@ class ProductSearch extends DataTableComponent
 {
     protected $model = Products::class;
 
+    public $pack_mark_code, $product_id;
+    
+    public function bulkActions(): array
+    {
+        return [
+            'selectId' => 'Select ID',
+        ];
+    }
+
+    public function selectId()
+    {
+        $pid = $this->getSelected();
+        $this->clearSelected();
+        dd($pid);
+       // return Excel::download(new UsersExport($users), 'users.xlsx');
+    }
+
+
     public function configure(): void
     {
       //original line
-        //$this->setPrimaryKey('product_id');
-        
-      //the following block added
-        $this->setPrimaryKey('product_id')
-        ->setTableRowUrl(function($row) {
-            return route('admin.users.show', $row);
+      //$this->setPrimaryKey('product_id');
+    $this->setBulkActionsEnabled();
+
+    $this->setBulkActionConfirms([
+        'delete',
+        'reset'
+    ]);
+    
+    $this->setBulkActionDefaultConfirmationMessage('Are you certain?');
+    
+    $this->setBulkActionConfirmMessages([
+        'delete' => 'Are you sure you want to delete these items?',
+        'purge' => 'Are you sure you want to purge these items?',
+        'reassign' => 'This will reassign selected items, are you sure?',
+    ]);
+    
+    $this->setBulkActionsThCheckboxAttributes([
+        'class' => 'bg-blue',
+        'default' => false
+    ]);
+    
+       $this->setPrimaryKey('pack_mark_code')
+        ->setTableRowUrl(function($product_id) {
+            return $this->product_id;
         })
-        ->setTableRowUrlTarget(function($row) {
-            if ($row->isExternal()) {
-                return '_blank';
-            }
+        ->setTableRowUrlTarget(function($product_id) {
+            //if ($row->isExternal()) {
+            //    return '_blank';
+            //}
  
-            return '_self';
-        });
+            $this->selectedCatalogId($product_id);
+        }); 
+      
     }
 
+    public function setTableRowId($row): ?string
+    {
+      $eventName = "itemSelected";
+      $params= ["pack_mark_code"=>$value];
+      $this->dispatch($eventName, $params);
+      
+      //  return 'row-' . $row->id;
+    }
+
+    public function selectedCatalogId($value)
+    {
+      $this->pack_mark_code = $value;
+      $eventName = "itemSelected";
+      $params= ["pack_mark_code"=>$value];
+      
+      $this->dispatch($eventName, $params);
+    }
+  
     public function columns(): array
     {
         return [
@@ -41,8 +96,8 @@ class ProductSearch extends DataTableComponent
             })->label('Select')
 					->unsortable(),
           */
-            //Column::make("Pack mark code", "pack_mark_code")
-            //    ->sortable(),
+            Column::make("Pack mark code", "pack_mark_code")
+                ->sortable(),
             Column::make("Category id", "category_id")
                 ->sortable(),
             //Column::make("Resproject id", "resproject_id")

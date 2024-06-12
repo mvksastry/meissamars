@@ -200,10 +200,6 @@
 			
 			<tr>
         <td colspan="2">
-            
-          @hasanyrole('manager')
-          <button wire:click="postProductInfo()" class="btn btn-success rounded">Add To Inventory</button>
-          @endhasanyrole
         </td>
 			</tr>
 		</tbody>    
