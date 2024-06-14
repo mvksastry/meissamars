@@ -1,6 +1,7 @@
 	<!--Table Card-->                
 	<!-- insert table -->
-  <table id="userIndex2" class="table table-sm table-bordered table-hover">
+  <table id="inventory" class="table  table-bordered table-hover">
+  
     <thead>
     <tr>
     <th colspan="2">

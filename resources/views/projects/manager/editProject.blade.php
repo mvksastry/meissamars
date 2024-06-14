@@ -58,7 +58,7 @@
                   <form method="POST" action="/edit-iaec-project" enctype ="multipart/form-data">
                     @csrf
                     <!-- project data entry form -->
-                    @hasrole('manager')
+                    @hasrole('pient|manager')
                       @include('projects.projectDataEditForm')
                     @endhasrole
                     <!-- end of project data entry form -->

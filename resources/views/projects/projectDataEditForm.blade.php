@@ -233,6 +233,7 @@
       </tbody>
     </table>
     
+    @hasexactroles('manager')
     <table id="userIndex2" class="table table-bordered table-hover">
       <tbody>                      
         <tr>
@@ -244,5 +245,20 @@
          </tr>			
       </tbody>
     </table>
-  
+    @endhasexactroles
+    
+    @hasexactroles('pient')
+    <table id="userIndex2" class="table table-bordered table-hover">
+      <tbody>                      
+        <tr>
+          <td>
+            <button type="submit" class="btn btn-lg btn-info">
+              Submit
+            </button>
+          </td>
+         </tr>			
+      </tbody>
+    </table>
+    @endhasexactroles
+    
   </div>

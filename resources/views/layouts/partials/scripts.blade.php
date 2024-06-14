@@ -22,7 +22,7 @@
 <!--script src="{{asset('assets/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
 <script src="{{asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{asset('assets/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- script src="{{asset('assets/plugins/jquery-knob/jquery.knob.min.js')}}"></script -->
 <!-- daterangepicker -->
 <script src="{{asset('assets/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
@@ -77,9 +77,32 @@
 <script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
 <script src="{{asset('assets/dist/js/kanban.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
-
+<!-- script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script -->
 <script>
   $(function() {
+    
+    //datatable structures
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+    $("#inventory").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#inventory_wrapper .col-md-6:eq(0)');
+    
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    
+    
     //Initialize Select2 Elements
     $('.selectPerms').select2()
     

@@ -223,7 +223,7 @@ class ProjectsManagerController extends Controller
     if( Auth::user()->hasAnyRole('pisg','pient') )
 		{
       $tempproject = Tempproject::where('pi_id', Auth::id() )->where('tempproject_id', $id )
-                  ->whereIn('status', ['submitted'])->get();
+                  ->whereIn('status', ['submitted'])->first();
     }
 
     if( Auth::user()->hasAnyRole('manager') )
@@ -231,7 +231,7 @@ class ProjectsManagerController extends Controller
       $tempproject = Tempproject::where('tempproject_id', $id )
                   ->whereIn('status', ['submitted'])->first();
     }
-    
+    //dd($tempproject);
     $own_strains = $this->strains_by_owner($tempproject->pi_id);
     
     $strainsPosted = Tempstrain::with('strains')

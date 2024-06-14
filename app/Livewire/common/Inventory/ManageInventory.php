@@ -238,9 +238,9 @@ class ManageInventory extends Component
 
 
   
-  public function stockDetails($id)
+  public function stockItemDetails($id)
   {
-    
+    $this->dispatch('open-modal', name:'product-confirm');
     $this->pinfos = Products::with('categories')
 								->with('units')
 								->with('vendor')

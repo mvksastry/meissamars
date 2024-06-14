@@ -117,9 +117,10 @@
                             <div class="p-2">
                               <div class="flex flex-row flex-wrap flex-grow mt-2">									 
                                 <div class="w-full">		
-                                  <table id="example" class="table table-sm table-striped table-bordered" style="width:100%">
+                                  <table id="inventoryx" class="table table-sm table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
+                                        <th>IDx</th>
                                             <th>ID</th>
                                             <th>PMC Code</th>
                                             <th>Name</th>
@@ -129,15 +130,23 @@
                                     <tbody>
                                       @foreach($products as $product)
                                         <tr>
+                 <div wire:key="{{$product->product_id}}">
+                    <td>
+                      <button x-data wire:click="stockItemDetails({{$product}})" 
+                         class="btn btn-sm btn-success rounded">
+                          Details
+                      </button>
+                    </td>
                                             <td>
-                                            <button wire:click="stockDetails('{{ $product->product_id }}')" 
-                                                class="btn btn-sm btn-success rounded">
+                                            <button wire:click="stockItemDetails('{{ $product->product_id }}')" 
+                                               id="invent" class="btn btn-sm btn-success rounded">
                                                 Details
                                             </button>
                                             </td>
                                             <td>{{ $product->pack_mark_code }}</td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->pack_size }}{{ $product->unit_id }}</td>
+                                        </div>
                                         </tr>
                                       @endforeach
                                     </tbody>

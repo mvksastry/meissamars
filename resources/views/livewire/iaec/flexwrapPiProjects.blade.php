@@ -41,7 +41,7 @@
         <div class="inner">
           <!-- h3><sup style="font-size: 20px"></sup></h3 -->
           <h5>AMEND PROJECT</h5>
-          <p>Enter</p>
+          <p>Enter (open soon)</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>

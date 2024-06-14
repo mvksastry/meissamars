@@ -96,10 +96,12 @@ class IaecProjects extends Component
           $this->nbUpdate($this->picid);
         }
 			
+        $submitProjs = $this->allowedSubmittedProjectIds();
         $actvProjs = $this->allowedProjectIds();
-        //dd($actvProjs);
+        //dd($submitProjs, $actvProjs);
         //implement here cost, issues and consumption details one by one
-        return view('livewire.iaec.iaec-projects')->with(['actvProjs'=>$actvProjs]);
+        return view('livewire.iaec.iaec-projects')
+                ->with(['actvProjs'=>$actvProjs, 'submitProjs' => $submitProjs]);
   		}
   		else {
   			return view('livewire.permError');

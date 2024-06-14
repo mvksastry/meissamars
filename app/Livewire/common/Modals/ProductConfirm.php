@@ -2,15 +2,15 @@
 
 namespace App\Livewire\Common\Modals;
 
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
+use Livewire\Attributes\On;
 
 class ProductConfirm extends ModalComponent
 {
   public $displayingModal = false;
 
 	protected $listeners = [
-		'displayConfirmation' => 'display',
+		'openModal' => 'display',
 	];
 
 	public $state = [

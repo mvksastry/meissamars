@@ -1,6 +1,16 @@
-<div>
+@props(['name', 'title'])
+<div 
+
+    x-data ="{ show: false,name: '{{ $name }}' }"
+    x-show = "show"
+    x-on:open-modal.window = "show = ($event.detail.name === name)"
+    x-on:close-modal.window = "show = false"
+    x-on:keydown.escape.window="show=false"
+    x-on:open-modal.window = "console.log($event.detail); show = true"
+     class="fixed z-50">
+    
     {{-- Nothing in the world is as soft and yielding as water. --}}
-    <x-jet-dialog-modal wire:model="displayingModal">
+    <x-modal name="product-confirm" wire:model="displayingModal">
         <x-slot name="title">
             {{ $state['title'] }}
         </x-slot>
@@ -10,15 +20,24 @@
                 {{ $state['message'] }}
             </p>
         </x-slot>
-
+        
+        <x-slot:body>
+        product: {{ $product->product_id }}
+        </x-slot:body>
+        
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="cancel" wire:loading.attr="disabled">
+            <x-button wire:click="cancel" wire:loading.attr="disabled">
                 {{ __('No') }}
-            </x-jet-secondary-button>
+            </x-button>
 
-            <x-jet-button class="ml-3" wire:click="confirm" wire:loading.attr="disabled">
+            <x-button class="ml-3" wire:click="confirm" wire:loading.attr="disabled">
                 {{ __('Yes') }}
-            </x-jet-button>
+            </x-button>
         </x-slot>
-    </x-jet-dialog-modal>
-</div>
+    </x-modal>
+    
+   
+    
+    
+    </div>
+

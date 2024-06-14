@@ -42,6 +42,14 @@ trait ProjectQueries
 
   }
 
+  public function allowedSubmittedProjectIds()
+  {
+    return Tempproject::where('pi_id', Auth::id())
+              ->where('status', 'submitted')
+              ->get();
+  }
+  
+  
   public function checkProjectAllowedOrNot($id)
   {
     $res = Iaecassent::where('iaecproject_id', $id)
