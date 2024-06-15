@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		@include('layouts.partials.header')
-    @livewireStyles
 	</head>
 	<body class="hold-transition sidebar-mini layout-fixed">
 		<div class="wrapper">
@@ -58,7 +57,6 @@
 		</div>
 		<!-- scripts -->
     
-    @livewireScripts
 		@include('layouts.partials.scripts')
     @livewire('wire-elements-modal')
 		<!-- /.scripts -->
