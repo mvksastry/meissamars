@@ -77,7 +77,7 @@
 <script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
 <script src="{{asset('assets/dist/js/kanban.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
-<!-- script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script -->
+<!--script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script -->
 <script>
   $(function() {
     

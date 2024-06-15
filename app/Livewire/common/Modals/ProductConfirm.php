@@ -7,10 +7,10 @@ use Livewire\Attributes\On;
 
 class ProductConfirm extends ModalComponent
 {
-  public $displayingModal = false;
+	public $displayingModal = false;
 
 	protected $listeners = [
-		'openModal' => 'display',
+		'displayConfirmation' => 'display',
 	];
 
 	public $state = [
@@ -52,13 +52,12 @@ class ProductConfirm extends ModalComponent
 			'return' => [
 			'component' => '',
 			'args' => [],
-      ],
-    ];
+		],
+	];
 		$this->displayingModal = false;
 	}	
-
-  public function render()
-  {
-      return view('livewire.common.modals.product-confirm');
-  }
+    public function render()
+    {
+        return view('livewire.common.modals.product-confirm');
+    }
 }

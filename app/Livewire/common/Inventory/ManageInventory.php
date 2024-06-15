@@ -234,13 +234,10 @@ class ManageInventory extends Component
 								->get();   
     $this->showInventoryPanel = true;
   }
-
-
-
-  
+ 
   public function stockItemDetails($id)
   {
-    $this->dispatch('open-modal', name:'product-confirm');
+    
     $this->pinfos = Products::with('categories')
 								->with('units')
 								->with('vendor')

@@ -116,11 +116,11 @@
                             <!--Divider-->
                             <div class="p-2">
                               <div class="flex flex-row flex-wrap flex-grow mt-2">									 
-                                <div class="w-full">		
+                                <div class="">		
                                   <table id="inventoryx" class="table table-sm table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                        <th>IDx</th>
+                                        <th>ID</th>
                                             <th>ID</th>
                                             <th>PMC Code</th>
                                             <th>Name</th>
@@ -130,23 +130,29 @@
                                     <tbody>
                                       @foreach($products as $product)
                                         <tr>
-                 <div wire:key="{{$product->product_id}}">
-                    <td>
-                      <button x-data wire:click="stockItemDetails({{$product}})" 
-                         class="btn btn-sm btn-success rounded">
-                          Details
-                      </button>
-                    </td>
-                                            <td>
-                                            <button wire:click="stockItemDetails('{{ $product->product_id }}')" 
-                                               id="invent" class="btn btn-sm btn-success rounded">
-                                                Details
-                                            </button>
-                                            </td>
-                                            <td>{{ $product->pack_mark_code }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->pack_size }}{{ $product->unit_id }}</td>
-                                        </div>
+                          <div wire:key="{{$product->product_id}}">
+
+                            <td>
+                              <button class="btn btn-warning btn-sm" 
+                                wire:click="$dispatch('openModal', 
+                                {component: 'common.modals.product-confirm', arguments: 
+                                {product_id: {{ $product->product_id }} 
+                                } } )">
+                                Modal
+                              </button>
+                            </td>
+
+                            
+                            <td>
+                              <button wire:click="stockItemDetails('{{ $product->product_id }}')" 
+                                 id="invent" class="btn btn-sm btn-success rounded">
+                                  Details
+                              </button>
+                            </td>
+                            <td>{{ $product->pack_mark_code }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->pack_size }}{{ $product->unit_id }}</td>
+                          </div>
                                         </tr>
                                       @endforeach
                                     </tbody>
@@ -199,15 +205,9 @@
 			</div><!-- /.container-fluid -->
 		</section>
 
-
-
-
-
-
-
-
 		<!-- Main content -->
     <!-- / End of Left Panel Graph Card-->
 	</div>
 
 </div>
+

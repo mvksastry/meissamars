@@ -10,7 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-class ContainerHistory extends Model
+class Containerhistory extends Model
 {
     use HasFactory;
 		use HasRoles;
