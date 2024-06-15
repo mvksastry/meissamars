@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use DateTime;
 use App\Models\User;
-use App\Models\Project;
+use App\Models\Iaecproject;
 use App\Models\Strain;
 use App\Models\Species;
 use App\Models\Cage;
