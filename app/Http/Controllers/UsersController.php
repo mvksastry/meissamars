@@ -115,7 +115,16 @@ class UsersController extends Controller
      */
     public function show(string $id)
     {
-        //
+      if( Auth::user()->hasRole('pient|manager|superadmin') )
+      {  //
+        $user = User::where('id', $id)->first();
+        //dd($user);
+        return view('users.show')->with([
+                      'user'=> $user]);
+      }
+      else {
+        return view('norole.norolehome');
+      }
     }
 
     /**

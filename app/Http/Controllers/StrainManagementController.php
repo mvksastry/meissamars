@@ -146,23 +146,53 @@ class StrainManagementController extends Controller
         $checkedStrainsIds = $input['strain_id'];
         $statusDist = $input['dist'];
         $statusOwner = $input['owner'];
-    
+
+        //dd($input);
+
         foreach($checkedStrainsIds as $key => $val)
         {
+          $owner = null;
+
           $updStatStrain = Strain::where('strain_id', $val)->first();
-          //dd($updStatStrain, $input, $key, $val-1, $statusDist[$val-1], $statusOwner[$val-1]);
-          if( $statusDist[$val-1] == 1)
+
+          foreach($statusDist as $xval)
           {
-           $dist = "yes";
+            $dx = explode("_", $xval);
+            if(intval($dx[0]) == intval($val))
+            {
+              $dist = $dx[1];
+            }
+          }
+           
+          foreach($statusOwner as $yval)
+          {
+            if($yval != 0)
+            {
+              $dy = explode("_", $yval);
+            if(intval($dy[0]) == intval($val))
+            {
+              $owner = $dy[1];
+            }
+            }
+          }
+           
+           
+          if( $dist == 1)
+          {
+            $dist = "yes";
           }
           else {
-           $dist = "no";
+            $dist = "no";
+          }
+
+          if($owner == null)
+          {
+            $owner = 0;
           }
 
           $updStatStrain->update([
             'distributable' => $dist,
-          'owner_id' => $statusOwner[$val-1]
-          ]);
+            'owner_id' => $owner]);
         }
         //get the strain box
         //complete the code part of interface
@@ -173,6 +203,7 @@ class StrainManagementController extends Controller
       else {
         return view('errors.error401');
       }
+
     }
   
   
@@ -187,23 +218,53 @@ class StrainManagementController extends Controller
         $checkedStrainsIds = $input['strain_id'];
         $statusDist = $input['dist'];
         $statusOwner = $input['owner'];
-    
+
+        //dd($input);
+
         foreach($checkedStrainsIds as $key => $val)
         {
+          $owner = null;
+
           $updStatStrain = Strain::where('strain_id', $val)->first();
-          //dd($updStatStrain, $input, $key, $val-1, $statusDist[$val-1], $statusOwner[$val-1]);
-          if( $statusDist[$val-1] == 1)
+
+          foreach($statusDist as $xval)
           {
-           $dist = "yes";
+            $dx = explode("_", $xval);
+            if(intval($dx[0]) == intval($val))
+            {
+              $dist = $dx[1];
+            }
+          }
+           
+          foreach($statusOwner as $yval)
+          {
+            if($yval != 0)
+            {
+              $dy = explode("_", $yval);
+            if(intval($dy[0]) == intval($val))
+            {
+              $owner = $dy[1];
+            }
+            }
+          }
+           
+           
+          if( $dist == 1)
+          {
+            $dist = "yes";
           }
           else {
-           $dist = "no";
+            $dist = "no";
+          }
+
+          if($owner == null)
+          {
+            $owner = 0;
           }
 
           $updStatStrain->update([
             'distributable' => $dist,
-            'owner_id' => $statusOwner[$val-1]
-          ]);
+            'owner_id' => $owner]);
         }
         //get the strain box
         //complete the code part of interface

@@ -10,12 +10,12 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1 class="m-0">Home: Edit User</h1>
+						<h1 class="m-0">Home: User Details</h1>
 					</div><!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-							<li class="breadcrumb-item active">Edit User</li>
+							<li class="breadcrumb-item active">User Details</li>
 						</ol>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
@@ -60,53 +60,60 @@
                    <!-- project data entry form -->
                    
                       <div class="col-xs-12 form-group">
-                        <label for="exampleInputBorderWidth2">Name*</label>
-                        <input type="text" class="form-control form-control-border" 
-                        name="name" id="name" disabled value="{{ $user->name }}" placeholder="Name">
-                        @if($errors->has('rack_name'))
-                          <p class="help-block text-danger">
-                            {{ $errors->first('rack_name') }}
-                          </p>
-                        @endif
+                        <label for="exampleInputBorderWidth2">Name</label>
+                        {{ $user->name }}
                       </div>
 
                       <div class="col-xs-12 form-group">
-                        <label for="exampleInputBorderWidth2">Email*</label>
-                        <input type="text" class="form-control form-control-border" 
-                        name="email" id="email" disabled value="{{ $user->email }}" placeholder="Email">
-                        @if($errors->has('email'))
-                          <p class="help-block text-danger">
-                            {{ $errors->first('email') }}
-                          </p>
-                        @endif
+                        <label for="exampleInputBorderWidth2">Email</label>
+                        {{ $user->email }}
                       </div>
                     
-                          <div class="col-xs-12 form-group">
-                            <label for="exampleInputBorderWidth2">Password*</label>
-                            <input type="text" class="form-control form-control-border" 
-                            name="password" id="password" value="" placeholder="New Password">
-                            @if($errors->has('password'))
-                              <p class="help-block text-danger">
-                                {{ $errors->first('password') }}
-                              </p>
-                            @endif
-                          </div> 
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">Email Verified On</label>
+                        {{ $user->email_verified_at }}
+                      </div>
+
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">Current Team ID</label>
+                        {{ $user->current_team_id  }}
+                      </div>                      
+
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">Folder</label>
+                        {{ $user->folder  }}
+                      </div>                      
+
+
+
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">Start Date</label>
+                        {{ $user->start_date }}
+                      </div>
+
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">Expiry Date</label>
+                        {{ $user->expiry_date  }}
+                      </div>                      
+
+                      <div class="col-xs-12 form-group">
+                        <label for="exampleInputBorderWidth2">First Log In</label>
+                        {{ $user->first_login  }}
+                      </div>
+
+
+
+
+
+
 
                           <div class="col-xs-12 form-group">
-                            <label for="exampleInputBorderWidth2">Inactivate*</label>
-                            <select class="form-control shadow border rounded" 
-                            name="inactivate" id="inactivate">
-                              <option value="active">Active</option>
-                              <option value="inactivated">Inactivated</option>
-                            </select>
-                            @if($errors->has('inactivate'))
-                              <p class="help-block text-danger">
-                                {{ $errors->first('inactivate') }}
-                              </p>
-                            @endif
+                            <label for="exampleInputBorderWidth2">Status*</label>
+                            {{ $user->status }}
+
                           </div>
                     <!-- end of project data entry form -->
-                    <button type="submit" class="btn btn-success rounded">Update</button>
+                    
                   </form>
 								</div>
 							</div>
