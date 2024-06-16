@@ -74,30 +74,32 @@
 				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode">Pack Size</label>
         </td>
         <td>
-        {{ $pinfos->pack_size }} {{ $pinfos->units->description }}
+        {{ $pinfos->num_packs }} x {{ $pinfos->pack_size }} {{ $pinfos->units->description }}
 				</td>
       </tr>
+
+
       
       <tr>
 				<td>
-					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Unit Desc</label>
+				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode">Cost</label>
         </td>
         <td>
-					<div>
-						{{ $pinfos->units->description }}
+        {{ $pinfos->vial_cost }} {{ strtoupper($pinfos->item_currency) }}
+				</td>
+			</tr>	
+
+      <tr>	
+				<td>
+					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode"></label>
+        </td>
+        <td>
+					<div class="relative h-8 w-72 min-w-[200px]">
+						
 					</div>
 				</td>
-      </tr>
-      
-      <tr>
-				<td>
-				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Num Packs</label>
-        </td>
-        <td>
-        {{ $pinfos->num_packs }}
-				</td>
 			</tr>
-
+      
 			<tr>
 				<td>
 				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode"> Batch Code</label>
@@ -107,26 +109,6 @@
 				</td>
 			</tr>
       
-      <tr>
-				<td>
-				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode">Cost</label>
-        </td>
-        <td>
-        {{ $pinfos->vial_cost }}
-				</td>
-			</tr>	
-
-      <tr>	
-				<td>
-					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Currency</label>
-        </td>
-        <td>
-					<div class="relative h-8 w-72 min-w-[200px]">
-						{{ $pinfos->item_currency }}
-					</div>
-				</td>
-			</tr>
-
 			<tr>
 				<td>
 					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Date MFD</label>
