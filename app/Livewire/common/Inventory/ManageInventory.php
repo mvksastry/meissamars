@@ -237,7 +237,6 @@ class ManageInventory extends Component
  
   public function stockItemDetails($id)
   {
-    
     $this->pinfos = Products::with('categories')
 								->with('units')
 								->with('vendor')

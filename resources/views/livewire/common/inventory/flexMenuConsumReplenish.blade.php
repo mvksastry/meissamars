@@ -1,39 +1,6 @@
   <!-- Small boxes (Stat box) -->
   <div class="row">
-    
     <!-- .col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h4>INVENTORY</h4>
-          <p>Add</p>
-        </div>
-        <div class="icon">
-          <i wire:click="inventoryFormView()" style="color:red" class="ion ion-bag"></i>
-        </div>
-          <i wire:click="inventoryFormView()" style="color:red" class="fas fa-arrow-circle-right">More Info</i>
-      </div>
-    </div>
-    <!-- ./col -->
-   
-    <!-- .col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h4>CONSUMPTION</h4>
-          <p>Update</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-bag" style="color:green"></i>
-        </div>
-        <a href="/consumption-update" style="color:green" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    
-        <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box bg-info">
@@ -49,7 +16,7 @@
     </div>
     <!-- ./col -->
     
-        <!-- .col -->
+    <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box bg-info">
@@ -64,8 +31,6 @@
       </div>
     </div>
     <!-- ./col -->
-
-
 
   <!-- ./col -->
   </div> <!-- /.Small boxes end -->
