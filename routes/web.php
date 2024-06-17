@@ -117,6 +117,7 @@ use App\Livewire\Common\Reagents\ManageReagents;
 use App\Livewire\Common\Inventory\ManageInventory;
 use App\Livewire\Common\Inventory\UpdateConsumption;
 use App\Livewire\Common\Inventory\ConsumptionReplenishment;
+use App\Livewire\Common\Inventory\ReviewInventory;
 
 /*
 |--------------------------------------------------------------------------
@@ -313,7 +314,7 @@ Route::middleware(['auth','verified'])->group(function() {
         Route::get('/manage-inventory', ManageInventory::class);
         Route::get('/consumption-update', UpdateConsumption::class);
         Route::get('/consumption-replenishment', ConsumptionReplenishment::class);
-
+        Route::get('/review-inventory', ReviewInventory::class);
 
 
 

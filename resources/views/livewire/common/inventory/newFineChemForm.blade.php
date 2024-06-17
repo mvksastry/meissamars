@@ -13,6 +13,24 @@
             <button wire:click="showBulkAdditionOption()" class="btn btn-warning rounded">Bulk Addition</button>
           @endhasanyrole
 				</th>
+        <th align="center">
+          @hasanyrole('manager')
+            <button wire:click="showBulkAdditionOption()" class="btn btn-danger rounded">Clear All</button>
+          @endhasanyrole
+				</th>
+			</tr>
+		</thead>
+		<tbody> 
+    </tbody>
+  </table>
+
+  <table id="userIndex2" class="table table-sm table-bordered table-hover">
+    <thead>
+			<tr>
+				<th align="center">
+        </th>       
+        <th align="center">
+				</th>
 			</tr>
 		</thead>
 		<tbody> 
@@ -54,6 +72,23 @@
 					</label>
 				</td>
 			</tr>
+
+			<tr>
+				<td>
+					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Vendor</label>
+        </td>
+        <td>
+					<div class="relative h-8 w-72 min-w-[200px]">
+						<select wire:model="source_desc" class="form-group rounded boarder" 	 
+							aria-label="Category">
+						<option value="-1">Select</option>
+							@foreach($suppliers as $supplier)
+							<option value="{{ $supplier->supplier_id }}">{{ ucfirst($supplier->name) }}</option>
+							@endforeach
+						</select>
+					</div>
+				</td>
+      </tr>
       
 			<tr>
 				<td>
@@ -73,22 +108,7 @@
 				</td>
 			</tr>
       
-			<tr>
-				<td>
-					<label class="block text-sm font-normal font-bold mt-1 mb-1" for="bulkcode">Vendor</label>
-        </td>
-        <td>
-					<div class="relative h-8 w-72 min-w-[200px]">
-						<select wire:model="source_desc" class="form-group rounded boarder" 	 
-							aria-label="Category">
-						<option value="-1">Select</option>
-							@foreach($suppliers as $supplier)
-							<option value="{{ $supplier->supplier_id }}">{{ ucfirst($supplier->name) }}</option>
-							@endforeach
-						</select>
-					</div>
-				</td>
-      </tr>
+
       
       <tr>
 				<td>
@@ -124,14 +144,7 @@
 				</td>
 			</tr>
 
-			<tr>
-				<td>
-				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode"> Batch Code</label>
-        </td>
-        <td>
-				  <input class="form-group border rounded" wire:model="batchCode" type="text">
-				</td>
-			</tr>
+
       
       <tr>
 				<td>
@@ -158,6 +171,15 @@
 							<option value="euro">Euro</option>
 						</select>
 					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+				  <label class="block text-sm font-normal font-bold mt-1 mb-1" for="usercode"> Batch Code</label>
+        </td>
+        <td>
+				  <input class="form-group border rounded" wire:model="batchCode" type="text">
 				</td>
 			</tr>
 

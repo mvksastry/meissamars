@@ -114,13 +114,11 @@ class ManageInventory extends Component
   public function render()
   {
     //Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Inventory Management page displayed');
-    $this->currentInventory();
+    $this->inventoryFormView();
     //return view('livewire.common.manage-inventory');
     return view('livewire.common.inventory.manage-inventory');
   }
     
-
-  
 	public function inventoryFormView()
 	{
 		$this->packMarkCode = $this->generateCode(6);
@@ -135,14 +133,14 @@ class ManageInventory extends Component
 		
 		// panel openings
 		$this->resetInventoryForm();
-		$this->viewConsumptionForm = false;
-		$this->showInventoryPanel = true;
+		//$this->viewConsumptionForm = false;
+		//$this->showInventoryPanel = true;
 		$this->viewFineChemForm = true;
-		$this->fullInventoryTable = true;
-		$this->viewNewCategoryForm = false;
+		//$this->fullInventoryTable = true;
+		//$this->viewNewCategoryForm = false;
 		//$this->fullInventorySearchTable = false;
-		$this->viewBulkUploadOptions = false;
-		$this->viewStockDetails = false;
+		//$this->viewBulkUploadOptions = false;
+		//$this->viewStockDetails = false;
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Displayed inventory form');
 	}
 	
@@ -235,6 +233,7 @@ class ManageInventory extends Component
     $this->showInventoryPanel = true;
   }
  
+ /*
   public function stockItemDetails($id)
   {
     $this->pinfos = Products::with('categories')
@@ -254,7 +253,9 @@ class ManageInventory extends Component
     $this->showConsumptionUpdate = false;
     $this->fullInventorySearchTable = false;
   }
+  */
   
+  /*
   public function showProductDetailsModal($info)
 	{
 	    $this->prod_info = $info;
@@ -270,8 +271,9 @@ class ManageInventory extends Component
         "prod_info" => $this->prod_info]);   
           
 	}
-  
+  */
 	///////////////////////////////////////////////
+  /*
 	public function consumptionFormView()
 	{
 		//reset forms all
@@ -299,7 +301,9 @@ class ManageInventory extends Component
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] displayed consumption form');
 	}
 	///////////////////////////////////////////////
-
+  */
+  
+  /*
 	///////////////////////////////////////////////
 	public function updatedSampCode()
 	{
@@ -343,7 +347,8 @@ class ManageInventory extends Component
 
     //Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] selected item id [ '.$params['pack_mark_code'].' ]');
 	}
-	
+	*/
+  /*
 	public function postConsumptionInfo()
 	{	
 		//create object for storage
@@ -416,7 +421,8 @@ class ManageInventory extends Component
 		
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Consumption form reset');
 	}
-
+  */
+  
 	///////////////////////////////////////////////
 	public function searchFormView()
 	{
@@ -426,7 +432,7 @@ class ManageInventory extends Component
 	
 	public function showNewCategoryCreation()
 	{
-	    $this->showInventoryPanel = true;
+	  $this->showInventoryPanel = true;
 		$this->fullInventoryTable = false;
 		$this->fullInventorySearchTable = false;
 		$this->viewBulkUploadOptions = false;

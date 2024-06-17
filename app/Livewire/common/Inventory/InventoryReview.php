@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Common\Inventory;
 
 use App\Models\Products;
 use Illuminate\Support\Carbon;
@@ -16,17 +16,17 @@ use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
-final class ProductsInventory extends PowerGridComponent
+final class InventoryReview extends PowerGridComponent
 {
     use WithExport;
+    
     public string $tableName = 'products';
     public string $primaryKey = 'products.product_id';
     public string $sortField ='products.product_id';
     
     public function setUp(): array
     {
-      
-        $this->showCheckBox('product_id');
+        //$this->showCheckBox('product_id');
 
         return [
             Exportable::make(fileName: 'my-inventory')
@@ -34,12 +34,9 @@ final class ProductsInventory extends PowerGridComponent
                 ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
             Header::make()->showSearchInput(),
             Footer::make()
-                ->showPerPage(10)
-                ->showRecordCount('full'),
+                ->showPerPage()
+                ->showRecordCount(),
         ];
-        
-        
-        
     }
 
     public function datasource(): Builder
@@ -55,6 +52,7 @@ final class ProductsInventory extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
+            ->add('product_id')
             ->add('pack_mark_code')
             ->add('category_id')
             ->add('resproject_id')
@@ -86,8 +84,12 @@ final class ProductsInventory extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::action('Action'),
+            //Column::action('Action'),
             
+            Column::make('Product id', 'product_id')
+                ->sortable()
+                ->searchable(),
+
             Column::make('Pack mark code', 'pack_mark_code')
                 ->sortable()
                 ->searchable(),
@@ -187,6 +189,8 @@ final class ProductsInventory extends PowerGridComponent
 
             Column::make('Created at', 'created_at_formatted', 'created_at')
                 ->sortable(),
+
+            
         ];
     }
 
@@ -205,19 +209,19 @@ final class ProductsInventory extends PowerGridComponent
     {
         $this->js('alert('.$rowId.')');
     }
-
+  /*
     public function actions(Products $row): array
     {
         return [
             Button::add('edit')
                 ->slot('Edit: '.$row->product_id)
-                //->id()
-                ->class('btn btn-primary btn-sm hover:btn-warning')
+                ->id()
+                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
                 ->dispatch('edit', ['rowId' => $row->product_id])
         ];
     }
 
-    /*
+  
     public function actionRules($row): array
     {
        return [
