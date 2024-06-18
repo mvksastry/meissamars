@@ -1,7 +1,9 @@
   <!-- Small boxes (Stat box) -->
   <div class="row">
     
-    <!-- .col -->
+   
+    
+        <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box bg-info">
@@ -10,30 +12,14 @@
           <p>Add</p>
         </div>
         <div class="icon">
-          <i wire:click="inventoryFormView()" class="ion ion-bag"></i>
-        </div>
-        <i wire:click="inventoryFormView()" class="fas fa-arrow-circle-right">More Info</i>
-      </div>
-    </div>
-    <!-- ./col -->
-   
-    <!-- .col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h4>CONSUMPTION</h4>
-          <p>Update</p>
-        </div>
-        <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="/consumption-update" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
+        <a href="/manage-inventory" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
     
-        <!-- .col -->
+    <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
       <div class="small-box bg-info">
@@ -44,28 +30,26 @@
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="/reorganize" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="/update-consumption" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
-    
+
     <!-- .col -->
     <div class="col-lg-3 col-6">
       <!-- small box -->
-      <div class="small-box bg-info">
+      <div class="small-box bg-warning">
         <div class="inner">
-          <h4>REPLENISH</h4>
-          <p>Review</p>
+          <h4>FULL INVENTORY</h4>
+          <p>Searches</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="/reorganize" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="/review-inventory" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
-
-
 
   <!-- ./col -->
   </div> <!-- /.Small boxes end -->

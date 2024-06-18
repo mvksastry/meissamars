@@ -13,7 +13,7 @@
 						<div class="flex flex-row items-center">
 							<div class="flex-shrink pr-4">
 								<div class="rounded p-3 bg-green-600">
-									<a href="manage-inventory">
+									<a href="/manage-inventory">
 										<i class="fa fa-wallet fa-1x fa-fw fa-inverse"></i>
 									</a>
 								</div>
@@ -33,7 +33,7 @@
 						<div class="flex flex-row items-center">
 							<div class="flex-shrink pr-4">
 								<div class="rounded p-3 bg-orange-600">
-									<a href="manage-inventory">
+									<a href="/update-consumption">
 										<i class="fas fa-users fa-1x fa-fw fa-inverse"></i>
 									</a>
 								</div>

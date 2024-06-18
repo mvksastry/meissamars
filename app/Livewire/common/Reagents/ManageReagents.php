@@ -57,8 +57,9 @@ class ManageReagents extends Component
 	
 	//reagent variables
 	public $reagent_name, $reagent_nickname, $reagent_desc, $reagentClassCode;
-	public $quantity_made, $units_id, $units_desc, $expirty_date;
-	
+	public $quantity_made, $units_id, $units_desc, $expirty_date, $reagentCode;
+	public $products;
+  
 	public $container_id, $rack_shelf, $box_sack, $location_code, $note_remark;
 	
 	public $openrestriced = 1;
@@ -115,6 +116,11 @@ class ManageReagents extends Component
 	
 	public function newReagentForm()
 	{
+    $this->products = Products::with('categories')
+								->with('units')
+								->with('vendor')
+								->get();   
+                
 		$this->repositories = Repository::all();
 		$this->reagentCode = $this->generateCode(6);
 		$this->left_panel_title = "Make Reagents";

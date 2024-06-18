@@ -118,6 +118,7 @@ use App\Livewire\Common\Inventory\ManageInventory;
 use App\Livewire\Common\Inventory\UpdateConsumption;
 use App\Livewire\Common\Inventory\ConsumptionReplenishment;
 use App\Livewire\Common\Inventory\ReviewInventory;
+use App\Livewire\Common\LogBook;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,11 +210,6 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('iaec-projects', IaecProjects::class);
     Route::get('iaec-usage', IaecUsage::class);
 
-
-
-
-
-
     
     //-- Manager specific : Projects routes
     Route::get('/projectsmanager/{id}/submitted', [ProjectsManagerController::class, 'submitted'])->name('projectsmanager.submitted');
@@ -223,9 +219,6 @@ Route::middleware(['auth','verified'])->group(function() {
     
     
     Route::resource('/bhome', BreedingHomeController::class);   
-
-
-
 
     //-- Manager: Routes for Facility
     Route::post('strains/updatestatus', [StrainManagementController::class, 'updatestatus'])->name('strains.updatestatus');
@@ -258,64 +251,58 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('occupancy', Occupancy::class);
     Route::get('comp-allot', CompleteAllottment::class);
 
-
-
-
-
-
-
     // -- CV Terms Manager -- //
     Route::get('cv-terms-home', CVHomeController::class);
     Route::get('colony-home', ColonyHomeController::class);
 
 
 
-        // Breeding - Livewire CV Terms
-        Route::get('/genecomp', Genecomp::class);
-        Route::get('/gclass', Gclass::class);
-        Route::get('/genotypespecimenlocation', GenotypeSpecimenLocationcomp::class);
-        Route::get('/approvedmatingstrain', Approvedmatingstraincomp::class);
-        Route::get('/causeofdeath', Causeofdeathcomp::class);
-        Route::get('/coatcolor', Coatcolorcomp::class);
-        Route::get('/diet', Dietcomp::class);
-        Route::get('/generation', Generationcomp::class);
-        Route::get('/lifestatus', Lifestatuscomp::class);
-        Route::get('/mouseorigin', Mouseorigincomp::class);
-        Route::get('/mouseuse', Mouseusecomp::class);
-        Route::get('/phenotype', Phenotypecomp::class);
-        Route::get('/strain', Straincomp::class);
-        Route::get('/strainstatus', Strainstatuscomp::class);
-        Route::get('/straintype', Straintypecomp::class);
-        //Route::get('/useschedule', Useschedule::class);
-        // -------------- //
+    // Breeding - Livewire CV Terms
+    Route::get('/genecomp', Genecomp::class);
+    Route::get('/gclass', Gclass::class);
+    Route::get('/genotypespecimenlocation', GenotypeSpecimenLocationcomp::class);
+    Route::get('/approvedmatingstrain', Approvedmatingstraincomp::class);
+    Route::get('/causeofdeath', Causeofdeathcomp::class);
+    Route::get('/coatcolor', Coatcolorcomp::class);
+    Route::get('/diet', Dietcomp::class);
+    Route::get('/generation', Generationcomp::class);
+    Route::get('/lifestatus', Lifestatuscomp::class);
+    Route::get('/mouseorigin', Mouseorigincomp::class);
+    Route::get('/mouseuse', Mouseusecomp::class);
+    Route::get('/phenotype', Phenotypecomp::class);
+    Route::get('/strain', Straincomp::class);
+    Route::get('/strainstatus', Strainstatuscomp::class);
+    Route::get('/straintype', Straintypecomp::class);
+    //Route::get('/useschedule', Useschedule::class);
+    // -------------- //
         
-        // Breeding - Livewire Colony Routes
-        Route::get('/add-entry', AddEntry::class);
-        Route::get('/edit-entry', EditEntry::class);
-        Route::get('/add-mating', AddMating::class);
-        Route::get('/edit-mating', EditMating::class);
-        Route::get('/add-litter', AddLitter::class);
-        Route::get('/edit-litter', EditLitter::class);
-        // -------------- //
+    // Breeding - Livewire Colony Routes
+    Route::get('/add-entry', AddEntry::class);
+    Route::get('/edit-entry', EditEntry::class);
+    Route::get('/add-mating', AddMating::class);
+    Route::get('/edit-mating', EditMating::class);
+    Route::get('/add-litter', AddLitter::class);
+    Route::get('/edit-litter', EditLitter::class);
+    // -------------- //
         
-        // Breeding - Livewire Search engine
-        Route::get('/searchmice', Searchmice::class);
-        Route::get('/searchmatings', Searchmatings::class);
-        Route::get('/searchlitter', Searchlitter::class);
-        Route::get('/searchcages', Searchcages::class);
-        Route::get('/searchbcages', Searchbcages::class);
-        Route::get('/searchplugdates', Searchplugdates::class);
-        // -------------- //
+    // Breeding - Livewire Search engine
+    Route::get('/searchmice', Searchmice::class);
+    Route::get('/searchmatings', Searchmatings::class);
+    Route::get('/searchlitter', Searchlitter::class);
+    Route::get('/searchcages', Searchcages::class);
+    Route::get('/searchbcages', Searchbcages::class);
+    Route::get('/searchplugdates', Searchplugdates::class);
+    // -------------- //
 
 
 
-        // PI and Manager common - Livewire
-        Route::get('/manage-reagents', ManageReagents::class);
-        Route::get('/manage-inventory', ManageInventory::class);
-        Route::get('/consumption-update', UpdateConsumption::class);
-        Route::get('/consumption-replenishment', ConsumptionReplenishment::class);
-        Route::get('/review-inventory', ReviewInventory::class);
-
+    // PI and Manager common - Livewire
+    Route::get('/manage-reagents', ManageReagents::class);
+    Route::get('/manage-inventory', ManageInventory::class);
+    Route::get('/consumption-update', UpdateConsumption::class);
+    Route::get('/consumption-replenishment', ConsumptionReplenishment::class);
+    Route::get('/review-inventory', ReviewInventory::class);
+    Route::get('/log-book', LogBook::class);
 
 
 

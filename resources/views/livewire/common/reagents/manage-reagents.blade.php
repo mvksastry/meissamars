@@ -56,7 +56,12 @@
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                   
                    <div class="p-2">
-                    
+                    @if($showNewReagentEntry)
+                      @include('livewire.common.reagents.newReagentForm')
+                    @endif
+                    @if($showRemakeReagentEntry)
+                      @include('livewire.common.reagents.remakeReagentForm')
+                    @endif
                       
                     
                     </div>
@@ -88,7 +93,78 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+										@if($showNewReagentEntry)									
+                      <table id="inventoryx" class="table table-sm table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>#</th>
+                              <th>PMC Code</th>
+                              <th>Name</th>
+                              <th>Catalog #</th>
+                              <th>num_packs</th>
+                              <th>vial_cost</th>
+                              <th>status_open_unopened</th>
+                              <th>quantity_left</th>
+                              <th>full_empty</th>
+                              <th>storage_container_id</th>
+                              <th>shelf_rack_id</th>
+                              <th>box_id</th>
+                              <th>box_position_id</th>
+                              <th>open_storage</th>
+                              <th>enteredby_id</th>
+                              <th>date_entered</th>
+                              <th>notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($products as $product)
+                            <tr>
+                              <div wire:key="{{$product->product_id}}">
+                                <td>
+                                  <button class="btn btn-warning btn-sm" 
+                                    wire:key="{{$product->product_id}}" wire:click="$dispatch('openModal', 
+                                    {component: 'common.modals.product-confirm', arguments: 
+                                    {product_id: {{ $product->product_id }} 
+                                    } } )">
+                                    Modal
+                                  </button>
+                                </td>
 
+                                <td>
+                                  <button wire:click="stockItemDetails('{{ $product->product_id }}')" 
+                                     id="invent" class="btn btn-sm btn-success rounded">
+                                      Details
+                                  </button>
+                                </td>
+                                <td>{{ $product->pack_mark_code }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->catalog_id }}</td>
+                                <td>{{ $product->num_packs }}  x{{ $product->pack_size }} {{ $product->units->description }}</td> 
+                                <td>{{ $product->vial_cost }} {{ $product->item_currency }}</td>                                          
+                                <td>{{ $product->status_open_unopened }}</td>
+                                <td>{{ $product->quantity_left }}</td>
+                                <td>{{ $product->full_empty }}</td>
+                                <td>{{ $product->storage_container_id }}</td>
+                                <td>{{ $product->shelf_rack_id }}</td>
+                                <td>{{ $product->box_id }}</td>
+                                <td>{{ $product->box_position_id }}</td>
+                                <td>{{ $product->open_storage }}</td>
+                                <td>{{ $product->enteredby_id }}</td>
+                                <td>{{ $product->date_entered }}</td>
+                                <td>{{ $product->notes }}</td>                            
+                              </div>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+										@endif
+										@if($showRemakeReagentEntry)
+											<livewire:common.reagents.reagent-search
+												searchable="name, nickname, madeby_id"
+												exportable
+											/>
+										@endif
 									
 
 								</div>

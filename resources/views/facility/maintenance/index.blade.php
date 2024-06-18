@@ -27,7 +27,7 @@
 			<div class="container-fluid">
       
         @hasrole('manager')
-					@include('facility.infrastructure.flexMenuInfras')
+					@include('facility.maintenance.flexMenuMaintenance')
 				@endhasrole
 				
 				<!-- Main row -->

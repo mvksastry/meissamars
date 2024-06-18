@@ -10,9 +10,9 @@
           <p>Add</p>
         </div>
         <div class="icon">
-          <i wire:click="inventoryFormView()" style="color:red" class="ion ion-bag"></i>
+          <i style="color:red" class="ion ion-bag"></i>
         </div>
-          <i wire:click="inventoryFormView()" style="color:red" class="fas fa-arrow-circle-right">More Info</i>
+          <a href="/manage-inventory" style="color:green" class="small-box-footer">More Info<i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
