@@ -131,14 +131,15 @@ class ManageReagents extends Component
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] New Reagent form shown'); 
 	}	
 	
-	public function selectedItem($params)
+	public function selectedItem($pack_mark_code)
 	{
-		$this->sampCode = $params['pack_mark_code'];
+    //dd($pack_mark_code);
+		$this->sampCode = $pack_mark_code;
 		
 		$res = Products::with('categories')
 								->with('units')
 								->with('vendor')
-								->where('pack_mark_code', $params['pack_mark_code'])
+								->where('pack_mark_code', $pack_mark_code)
 								->first();
 								
 		$this->inputs[$this->i]['pmc'] = $this->sampCode;

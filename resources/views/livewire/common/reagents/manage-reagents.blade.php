@@ -93,27 +93,27 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+                  <div class="table-responsive">
 										@if($showNewReagentEntry)									
                       <table id="inventoryx" class="table table-sm table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                               <th>#</th>
-                              <th>#</th>
                               <th>PMC Code</th>
                               <th>Name</th>
                               <th>Catalog #</th>
-                              <th>num_packs</th>
-                              <th>vial_cost</th>
-                              <th>status_open_unopened</th>
-                              <th>quantity_left</th>
-                              <th>full_empty</th>
-                              <th>storage_container_id</th>
-                              <th>shelf_rack_id</th>
-                              <th>box_id</th>
-                              <th>box_position_id</th>
-                              <th>open_storage</th>
-                              <th>enteredby_id</th>
-                              <th>date_entered</th>
+                              <th>Num Packs</th>
+                              
+                              <th>Open / Unopened</th>
+                              <th>Quantity Left</th>
+                              
+                              <th>Storage container id</th>
+                              <th>Shelf Rack Id</th>
+                              <th>Box Id</th>
+                              <th>Box Pos. Id</th>
+                              <th>Open Storage</th>
+                              <th>Entry By</th>
+                              <th>Entry Date</th>
                               <th>notes</th>
                             </tr>
                         </thead>
@@ -122,29 +122,25 @@
                             <tr>
                               <div wire:key="{{$product->product_id}}">
                                 <td>
-                                  <button class="btn btn-warning btn-sm" 
-                                    wire:key="{{$product->product_id}}" wire:click="$dispatch('openModal', 
-                                    {component: 'common.modals.product-confirm', arguments: 
-                                    {product_id: {{ $product->product_id }} 
-                                    } } )">
-                                    Modal
-                                  </button>
-                                </td>
-
-                                <td>
-                                  <button wire:click="stockItemDetails('{{ $product->product_id }}')" 
+                                  <button wire:click="selectedItem('{{ $product->pack_mark_code }}')" 
                                      id="invent" class="btn btn-sm btn-success rounded">
-                                      Details
+                                      Select
                                   </button>
                                 </td>
                                 <td>{{ $product->pack_mark_code }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->catalog_id }}</td>
-                                <td>{{ $product->num_packs }}  x{{ $product->pack_size }} {{ $product->units->description }}</td> 
-                                <td>{{ $product->vial_cost }} {{ $product->item_currency }}</td>                                          
-                                <td>{{ $product->status_open_unopened }}</td>
-                                <td>{{ $product->quantity_left }}</td>
-                                <td>{{ $product->full_empty }}</td>
+                                <td>{{ $product->num_packs }}  x {{ $product->pack_size }} {{ $product->units->description }}</td> 
+                                                                          
+                                <td>
+                                @if($product->status_open_unopened == 1)
+                                  Opened
+                                @else
+                                  Unopened
+                                 @endif                              
+                                </td>
+                                <td>{{ $product->quantity_left }} {{ $product->units->description }}</td>
+                                
                                 <td>{{ $product->storage_container_id }}</td>
                                 <td>{{ $product->shelf_rack_id }}</td>
                                 <td>{{ $product->box_id }}</td>
@@ -166,7 +162,7 @@
 											/>
 										@endif
 									
-
+                  </div>
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
