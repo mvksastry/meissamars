@@ -66,7 +66,7 @@
           <a href="/manage-inventory" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
-            Inventory
+              Inventory
             <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -76,7 +76,7 @@
           <a href="/manage-reagents" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
-            Reagents
+              Reagents
             <i class="fas fa-angle-left right"></i>
             </p>
           </a>
