@@ -29,7 +29,7 @@
 		<section class="content">
 			<div class="container-fluid">
         @hasrole('manager')
-					@include('livewire.common.reagents.flexMenuReagents2')
+					@include('livewire.common.reagents.flexMenuReagents3')
 				@endhasrole
 				
 				<!-- Main row -->
