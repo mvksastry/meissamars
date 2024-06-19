@@ -34,6 +34,7 @@ class LogBook extends Component
 	//
 	
 	protected $rules = [
+  
 		'newLogEntry.start_hour'   => 'required|numeric|min:0|max:23',
 		'newLogEntry.start_min'    => 'required|numeric|min:0|max:59',
 		'newLogEntry.end_hour'     => 'required|numeric|min:0|max:23',
