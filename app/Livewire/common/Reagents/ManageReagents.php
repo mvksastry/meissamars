@@ -270,8 +270,7 @@ class ManageReagents extends Component
 	public function remakeReagentForm()
 	{
     $this->rmStockReagents = Reagents::with('units')->with('users')->get();
-    
-		$this->reagentCode = null;
+ 		$this->reagentCode = null;
 		$this->repositories = Repository::all();
 		$this->left_panel_title = "Remake Reagents";
 		$this->right_panel_title = "Current Reagents: Select a Code";
