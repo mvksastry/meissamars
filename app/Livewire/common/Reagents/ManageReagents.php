@@ -76,7 +76,7 @@ class ManageReagents extends Component
 	public $left_panel_title, $right_panel_title;
 	
 	//remake reagents
-	public $selectedReagentID, $rmReagentClassCode;
+	public $selectedReagentID, $rmReagentClassCode, $rmStockReagents;
 	public $rmReagent_id,$rmName,$rmDesc,$rmNickName,$rmIngradients=[];
 	public $rmMadebyID, $rmDateMade, $rmRegClassCode, $rmRegCode;
 	public $rmQuantity, $rmUnits_desc, $rmUnitDesc, $rmExpiryDate;
@@ -267,8 +267,10 @@ class ManageReagents extends Component
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] reagent form reset');
 	}
 	
-	public function viewRemakeReagentForm()
+	public function remakeReagentForm()
 	{
+    $this->rmStockReagents = Reagents::with('units')->with('users')->get();
+    
 		$this->reagentCode = null;
 		$this->repositories = Repository::all();
 		$this->left_panel_title = "Remake Reagents";
@@ -279,10 +281,9 @@ class ManageReagents extends Component
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] Reagent remake form displayed');
 	}
 	
-	public function selectedReagent($params)
+	public function selectedReagent($reagent_id)
 	{
 		$regs = [];
-		$reagent_id = $params['reagent_id'];
 		
 		$reagentBy_id = Reagents::with('units')
 										->where('reagent_id', $reagent_id)

@@ -59,6 +59,7 @@
                     @if($showNewReagentEntry)
                       @include('livewire.common.reagents.newReagentForm')
                     @endif
+                    
                     @if($showRemakeReagentEntry)
                       @include('livewire.common.reagents.remakeReagentForm')
                     @endif
@@ -156,10 +157,39 @@
                       </table>
 										@endif
 										@if($showRemakeReagentEntry)
-											<livewire:common.reagents.reagent-search
-												searchable="name, nickname, madeby_id"
-												exportable
-											/>
+                      <table id="inventoryx" class="table table-sm table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Nick Name</th>
+                              <th>Name</th>                              
+                              <th>Quantity Made</th>                              
+                              <th>Quantity Left</th>                             
+                              <th>Made By</th>
+                              <th>Date Made</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($rmStockReagents as $rsr)
+                            <tr>
+                              <div wire:key="{{$rsr->reagent_id}}">
+                                <td>
+                                  <button wire:click="selectedReagent('{{ $rsr->reagent_id }}')" 
+                                     id="invent" class="btn btn-sm btn-success rounded">
+                                      Select
+                                  </button>
+                                </td>
+                                <td>{{ $rsr->nick_name }}</td>
+                                <td>{{ $rsr->name }}</td>                                                                                                        
+                                <td>{{ $rsr->quantity_made }} {{ $rsr->units->description }}</td>                              
+                                <td>{{ $rsr->quantity_left }} {{ $rsr->units->description }}</td>
+                                <td>{{ $rsr->users->name }}</td>
+                                <td>{{ $rsr->date_made }}</td>                        
+                              </div>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
 										@endif
 									
                   </div>
